@@ -42,6 +42,7 @@ input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
 .h2{font-size:1.2rem;margin:8px 0 4px}
 .foot a{color:inherit;text-decoration:underline}
 .pl{padding:6px 12px;font-size:.85rem;margin-left:8px}
+.bk{padding:8px 12px;font-size:.9rem;margin-bottom:10px}
 .hide{display:none!important}
 </style>
 </head>
@@ -70,6 +71,7 @@ input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
 </section>
 
 <section id="game" class="hide">
+<button class="sec bk" id="topBack">← Menu</button>
 <div class="top"><span id="rd"></span><span id="pt"></span></div>
 <div class="card" id="clues"></div>
 <div class="in">
@@ -303,14 +305,15 @@ function setup(){renderStats();const P=pool();ROUNDS=Math.min(8,P.length);
 $("sug").onchange=()=>{if($("sug").checked)$("g").setAttribute("list","cars");else $("g").removeAttribute("list")};
 $("lvl").onclick=e=>{const b=e.target.closest("button");if(b){LEVEL=+b.dataset.n;setup()}};
 setup();
-let mode,deck,idx,car,shown,score,over,steps,hist,fails,dayNum;
+let mode,deck,idx,car,shown,score,over,steps,hist,fails,dayNum,fromPast=false;
 
 // Carro do dia: ordem fixa e embaralhada (pelo nome e ano), escolhida pelo número do dia. Adicionar carros muda a sequência dos dias.
 const hh=s=>{let x=5381;for(const ch of s)x=((x*33)^ch.charCodeAt(0))>>>0;return x};
 function dayCar(n){const p=[...pool()].sort((a,b)=>hh(a[0]+a[1])-hh(b[0]+b[1]));return p[((n%p.length)+p.length)%p.length]}
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 
-function startMode(m,n){mode=m;score=0;idx=0;hist=[];dayNum=n==null?todayN():n;
+function startMode(m,n){mode=m;score=0;idx=0;hist=[];dayNum=n==null?todayN():n;fromPast=n!=null;
+ $("topBack").textContent=fromPast?"← Dias anteriores":"← Menu";$("back").textContent=fromPast?"Voltar aos dias anteriores":"Voltar ao menu";
  deck=m==="daily"?[dayCar(dayNum)]:shuffle(pool()).slice(0,ROUNDS);
  show("menu",false);show("game",true);load()}
 function load(){car=deck[idx];shown=START;over=false;steps="";fails=0;
@@ -344,7 +347,8 @@ $("g").onkeydown=e=>{if(e.key==="Enter")$("go").click()};
 $("hint").onclick=()=>wrong();
 $("skip").onclick=()=>finish(false,0);
 $("next").onclick=()=>{idx++;load()};
-$("back").onclick=()=>{show("game",false);show("menu",true);renderStats()};
+const goBack=()=>{show("game",false);if(fromPast)openPast();else{show("menu",true);renderStats()}};
+$("back").onclick=goBack;$("topBack").onclick=goBack;
 $("mPast").onclick=openPast;
 $("pastBack").onclick=()=>{show("past",false);show("menu",true)};
 $("pastList").onclick=e=>{const b=e.target.closest("button");if(b){show("past",false);startMode("daily",+b.dataset.n)}};

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carrodle</title>
+<style>
+:root{--bg:#f4f4f1;--card:#fff;--tx:#1b1b1b;--mut:#6b6b66;--ac:#d62828;--ok:#2a9d4f;--bd:#e0e0da;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141414;--card:#1f1f1f;--tx:#f0f0ec;--mut:#9a9a94;--ac:#ff5a5a;--ok:#4cc27a;--bd:#333}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;justify-content:center;padding:16px}
+main{width:100%;max-width:520px}
+h1{font-size:1.5rem;margin:8px 0 2px}
+.sub{color:var(--mut);margin:0 0 16px;font-size:.95rem}
+.top{display:flex;justify-content:space-between;color:var(--mut);font-size:.9rem;margin-bottom:8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:6px 16px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--bd)}
+.row:last-child{border-bottom:0}
+.row span:first-child{color:var(--mut)}
+.row b{text-align:right}
+.hid{color:var(--mut);letter-spacing:2px}
+.in{display:flex;gap:8px;margin-top:16px}
+input,textarea{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:1rem;font-family:inherit}
+textarea{width:100%;margin-top:8px;height:110px}
+button{padding:12px 16px;border:0;border-radius:10px;font-size:1rem;cursor:pointer;background:var(--ac);color:#fff;font-weight:600}
+button.sec{background:var(--card);color:var(--tx);border:1px solid var(--bd)}
+button:disabled{opacity:.5;cursor:default}
+.btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.btns button{flex:1;min-width:140px}
+.big{display:block;width:100%;text-align:left;margin-top:10px;padding:16px}
+.big small{display:block;font-weight:400;opacity:.85;margin-top:2px}
+#msg{margin-top:14px;min-height:1.4em;font-weight:600}
+.ok{color:var(--ok)}.bad{color:var(--ac)}
+.wrong{color:var(--mut);font-size:.9rem;margin-top:6px}
+.lvl{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0 4px}
+.lvl button{padding:10px 4px;font-size:.9rem;background:var(--card);color:var(--tx);border:1px solid var(--bd)}
+.lvl button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
+.chk{display:flex;align-items:center;gap:8px;color:var(--mut);font-size:.9rem;margin:4px 0 8px}
+.foot{text-align:center;color:var(--mut);font-size:.8rem;margin:28px 0 8px}
+.stats{padding:12px 16px;margin:0 0 12px;font-size:.95rem;line-height:1.6}
+.h2{font-size:1.2rem;margin:8px 0 4px}
+.foot a{color:inherit;text-decoration:underline}
+.pl{padding:6px 12px;font-size:.85rem;margin-left:8px}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<h1>🏎️ Carrodle</h1>
+<p class="sub" style="margin-bottom:6px">Que carro sou eu?</p>
+
+<section id="menu">
+<div class="card stats" id="stats"></div>
+<p class="sub">Descubra o carro com poucas dicas: ano, valor médio, estilo, motor, câmbio e mais.</p>
+<div class="lvl" id="lvl"></div>
+<p class="sub" id="lvInfo"></p>
+<label class="chk"><input type="checkbox" id="sug" checked> Mostrar sugestões de nomes ao digitar</label>
+<button class="big" id="mDaily">📅 Carro do dia<small>O mesmo desafio para todo mundo hoje. Jogue quando quiser, e depois jogue o modo completo também.</small></button>
+<button class="big sec" id="mPast">🗓️ Dias anteriores<small>Jogue os carros do dia que você perdeu</small></button>
+<button class="big" id="mAll">🏁 Todos os carros do nível<small id="mAllSub"></small></button>
+<button class="big sec" id="mShare">📣 Divulgar o jogo<small>Convide amigos para jogar</small></button>
+</section>
+
+<section id="past" class="hide">
+<h2 class="h2">🗓️ Dias anteriores</h2>
+<p class="sub" id="pastInfo"></p>
+<div class="card" id="pastList"></div>
+<div class="btns"><button class="sec" id="pastBack">Voltar ao menu</button></div>
+</section>
+
+<section id="game" class="hide">
+<div class="top"><span id="rd"></span><span id="pt"></span></div>
+<div class="card" id="clues"></div>
+<div class="in">
+<input id="g" list="cars" placeholder="Digite o nome do carro (ex: Gol GTi)" autocomplete="off">
+<button id="go">Chutar</button>
+</div>
+<datalist id="cars"></datalist>
+<div class="btns"><button class="sec" id="hint">Mais uma dica (−1)</button><button class="sec" id="skip">Desistir</button></div>
+<div id="msg"></div>
+<div class="wrong" id="wr"></div>
+<div class="btns" id="after">
+<button id="next" class="hide"></button>
+<button id="share" class="hide">📤 Compartilhar resultado</button>
+<button id="back" class="sec hide">Voltar ao menu</button>
+</div>
+<textarea id="ta" class="hide" readonly></textarea>
+</section>
+<footer class="foot">Feito por <a href="https://www.instagram.com/rsdaniells" target="_blank" rel="noopener noreferrer">Daniel Reis</a> com Claude</footer>
+</main>
+<script>
+// Para adicionar carros: copie uma linha e edite. Ordem das dicas = ordem dos campos em LABELS.
+// Valores: preço médio de mercado (Tabela FIPE, ref. out/2026; BMW e Porsche: jul/2026 e out/2026 conforme a Fonte da planilha). Atualize à mão.
+// Campos: nome, ano, valor, estilo, código do motor, tamanho do motor, câmbio, tração, país, nível, marca, código do câmbio (opcional).
+// Nome = só o nome do carro (sem marca e sem motor). Use | para aceitar outros jeitos de escrever (ex.: Gol GTi|Gol GTI). A marca também é aceita no chute (ex.: Volkswagen Gol GTi).
+// Último campo = nível (1 Fácil, 2 Médio, 3 Difícil, 4 Expert). O jogo usa os carros com nível menor ou igual ao nível escolhido.
+const LABELS=["Ano","Valor médio","Estilo","Tamanho do motor","Código do motor","Câmbio","Código do câmbio","Tração","País de origem","Marca"];
+// Posição de cada dica nos campos de cada carro (ordem das dicas = ordem desta lista). Dicas vazias são puladas.
+const ORDER=[1,2,3,5,4,6,11,7,8,10];
+let CARS=[
+["Série 3|Serie 3|320i",2016,"R$ 108.352","Sedã","N20B20","2.0 litros turbo","Automático 8 marchas","Traseira","Brasil",3,"BMW","ZF 8HP"],
+["Opala|Opala SS",1992,"R$ 38.980","Cupê","250-S","4.1 litros (L6)","Manual 4 marchas","Traseira","Brasil",2,"Chevrolet",""],
+["Onix",2023,"R$ 82.000","Hatch","Ecotec Turbo","1.0 litro turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Chevrolet","GM 6T30"],
+["Tracker",2022,"R$ 108.000","SUV","Ecotec Turbo","1.2 litro turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Chevrolet","GM 6T35"],
+["S10",2021,"R$ 195.000","Picape","Duramax","2.8 litros","Automático com conversor de torque","Traseira 4x4","Brasil",2,"Chevrolet","GM 6L50"],
+["Montana",2024,"R$ 125.000","Picape","Ecotec Turbo","1.2 litro turbo","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","GM 6T35"],
+["Spin",2020,"R$ 68.000","Minivan","Família 1","1.8 litro","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","GM 6T30"],
+["Celta",2011,"R$ 22.000","Hatch","Família 1","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15"],
+["Classic",2014,"R$ 27.000","Hatch","Família 1","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15"],
+["Corsa",1995,"R$ 12.000","Hatch","Família 1","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15"],
+["Astra",2010,"R$ 31.000","Hatch","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F23"],
+["Vectra",1998,"R$ 28.000","Sedã","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F18"],
+["Omega",1996,"R$ 45.000","Sedã","Chevrolet 250","4.1 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","Eaton Clark FSO-2405"],
+["Monza",1990,"R$ 24.000","Sedã","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F16"],
+["Kadett",1993,"R$ 11.000","Hatch","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F16"],
+["Meriva",2007,"R$ 26.000","Minivan","Família 1","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F17"],
+["Zafira",2011,"R$ 36.000","Minivan","Família 2","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","Aisin AW 50-40LE"],
+["D20",1994,"R$ 75.000","Picape","Maxion S4T","4.0 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","ZF S5-420"],
+["Chevette",1988,"R$ 18.000","Sedã","Isuzu/GM","1.6 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","Clark/Tremec T-50/ Isuzu"],
+["Camaro",2014,"R$ 180.000","Cupê","GM Small-Block L99","6.2 litros","Automático com conversor de torque","Traseira","Brasil",2,"Chevrolet","GM 6L80"],
+["Cobalt",2018,"R$ 52.000","Sedã","Família 1","1.8 litro","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","GM 6T30"],
+["Prisma",2017,"R$ 48.000","Sedã","Família 1","1.4 litro","Manual de 6 marchas","Dianteira","Brasil",2,"Chevrolet","GM F17-6"],
+["Agile",2013,"R$ 31.000","Hatch","Família 1","1.4 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15"],
+["Sonic",2013,"R$ 33.000","Hatch","Ecotec","1.6 litro","Automático com conversor de torque","Dianteira","México",2,"Chevrolet","GM 6T30"],
+["Equinox",2018,"R$ 105.000","SUV","Ecotec Turbo","2.0 litros turbo","Automático com conversor de torque","Integral sob demanda","México",1,"Chevrolet","GM 9T50"],
+["Captiva",2012,"R$ 38.000","SUV","Ecotec","2.4 litros","Automático com conversor de torque","Dianteira","México",2,"Chevrolet","GM 6T45"],
+["Trailblazer",2021,"R$ 215.000","SUV","Duramax","2.8 litros","Automático com conversor de torque","Traseira 4x4","Brasil",1,"Chevrolet","GM 6L50"],
+["Caravan",1989,"R$ 45.000","Perua","Chevrolet 250","4.1 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","Clark CL-2205"],
+["Corsa Wagon",2000,"R$ 17.000","Perua","Família 1","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",4,"Chevrolet","GM F15"],
+["Ipanema",1994,"R$ 15.000","Perua","Família 2","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",4,"Chevrolet","GM F16"],
+["Suprema",1994,"R$ 40.000","Perua","Opel C30NE","3.0 litros","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","ZF S5-18/3"],
+["Marajó",1988,"R$ 18.000","Perua","Isuzu/GM","1.6 litro","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","Clark/Tremec T-50/ Isuzu"],
+["Chevy 500",1991,"R$ 20.000","Picape","Isuzu/GM","1.6 litro","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","Clark/Tremec T-50/ Isuzu"],
+["Veraneio",1991,"R$ 60.000","Picape","Chevrolet 250","4.1 litros","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","Clark CL-2205"],
+["Silverado",2024,"R$ 380.000","Picape","Ecotec 3 V8","5.3 litros","Automático com conversor de torque","Integral sob demanda","México",2,"Chevrolet","GM 10L80"],
+["Malibu",2011,"R$ 42.000","Sedã","Ecotec","2.4 litros","Automático com conversor de torque","Dianteira","Estados Unidos",4,"Chevrolet","GM 6T40"],
+["Cruze",2021,"R$ 95.000","Sedã","Ecotec Turbo","1.4 litro","Automático com conversor de torque","Dianteira","Argentina",2,"Chevrolet","GM 6T35"],
+["Bolt",2020,"R$ 140.000","Hatch","Elétrico","66kWh","Automático","Dianteira","Estados Unidos",4,"Chevrolet","GM 1ET25"],
+["Tigra",1998,"R$ 28.000","Cupê","Ecotec Família 1","1.6 litro","Manual de 5 marchas","Dianteira","Alemanha",4,"Chevrolet","GM F15"],
+["458 Italia|458|Italia",2011,"R$ 2.342.925","Cupê","F136 FB","4.5 litros (V8)","Dupla embreagem 7 marchas","Traseira","Itália",3,"Ferrari","Getrag 7DCL750"],
+["500|Fiat 500",2012,"R$ 41.257","Hatch","Fire Evo","1.4 litro","Manual 5 marchas","Dianteira","México",2,"Fiat","C510"],
+["Argo|Argo Drive",2019,"R$ 49.998","Hatch","Firefly","1.0 litro","Manual 5 marchas","Dianteira","Brasil",1,"Fiat",""],
+["Bravo",2015,"R$ 39.747","Hatch","E.torQ","1.8 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat","C510"],
+["Cronos",2018,"R$ 48.015","Sedã","Firefly","1.3 litro","Manual 5 marchas","Dianteira","Argentina",1,"Fiat",""],
+["Doblò|Doblo",2011,"R$ 37.779","Minivan","Powertrain 1.8","1.8 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat",""],
+["Fiorino",2014,"R$ 48.796","Furgão","Fire Evo","1.4 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat",""],
+["Freemont",2012,"R$ 46.064","SUV","World Engine 2.4","2.4 litros","Automático 6 marchas","Dianteira","México",2,"Fiat",""],
+["Grand Siena",2013,"R$ 34.121","Sedã","Fire Evo","1.4 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat",""],
+["Linea",2011,"R$ 32.000","Sedã","T-jet","1.4 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C510"],
+["Marea Turbo",2004,"R$ 40.000","Sedã","Fivetech (182A1000)","2.0 litros Turbo","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C530"],
+["Palio",2012,"R$ 24.000","Hatch","Fire","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Fiat","C513"],
+["Punto",2014,"R$ 48.000","Hatch","T-jet","1.4 litro Turbo","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C510"],
+["Tempra Turbo",1995,"R$ 35.000","Sedã","Sevel ACT Turbo","2.0 litros Turbo","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C503"],
+["Uno|Uno Mille",1995,"R$ 8.931","Hatch","Fiasa 1.0","1.0 litro","Manual 4 marchas","Dianteira","Brasil",2,"Fiat",""],
+["Uno|Uno Turbo",1995,"R$ 28.562","Hatch","Fiasa 1.4 Turbo","1.4 litro turbo","Manual 5 marchas","Dianteira","Brasil",2,"Fiat",""],
+["Strada",2022,"R$ 72.000","Picape","Firefly (GSE N4)","1.3 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Fiat","C513"],
+["Toro",2021,"R$ 115.000","Picape","Multijet II","2.0 litro","Automático com conversor de torque","Integral sob demanda","Brasil",1,"Fiat","ZF-95P48"],
+["Titano",2024,"R$ 210.000","Picape","BlueHDI 2.2 (DW12)","2.2 litros","Automático com conversor de torque","Traseira com 4x4 temporário","Brasil",2,"Fiat","Aisin TL-80SC"],
+["Tipo",1995,"R$ 25.000","Hatch","Lampredi Twin Cam (836A3.000)","2.0 litros","Manual de 5 marchas","Dianteira","Itália",2,"Fiat","C503"],
+["Stilo Abarth",2004,"R$ 30.000","Hatch","Fivetech (192A2000)","2.4 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C530"],
+["Fastback",2023,"R$ 125.000","SUV","GSE T4/ T270","1.3 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Fiat","Aisin TF-72SC"],
+["Pulse",2022,"R$ 88.000","SUV","GSE T3/ T200","1.0 litro","CVT","Dianteira","Brasil",1,"Fiat","Aisin K312"],
+["Mobi",2021,"R$ 44.000","Hatch","Fire Evo","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Fiat","C513"],
+["147",1979,"R$ 18.000","Hatch","Fiasa 1050","1.05 litro","Manual de 4 marchas","Dianteira","Brasil",2,"Fiat","C501"],
+["Brava",2002,"R$ 18.000","Hatch","Pratola Serra","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C510"],
+["Mustang|Mustang GT",2016,"R$ 347.988","Cupê","Coyote","5.0 litros (V8)","Automático 6 marchas","Traseira","Estados Unidos",2,"Ford","6R80"],
+["Ka",2019,"R$ 44.000","Hatch","Ti-VCT","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MX65"],
+["New Fiesta",2014,"R$ 39.000","Hatch","Sigma Ti-VCT","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","IB5"],
+["Fiesta",2013,"R$ 27.000","Sedã","Zetec RoCam","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","IB5"],
+["Focus",2016,"R$ 58.000","Hatch","Duratec","2.0 litros","Automatizado","Dianteira","Argentina",2,"Ford","Powershift"],
+["Ecosport",2019,"R$ 68.000","SUV","Duratec","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Ford","6F35"],
+["Ranger",2024,"R$ 290.000","Picape","Lion V6","3.0 litros Turbodiesel","Automático com conversor de torque","Integral sob demanda","Argentina",1,"Ford","10R80"],
+["Maverick (Nova geração)",2022,"R$ 185.000","Picape","Ecoboost","2.0 litros Turbo","Automático com conversor de torque","Integral sob demanda","México",2,"Ford","8F35"],
+["Territory",2024,"R$ 190.000","SUV","Ecoboost","1.5 litro Turbo","Automatizado","Dianteira","Estados Unidos",2,"Ford","Magna 7DCT300"],
+["Bronco",2022,"R$ 210.000","SUV","Ecoboost","2.0 litros Turbo","Automático com conversor de torque","Integral","México",2,"Ford","SelectShift"],
+["Escort",1994,"R$ 40.000","Hatch","AP 2000i","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MQ200"],
+["Verona",1995,"R$ 18.000","Sedã","AP 2000i","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MQ200"],
+["Versailles",1993,"R$ 22.000","Sedã","AP 2000i","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MQ013"],
+["Corcel II",1982,"R$ 20.000","Cupê","CHT","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford",""],
+["Maverick GT",1975,"R$ 140.000","Cupê","Windsor 302 V8","5.0 litros","Manual de 4 marchas","Traseira","Brasil",2,"Ford","Clark 260F"],
+["F-1000",1990,"R$ 75.000","Picape","MWM D229-4","3.9 litros","Manual de 5 marchas","Traseira","Brasil",2,"Ford","Clark CL-2615"],
+["Courier",2011,"R$ 24.000","Picape","Zetec RoCam","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","IB5"],
+["Edge",2016,"R$ 95.000","SUV","Duratec 35","3.5 litros","Automático com conversor de torque","Integral sob demanda","Estados Unidos",2,"Ford","6F50"],
+["Landau",1980,"R$ 70.000","Sedã","Windsor 302 V8","5.0 litros","Automático de 3 marchas","Traseira","Brasil",4,"Ford","Cruise-O-Matic C4"],
+["Pampa",1993,"R$ 28.000","Picape","CHT","1.8 litro","Manual de 5 marchas","4X4","Brasil",2,"Ford",""],
+["Del Rey",1989,"R$ 22.000","Sedã","CHT","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",4,"Ford",""],
+["Corcel I",1974,"R$ 26.000","Cupê","Cléon-Fonte","1.4 litro","Manual de 4 marchas","Dianteira","Brasil",2,"Ford",""],
+["Fusion",2015,"R$ 68.000","Sedã","Ecoboost","2.0 litros","Automático com Conversor de Binário","Integral sob demanda","México",2,"Ford","6F35"],
+["Civic",2016,"R$ 71.305","Sedã","R18Z1","1.8 litro","Manual 5 marchas","Dianteira","Brasil",1,"Honda",""],
+["Fit",2019,"R$ 72.000","Hatch","L15A7","1.5 litro","CVT","Dianteira","Brasil",2,"Honda","M-CVT"],
+["City",2023,"R$ 115.000","Hatch","L15B","1.5 litro","CVT","Dianteira","Brasil",1,"Honda","M-CVT"],
+["HR-V",2023,"R$ 170.000","SUV","L15BG","1.5 litro","CVT","Dianteira","Brasil",1,"Honda","LL-CVT"],
+["WR-V",2020,"R$ 78.000","Hatch","i-VTEC FlexOne","1.5 litro","CVT","Dianteira","Brasil",2,"Honda","M-CVT"],
+["ZR-V",2024,"R$ 185.000","SUV","DOHC i-VTEC","2.0 litros","CVT","Dianteira","México",2,"Honda","LL-CVT"],
+["CR-V",2011,"R$ 50.000","SUV","SOHC i-VTEC","2.0 litros","Automático com Conversor de Binário","Integral","México",2,"Honda","MZHA"],
+["Accord",2014,"R$ 75.000","Sedã","J35Y V6 i-VTEC","3.5 litros","Automático com Conversor de Binário","Dianteira","Estados Unidos",2,"Honda","6AT"],
+["Accord Híbrido",2024,"R$ 310.000","Sedã","LFB2","2.0 litros","e-CVT","Dianteira","Estados Unidos",2,"Honda","e-CVT"],
+["HB20",2016,"R$ 47.405","Hatch","Kappa","1.0 litro","Manual 5 marchas","Dianteira","Brasil",1,"Hyundai",""],
+["Compass",2018,"R$ 92.271","SUV","Multijet II","2.0 litros turbodiesel","Automático 9 marchas","Integral (4x4)","Brasil",1,"Jeep","ZF 9HP"],
+["Renegade",2023,"R$ 108.000","SUV","GSE T4/ T270","1.3 litro Turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Jeep","Aisin TF-72SC"],
+["Commander",2022,"R$ 185.000","SUV","Multijet II TD380","2.0 litros","Automático com conversor de torque","Integral sob demanda","Brasil",1,"Jeep","ZF 9HP48"],
+["Wrangler",2021,"R$ 380.000","SUV","Hurricane 4","2.0 litros","Automático com conversor de torque","4x4","Estados Unidos",4,"Jeep","ZF 8HP75"],
+["Gladiator",2023,"R$ 410.000","Picape","Pentastar","3.6 litros V6","Automático com conversor de torque","4x4","Estados Unidos",4,"Jeep","ZF 8HP75"],
+["Grand Cherokee",2015,"R$ 95.000","SUV","Pentastar","3.6 litros V6","Automático com conversor de torque","Integral Permanente","Estados Unidos",4,"Jeep","ZF 8H970"],
+["Willys",1972,"R$ 45.000","Jipe","Hurricane","2.6 litros","Manual de 4 marchas","Traseira 4x4","Brasil",4,"Jeep","Tremec T-90"],
+["Kicks",2018,"R$ 73.192","SUV","HR16DE","1.6 litro","CVT","Dianteira","Brasil",1,"Nissan",""],
+["911|911 Targa",2005,"R$ 302.355","Cupê (Targa)","M96/01","3.6 litros (boxer 6)","Manual 6 marchas","Traseira","Alemanha",3,"Porsche",""],
+["WRX",2016,"R$ 140.000","Sedã","FA20F (FA20DIT)","2.0 litros","Manual de 6 marchas","Integral","Japão",4,"Subaru","TY751"],
+["Corolla",2021,"R$ 115.000","Sedã","M20A-FKB","2.0 litros","CVT","Dianteira","Brasil",1,"Toyota","Direct Shift-CVT (K120)"],
+["Corolla Cross",2022,"R$ 125.603","SUV","M20A-FKS","2.0 litros","CVT","Dianteira","Brasil",1,"Toyota",""],
+["Hilux|Hilux SRV",2019,"R$ 181.081","Picape","1GD-FTV","2.8 litros turbodiesel","Automático 6 marchas","Integral (4x4 selecionável)","Argentina",1,"Toyota",""],
+["Fusca",1994,"R$ 45.704","Sedã","Tipo 1 (boxer a ar)","1.6 litro","Manual 4 marchas","Traseira","Brasil",2,"Volkswagen",""],
+["Fusca TSI",2016,"R$ 132.195","Hatch","EA888","2.0 litros turbo","DSG 6 marchas (automatizado)","Dianteira","México",2,"Volkswagen","DQ250"],
+["Gol GTi",1989,"R$ 20.803","Hatch","AP 2000","2.0 litros","Manual 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
+["Golf Gti",2015,"R$ 130.000","Hatch","EA888","2.0 litros","Automatizado 6 marchas","Dianteira","Alemanha",2,"Volkswagen","DQ250 (02E)"],
+["T-Cross",2020,"R$ 87.793","SUV","EA211 TSI","1.0 litro turbo","Automático 6 marchas","Dianteira","Brasil",1,"Volkswagen",""],
+["Gol",2003,"R$ 16.000","Hatch","EA111","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
+["Polo",2020,"R$ 78.000","Hatch","EA211 TSI","1.0 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ250-6F"],
+["Santana",1992,"R$ 28.000","Sedã","AP-2000I","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
+["Jetta",2021,"R$ 180.000","Sedã","EA888","2.0 litros","Automatizado","Dianteira","Brasil",1,"Volkswagen","DQ381"],
+["Virtus",2021,"R$ 84.000","Sedã","EA211 TSI","1.0 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ250-6F"],
+["Voyage",2011,"R$ 30.000","Sedã","EA111","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","MQ200"],
+["Brasília",1980,"R$ 22.000","Hatch","Boxer","1.6 litro","Manual de 4 marchas","Traseira","Brasil",2,"Volkswagen",""],
+["Passat",1978,"R$ 45.000","Hatch","BS (EA827)","1.6 litro","Manual de 4 marchas","Dianteira","Brasil",2,"Volkswagen",""],
+["Parati",1991,"R$ 15.000","Perua","AP-1800S (EA827)","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
+["Quantum",1993,"R$ 26.000","Perua","AP-2000I","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
+["Saveiro",2018,"R$ 62.000","Picape","EA211 MSI","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Volkswagen","MQ200"],
+["Amarok",2022,"R$ 215.000","Picape","EA897","3.0 litros","Automático com conversor de torque","Integral Permanente","Argentina",1,"Volkswagen","ZF 8H5970"],
+["Nivus",2022,"R$ 105.000","SUV","EA211 TSI","1.0 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ250-6F"],
+["Taos",2022,"R$ 145.000","SUV","EA211 TSI","1.4 litro","Automático com conversor de torque","Dianteira","Argentina",2,"Volkswagen","Aisin AQ250-6F"],
+["Tiguan",2019,"R$ 155.000","SUV","EA888 TSI","2.0 litros","Automatizado","Integral sob demanda","México",2,"Volkswagen","DQ500"],
+["Up",2016,"R$ 48.000","Hatch","EA211 TSI","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","MQ200"],
+["Fox",2016,"R$ 46.000","Hatch","EA211 MSI","1.6 litro","Manual de 6 marchas","Dianteira","Brasil",2,"Volkswagen","MQ250"],
+["Kombi",2014,"R$ 110.000","Furgão","EA111","1.4 litro","Manual de 4 marchas","Traseira","Brasil",2,"Volkswagen",""],
+["Bora",2008,"R$ 28.000","Sedã","EA113","2.0 litros","Automático com conversor de torque","Dianteira","México",2,"Volkswagen","Aisin AQ250-6F"],
+["Tera",2026,"R$ 115.000","SUV","EA211","1.0 litro Turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ160-6F"],
+["Creta",2022,"R$ 130.000","SUV","Smartstream G2.0","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",1,"Hyundai","Mobis A6MF1"],
+["Tucson",2012,"R$ 38.000","SUV","Beta II","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Hyundai","F4A42"],
+["Ix35",2017,"R$ 75.000","SUV","G4NA","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Hyundai","Mobis A6MF1"],
+["Santa Fe",2015,"R$ 82.000","SUV","Lambda II","3.3 litros","Automático com conversor de torque","Integral sob demanda","Coreia do Sul",2,"Hyundai","Mobis A6MF1"],
+["Vera Cruz",2010,"R$ 44.000","SUV","Lambda (G6DA)","3.8 litros","Automático com conversor de torque","Integral sob demanda","Coreia do Sul",4,"Hyundai","Aisin TF-81SC"],
+["Elantra",2014,"R$ 55.000","Sedã","G4NA","2.0 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6GF1"],
+["i30",2011,"R$ 38.000","Hatch","Beta II","2.0 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","A4CF2"],
+["Azera",2011,"R$ 38.000","Sedã","Lambda V6","3.3 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6LF1"],
+["Sonata",2012,"R$ 58.000","Sedã","Theta II","2.4 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6MF2"],
+["Veloster",2013,"R$ 52.000","Hatch","Gamma","1.6 litro","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6GF1"]
+];
+const START=2; let ROUNDS;
+const cl=c=>ORDER.map((k,i)=>[LABELS[i],c[k]]).filter(x=>x[1]!==""&&x[1]!=null);
+const maxPts=c=>Math.max(1,cl(c).length+1-START);
+const totalMax=()=>deck.reduce((t,c)=>t+maxPts(c),0);
+const LEVELS=[
+ {n:1,name:"Fácil",desc:"Marcas mais populares (Fiat, Chevrolet, Ford, VW, Honda, Hyundai, Jeep, Nissan, Kia, BYD...) em modelos atuais"},
+ {n:2,name:"Médio",desc:"As mesmas marcas, incluindo modelos antigos e fora de linha"},
+ {n:3,name:"Difícil",desc:"Soma as marcas de luxo (BMW, Mercedes, Audi, Porsche, Ferrari...)"},
+ {n:4,name:"Expert",desc:"Todos os tipos de carros e marcas"}];
+let LEVEL=1;
+const pool=()=>{const p=CARS.filter(c=>c[9]<=LEVEL);return p.length?p:CARS};
+const lvName=()=>LEVELS[LEVEL-1].name;
+const names=c=>c[0].split("|").map(x=>x.trim());
+const label=c=>names(c)[0];
+const full=c=>(c[10]?c[10]+" ":"")+label(c);
+const isMatch=(c,v)=>{const nv=norm(v);return names(c).some(n=>norm(n)===nv||(c[10]&&norm(c[10]+" "+n)===nv))};
+const $=id=>document.getElementById(id);
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"");
+const show=(id,v)=>$(id).classList.toggle("hide",!v);
+// ---- Ofensivas e dias anteriores (ficam salvos no navegador de cada jogador) ----
+let S={days:{},back:{}};
+try{const t=localStorage.getItem("carrodle_v1");if(t){const o=JSON.parse(t);S={days:o.days||{},back:o.back||{}}}}catch(e){}
+const saveS=()=>{try{localStorage.setItem("carrodle_v1",JSON.stringify(S))}catch(e){}};
+const dayN=d=>Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);
+const todayN=()=>dayN(new Date());
+const dkey=n=>new Date(n*864e5).toISOString().slice(0,10);
+const dfmt=n=>{const [y,m,d]=dkey(n).split("-");return `${d}/${m}/${y}`};
+const LAUNCH=dayN(new Date(2026,9,17)); // data de lançamento (17/10/2026): os dias anteriores só existem a partir dela
+function stats(){const ds=Object.keys(S.days).filter(k=>Object.keys(S.days[k]).length).sort();
+ const set=new Set(ds);let t=todayN(),cur=0;if(!set.has(dkey(t)))t--;
+ while(set.has(dkey(t))){cur++;t--}
+ let best=0,run=0,prev=null;
+ for(const k of ds){const n=Date.parse(k+"T00:00:00Z")/864e5;run=(prev!==null&&n===prev+1)?run+1:1;if(run>best)best=run;prev=n}
+ return {cur,best,total:ds.length,today:set.has(dkey(todayN()))}}
+function renderStats(){const s=stats();
+ $("stats").innerHTML=`🔥 <b>${s.cur}</b> dia${s.cur===1?"":"s"} seguido${s.cur===1?"":"s"} &nbsp;·&nbsp; 🏆 recorde <b>${s.best}</b> &nbsp;·&nbsp; 📅 <b>${s.total}</b> dia${s.total===1?"":"s"} jogado${s.total===1?"":"s"}<br><span style="color:var(--mut)">${s.today?"Você já jogou o carro do dia hoje. Volte amanhã para manter a ofensiva!":(s.cur>0?"Jogue o carro do dia hoje para manter sua ofensiva!":"Jogue o carro do dia para começar sua ofensiva!")}</span>`}
+function recordDaily(win){const k=dkey(dayNum),lv=String(LEVEL),r=win?"W":"L";
+ if(dayNum===todayN()){S.days[k]=S.days[k]||{};if(!S.days[k][lv])S.days[k][lv]=r}
+ else if(!S.back[k+"|"+lv])S.back[k+"|"+lv]=r;
+ saveS();renderStats();
+ if(dayNum===todayN())$("msg").textContent+=` · 🔥 Ofensiva: ${stats().cur}`}
+function openPast(){const t=todayN(),lv=String(LEVEL);let h="";
+ for(let n=t-1;n>=Math.max(LAUNCH,t-59);n--){const k=dkey(n);const r=(S.days[k]&&S.days[k][lv])||S.back[k+"|"+lv];
+  const ic=r==="W"?"✅":r==="L"?"❌":"⚪";
+  const wd=new Date(n*864e5).toLocaleDateString("pt-BR",{weekday:"short",timeZone:"UTC"});
+  h+=`<div class="row"><span>${dfmt(n)} · ${wd}</span><span>${ic}<button class="sec pl" data-n="${n}">${r?"Jogar de novo":"Jogar"}</button></span></div>`}
+ $("pastList").innerHTML=h||'<div class="row"><span>Ainda não há dias anteriores. Volte amanhã!</span></div>';
+ $("pastInfo").textContent=`Nível ${lvName()} (troque no menu). ✅ acertou · ❌ errou · ⚪ ainda não jogou. Dias anteriores não contam para a ofensiva.`;
+ show("menu",false);show("past",true)}
+function setup(){renderStats();const P=pool();ROUNDS=Math.min(8,P.length);
+ $("lvl").innerHTML=LEVELS.map(l=>`<button data-n="${l.n}" class="${l.n===LEVEL?"on":""}">${l.name}</button>`).join("");
+ $("lvInfo").textContent=`${LEVELS[LEVEL-1].desc} · ${P.length} carro${P.length>1?"s":""} neste nível`;
+ $("cars").innerHTML=[...new Set(P.map(label))].sort((x,y)=>x.localeCompare(y,"pt")).map(n=>`<option value="${n}">`).join("");
+ $("mAllSub").textContent=`${ROUNDS} rodada${ROUNDS>1?"s":""} com carros sorteados e pontuação`}
+$("sug").onchange=()=>{if($("sug").checked)$("g").setAttribute("list","cars");else $("g").removeAttribute("list")};
+$("lvl").onclick=e=>{const b=e.target.closest("button");if(b){LEVEL=+b.dataset.n;setup()}};
+setup();
+let mode,deck,idx,car,shown,score,over,steps,hist,fails,dayNum;
+
+// Carro do dia: ordem fixa e embaralhada (pelo nome e ano), escolhida pelo número do dia. Adicionar carros muda a sequência dos dias.
+const hh=s=>{let x=5381;for(const ch of s)x=((x*33)^ch.charCodeAt(0))>>>0;return x};
+function dayCar(n){const p=[...pool()].sort((a,b)=>hh(a[0]+a[1])-hh(b[0]+b[1]));return p[((n%p.length)+p.length)%p.length]}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+function startMode(m,n){mode=m;score=0;idx=0;hist=[];dayNum=n==null?todayN():n;
+ deck=m==="daily"?[dayCar(dayNum)]:shuffle(pool()).slice(0,ROUNDS);
+ show("menu",false);show("game",true);load()}
+function load(){car=deck[idx];shown=START;over=false;steps="";fails=0;
+ $("rd").textContent=mode==="daily"?`${dayNum===todayN()?"Carro do dia":"Dia anterior"} · ${dfmt(dayNum)} · ${lvName()}`:`Rodada ${idx+1}/${deck.length} · ${lvName()}`;
+ $("pt").textContent=mode==="daily"?"":`Pontos: ${score}`;
+ $("msg").textContent="";$("msg").className="";$("wr").textContent="";$("g").value="";
+ ["g","go","hint","skip"].forEach(i=>$(i).disabled=false);
+ ["next","share","back"].forEach(i=>show(i,false));show("ta",false);render()}
+function render(){const L=cl(car);$("clues").innerHTML=L.map((x,i)=>`<div class="row"><span>${x[0]}</span>${i<shown||over?`<b>${x[1]}</b>`:`<span class="hid">••••••</span>`}</div>`).join("");
+ $("hint").disabled=over||shown>=L.length}
+function finish(win,pts){over=true;steps+=win?"🟩":"⬛";shown=cl(car).length;render();
+ ["g","go","hint","skip"].forEach(i=>$(i).disabled=true);
+ if(win){score+=pts;$("msg").textContent=`✅ Acertou! ${full(car)}${mode==="all"?` (+${pts} pts)`:""}`;$("msg").className="ok"}
+ else{$("msg").textContent=`❌ Era o ${full(car)}`;$("msg").className="bad"}
+ hist.push(win?"🟩":"🟥");
+ if(mode==="daily")recordDaily(win);
+ if(mode==="all")$("pt").textContent=`Pontos: ${score}`;
+ const last=mode==="daily"||idx===deck.length-1;
+ if(!last){$("next").textContent="Próximo carro";show("next",true)}
+ else{ if(mode==="all"){$("msg").textContent+=` · Fim! ${score}/${totalMax()} pts`}
+  show("share",true);show("back",true)}}
+function wrong(txt){fails++;steps+="🟥";shown=Math.min(shown+1,cl(car).length);render();if(txt)$("wr").textContent=txt}
+
+$("go").onclick=()=>{const v=$("g").value.trim();if(!v)return;
+ const nv=norm(v);
+ const cand=[...new Set(pool().filter(c=>names(c).some(n=>norm(n).includes(nv))).map(label))];
+ const partial=nv.length>=4&&cand.length===1&&cand[0]===label(car);
+ if(isMatch(car,v)||partial)finish(true,Math.max(1,cl(car).length+1-shown));
+ else{wrong(`"${v}" não é. Uma dica nova foi revelada (−1).`);$("g").value=""}};
+$("g").onkeydown=e=>{if(e.key==="Enter")$("go").click()};
+$("hint").onclick=()=>wrong();
+$("skip").onclick=()=>finish(false,0);
+$("next").onclick=()=>{idx++;load()};
+$("back").onclick=()=>{show("game",false);show("menu",true);renderStats()};
+$("mPast").onclick=openPast;
+$("pastBack").onclick=()=>{show("past",false);show("menu",true)};
+$("pastList").onclick=e=>{const b=e.target.closest("button");if(b){show("past",false);startMode("daily",+b.dataset.n)}};
+$("mDaily").onclick=()=>startMode("daily");
+$("mAll").onclick=()=>startMode("all");
+
+const SITE=location.href.split("#")[0];
+async function send(text,withUrl=true){
+ const full=text+(withUrl?`\n${SITE}`:"");
+ try{if(navigator.share){await navigator.share({text:full});return}}catch(e){if(e&&e.name==="AbortError")return}
+ try{await navigator.clipboard.writeText(full);$("wr").textContent="Texto copiado! Cole onde quiser.";return}catch(e){}
+ const t=$("ta");t.value=full;show("ta",true);t.select();$("wr").textContent="Copie o texto abaixo e compartilhe."}
+$("share").onclick=()=>{
+ if(mode==="daily"){const w=steps.endsWith("🟩");const n=steps.length/2;const st=stats(),isT=dayNum===todayN();
+  send(`🏎️ Carrodle ${isT?"📅":"🗓️ dia anterior"} ${dfmt(dayNum)} · nível ${lvName()}${isT&&st.cur>1?` · 🔥${st.cur}`:""}\n${steps}\n${w?`Descobri o carro do dia com ${n} tentativa${n>1?"s":""}/dica${n>1?"s":""}!`:"Não consegui descobrir o carro do dia. Consegue?"}`)}
+ else send(`🏎️ Carrodle Nível ${lvName()}\n${hist.join("")}\nFiz ${score}/${totalMax()} pontos. Consegue me superar?`)};
+$("mShare").onclick=()=>{show("ta",false);send("🏎️ Carrodle Descubra o carro com poucas dicas: ano, valor médio, motor, câmbio e mais. Vem jogar!")};
+
+// Carrega a lista de carros do arquivo carros.csv (na mesma pasta do site). Se não achar, usa a lista acima.
+function parseCSV(t){t=t.replace(/^\uFEFF/,"");
+ const first=t.split(/\r?\n/)[0]||"";
+ const d=(first.match(/;/g)||[]).length>(first.match(/,/g)||[]).length?";":",";
+ const rows=[];let row=[],cur="",q=false;
+ for(let i=0;i<t.length;i++){const c=t[i];
+  if(q){if(c==='"'){if(t[i+1]==='"'){cur+='"';i++}else q=false}else cur+=c}
+  else if(c==='"')q=true;
+  else if(c===d){row.push(cur);cur=""}
+  else if(c==="\n"){row.push(cur);rows.push(row);row=[];cur=""}
+  else if(c!=="\r")cur+=c}
+ if(cur!==""||row.length){row.push(cur);rows.push(row)}
+ return rows.map(r=>r.map(x=>x.trim())).filter(r=>r.length>=9&&r[0]&&/^\d{4}$/.test(r[1])).map(r=>{r=r.slice(0,12);r[1]=+r[1];r[9]=[1,2,3,4].includes(+r[9])?+r[9]:2;r[10]=r[10]||"";r[11]=r[11]||"";return r})}
+fetch("carros.csv",{cache:"no-store"}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{const rows=parseCSV(t);if(rows.length){CARS=rows;setup()}}).catch(()=>{});
+</script>
+</body>
+</html>

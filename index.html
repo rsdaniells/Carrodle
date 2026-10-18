@@ -468,7 +468,7 @@ $("shareImg").onclick=()=>{const W=1080,c=document.createElement("canvas");c.wid
   if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],text:"🏎️ Carrodle"});return}catch(e){if(e&&e.name==="AbortError")return}}
   const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="carrodle-resultado.png";a.click();$("wr").textContent="Imagem salva no seu aparelho."})};
 
-const PIX="oidanielreis@gmail.com"; // chave Pix mostrada no rodapé
+const PIX="79859d54-f378-49b9-8190-7b44cd166318"; // chave Pix mostrada no rodapé
 $("pixKey").textContent=PIX;
 $("pixCopy").onclick=async()=>{try{await navigator.clipboard.writeText(PIX);$("pixCopy").textContent="Chave copiada! Obrigado 💚"}catch(e){$("pixCopy").textContent="Copie a chave acima"}};
 

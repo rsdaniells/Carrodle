@@ -1,366 +1,368 @@
 Data,Nível 1,Nível 2,Nível 3,Nível 4
 2026-10-17,Civic|2016|1.8 litro,Sonata|2012|2.4 litros,Prisma|2017|1.4 litro,Accord|2014|3.5 litros
 2026-10-18,Palio|2012|1.0 litro,Maverick GT|1975|5.0 litros,New Fiesta|2014|1.6 litro,HB20|2016|1.0 litro
-2026-10-19,Strada|2022|1.3 litro,Accord Híbrido|2024|2.0 litros,Kombi|2014|1.4 litro,911|2005|3.6 litros (boxer 6)
-2026-10-20,Onix|2023|1.0 litro turbo,Omega|1996|4.1 litros,Accord Híbrido|2024|2.0 litros,Ecosport|2019|2.0 litros
-2026-10-21,Corolla Cross|2022|2.0 litros,Commander|2022|2.0 litros,D20|1994|4.0 litros,Corsa|1995|1.6 litro
-2026-10-22,Nivus|2022|1.0 litro,Bora|2008|2.0 litros,Ranger|2024|3.0 litros Turbodiesel,Taos|2022|1.4 litro
-2026-10-23,Virtus|2021|1.0 litro,Maverick (Nova geração)|2022|2.0 litros Turbo,Toro|2021|2.0 litro,Edge|2016|3.5 litros
-2026-10-24,Kicks|2018|1.6 litro,New Fiesta|2014|1.6 litro,Stilo Abarth|2004|2.4 litros,Tera|2026|1.0 litro Turbo
-2026-10-25,Argo|2019|1.0 litro,Fusion|2015|2.0 litros,Mustang|2016|5.0 litros (V8),Tucson|2012|2.0 litros
-2026-10-26,Commander|2022|2.0 litros,Up|2016|1.0 litro,Quantum|1993|2.0 litros,Veraneio|1991|4.1 litros
-2026-10-27,Mobi|2021|1.0 litro,Corsa|1995|1.6 litro,Pulse|2022|1.0 litro,Brava|2002|1.8 litro
-2026-10-28,Equinox|2018|2.0 litros turbo,Corcel II|1982|1.6 litro,Série 3|2016|2.0 litros turbo,Palio|2012|1.0 litro
-2026-10-29,Tera|2026|1.0 litro Turbo,Montana|2024|1.2 litro turbo,Fastback|2023|1.3 litro,Celta|2011|1.0 litro
-2026-10-30,Fastback|2023|1.3 litro,Corolla Cross|2022|2.0 litros,Corcel II|1982|1.6 litro,Polo|2020|1.0 litro
-2026-10-31,Toro|2021|2.0 litro,ZR-V|2024|2.0 litros,Uno|1995|1.0 litro,Passat|1978|1.6 litro
-2026-11-01,Ranger|2024|3.0 litros Turbodiesel,Opala|1992|4.1 litros (L6),Bravo|2015|1.8 litro,Ka|2019|1.0 litro
-2026-11-02,Jetta|2021|2.0 litros,Sonic|2013|1.6 litro,Uno|1995|1.4 litro turbo,Verona|1995|2.0 litros
-2026-11-03,Amarok|2022|3.0 litros,Punto|2014|1.4 litro Turbo,Commander|2022|2.0 litros,Fiesta|2013|1.6 litro
-2026-11-04,Renegade|2023|1.3 litro Turbo,Trailblazer|2021|2.8 litros,Silverado|2024|5.3 litros,Landau|1980|5.0 litros
-2026-11-05,Pulse|2022|1.0 litro,Ranger|2024|3.0 litros Turbodiesel,Linea|2011|1.4 litro,Punto|2014|1.4 litro Turbo
-2026-11-06,Saveiro|2018|1.6 litro,Argo|2019|1.0 litro,Argo|2019|1.0 litro,Bravo|2015|1.8 litro
-2026-11-07,Creta|2022|2.0 litros,CR-V|2011|2.0 litros,Gol|2003|1.0 litro,Omega|1996|4.1 litros
-2026-11-08,Hilux|2019|2.8 litros turbodiesel,Strada|2022|1.3 litro,Versailles|1993|2.0 litros,Accord Híbrido|2024|2.0 litros
-2026-11-09,T-Cross|2020|1.0 litro turbo,Pampa|1993|1.8 litro,Elantra|2014|2.0 litros,Commander|2022|2.0 litros
-2026-11-10,HB20|2016|1.0 litro,Fiesta|2013|1.6 litro,Cobalt|2018|1.8 litro,Vectra|1998|2.0 litros
-2026-11-11,Polo|2020|1.0 litro,Ecosport|2019|2.0 litros,Tipo|1995|2.0 litros,Corcel I|1974|1.4 litro
-2026-11-12,HR-V|2023|1.5 litro,Santana|1992|2.0 litros,S10|2021|2.8 litros,Zafira|2011|2.0 litros
-2026-11-13,Trailblazer|2021|2.8 litros,Silverado|2024|5.3 litros,Golf Gti|2015|2.0 litros,Silverado|2024|5.3 litros
-2026-11-14,Corolla|2021|2.0 litros,Tempra Turbo|1995|2.0 litros Turbo,Amarok|2022|3.0 litros,Brasília|1980|1.6 litro
-2026-11-15,Cronos|2018|1.3 litro,Mustang|2016|5.0 litros (V8),Marea Turbo|2004|2.0 litros Turbo,Territory|2024|1.5 litro Turbo
-2026-11-16,City|2023|1.5 litro,Meriva|2007|1.8 litro,Caravan|1989|4.1 litros,Captiva|2012|2.4 litros
-2026-11-17,Tracker|2022|1.2 litro turbo,Elantra|2014|2.0 litros,Hilux|2019|2.8 litros turbodiesel,Grand Siena|2013|1.4 litro
-2026-11-18,Compass|2018|2.0 litros turbodiesel,F-1000|1990|3.9 litros,Ka|2019|1.0 litro,Quantum|1993|2.0 litros
-2026-11-19,Corolla|2021|2.0 litros,Camaro|2014|6.2 litros,WR-V|2020|1.5 litro,Prisma|2017|1.4 litro
-2026-11-20,Toro|2021|2.0 litro,Civic|2016|1.8 litro,Polo|2020|1.0 litro,Monza|1990|2.0 litros
-2026-11-21,Compass|2018|2.0 litros turbodiesel,Passat|1978|1.6 litro,Nivus|2022|1.0 litro,Fox|2016|1.6 litro
-2026-11-22,City|2023|1.5 litro,Fiorino|2014|1.4 litro,Corolla Cross|2022|2.0 litros,WR-V|2020|1.5 litro
-2026-11-23,Jetta|2021|2.0 litros,500|2012|1.4 litro,Pampa|1993|1.8 litro,Jetta|2021|2.0 litros
-2026-11-24,Creta|2022|2.0 litros,Equinox|2018|2.0 litros turbo,911|2005|3.6 litros (boxer 6),Astra|2010|2.0 litros
-2026-11-25,Trailblazer|2021|2.8 litros,Zafira|2011|2.0 litros,Edge|2016|3.5 litros,Del Rey|1989|1.6 litro
-2026-11-26,Palio|2012|1.0 litro,HB20|2016|1.0 litro,Doblò|2011|1.8 litro,Focus|2016|2.0 litros
-2026-11-27,T-Cross|2020|1.0 litro turbo,City|2023|1.5 litro,Equinox|2018|2.0 litros turbo,Stilo Abarth|2004|2.4 litros
-2026-11-28,Renegade|2023|1.3 litro Turbo,Territory|2024|1.5 litro Turbo,Zafira|2011|2.0 litros,Santa Fe|2015|3.3 litros
-2026-11-29,Kicks|2018|1.6 litro,Nivus|2022|1.0 litro,Montana|2024|1.2 litro turbo,Cobalt|2018|1.8 litro
-2026-11-30,Equinox|2018|2.0 litros turbo,Cronos|2018|1.3 litro,HB20|2016|1.0 litro,Cronos|2018|1.3 litro
-2026-12-01,Tracker|2022|1.2 litro turbo,HR-V|2023|1.5 litro,CR-V|2011|2.0 litros,Azera|2011|3.3 litros
-2026-12-02,Corolla Cross|2022|2.0 litros,Parati|1991|1.8 litro,Maverick GT|1975|5.0 litros,Malibu|2011|2.4 litros
-2026-12-03,Argo|2019|1.0 litro,Versailles|1993|2.0 litros,Accord|2014|3.5 litros,Veloster|2013|1.6 litro
-2026-12-04,Civic|2016|1.8 litro,Tiguan|2019|2.0 litros,Monza|1990|2.0 litros,Willys|1972|2.6 litros
-2026-12-05,Commander|2022|2.0 litros,Escort|1994|2.0 litros,Brava|2002|1.8 litro,Argo|2019|1.0 litro
-2026-12-06,Hilux|2019|2.8 litros turbodiesel,Astra|2010|2.0 litros,Captiva|2012|2.4 litros,Ipanema|1994|1.8 litro
-2026-12-07,Amarok|2022|3.0 litros,Saveiro|2018|1.6 litro,Agile|2013|1.4 litro,Onix|2023|1.0 litro turbo
-2026-12-08,Nivus|2022|1.0 litro,Onix|2023|1.0 litro turbo,Freemont|2012|2.4 litros,S10|2021|2.8 litros
-2026-12-09,Fastback|2023|1.3 litro,Fox|2016|1.6 litro,Corsa|1995|1.6 litro,147|1979|1.05 litro
-2026-12-10,Strada|2022|1.3 litro,Ka|2019|1.0 litro,Palio|2012|1.0 litro,Uno|1995|1.4 litro turbo
-2026-12-11,Tera|2026|1.0 litro Turbo,Fastback|2023|1.3 litro,Fiesta|2013|1.6 litro,T-Cross|2020|1.0 litro turbo
-2026-12-12,Virtus|2021|1.0 litro,Fusca|1994|1.6 litro,Renegade|2023|1.3 litro Turbo,ZR-V|2024|2.0 litros
-2026-12-13,HR-V|2023|1.5 litro,Gol|2003|1.0 litro,Verona|1995|2.0 litros,Vera Cruz|2010|3.8 litros
-2026-12-14,Saveiro|2018|1.6 litro,Amarok|2022|3.0 litros,Cronos|2018|1.3 litro,Courier|2011|1.6 litro
-2026-12-15,HB20|2016|1.0 litro,WR-V|2020|1.5 litro,Compass|2018|2.0 litros turbodiesel,Spin|2020|1.8 litro
-2026-12-16,Ranger|2024|3.0 litros Turbodiesel,Agile|2013|1.4 litro,Brasília|1980|1.6 litro,Fit|2019|1.5 litro
-2026-12-17,Pulse|2022|1.0 litro,Palio|2012|1.0 litro,i30|2011|2.0 litros,Mobi|2021|1.0 litro
-2026-12-18,Mobi|2021|1.0 litro,Tucson|2012|2.0 litros,Meriva|2007|1.8 litro,Meriva|2007|1.8 litro
-2026-12-19,Polo|2020|1.0 litro,Corolla|2021|2.0 litros,Ecosport|2019|2.0 litros,HR-V|2023|1.5 litro
-2026-12-20,Cronos|2018|1.3 litro,i30|2011|2.0 litros,Astra|2010|2.0 litros,Fastback|2023|1.3 litro
-2026-12-21,Onix|2023|1.0 litro turbo,Azera|2011|3.3 litros,Onix|2023|1.0 litro turbo,Sonic|2013|1.6 litro
-2026-12-22,Polo|2020|1.0 litro,Spin|2020|1.8 litro,Bronco|2022|2.0 litros Turbo,Kadett|1993|2.0 litros
-2026-12-23,Nivus|2022|1.0 litro,S10|2021|2.8 litros,Up|2016|1.0 litro,Creta|2022|2.0 litros
-2026-12-24,Palio|2012|1.0 litro,Golf Gti|2015|2.0 litros,Saveiro|2018|1.6 litro,Camaro|2014|6.2 litros
-2026-12-25,Toro|2021|2.0 litro,Verona|1995|2.0 litros,Tera|2026|1.0 litro Turbo,Gol GTi|1989|2.0 litros
-2026-12-26,Kicks|2018|1.6 litro,Cruze|2021|1.4 litro,Ix35|2017|2.0 litros,Up|2016|1.0 litro
-2026-12-27,Creta|2022|2.0 litros,Taos|2022|1.4 litro,Sonata|2012|2.4 litros,CR-V|2011|2.0 litros
-2026-12-28,Renegade|2023|1.3 litro Turbo,Brava|2002|1.8 litro,Kicks|2018|1.6 litro,Titano|2024|2.2 litros
-2026-12-29,HB20|2016|1.0 litro,Voyage|2011|1.6 litro,Camaro|2014|6.2 litros,Amarok|2022|3.0 litros
-2026-12-30,Hilux|2019|2.8 litros turbodiesel,Freemont|2012|2.4 litros,Corcel I|1974|1.4 litro,Sonata|2012|2.4 litros
-2026-12-31,Saveiro|2018|1.6 litro,Bravo|2015|1.8 litro,Fiorino|2014|1.4 litro,Gol|2003|1.0 litro
-2027-01-01,Strada|2022|1.3 litro,Santa Fe|2015|3.3 litros,HR-V|2023|1.5 litro,Golf Gti|2015|2.0 litros
-2027-01-02,Pulse|2022|1.0 litro,Gol GTi|1989|2.0 litros,Punto|2014|1.4 litro Turbo,Suprema|1994|3.0 litros
-2027-01-03,Tracker|2022|1.2 litro turbo,Kombi|2014|1.4 litro,Courier|2011|1.6 litro,Ranger|2024|3.0 litros Turbodiesel
-2027-01-04,Cronos|2018|1.3 litro,Toro|2021|2.0 litro,Tracker|2022|1.2 litro turbo,Marajó|1988|1.6 litro
-2027-01-05,Compass|2018|2.0 litros turbodiesel,Virtus|2021|1.0 litro,Spin|2020|1.8 litro,Gladiator|2023|3.6 litros V6
-2027-01-06,Ranger|2024|3.0 litros Turbodiesel,Fit|2019|1.5 litro,Fusca|1994|1.6 litro,Fusca TSI|2016|2.0 litros turbo
-2027-01-07,Trailblazer|2021|2.8 litros,Linea|2011|1.4 litro,City|2023|1.5 litro,Civic|2016|1.8 litro
-2027-01-08,Tera|2026|1.0 litro Turbo,T-Cross|2020|1.0 litro turbo,Veloster|2013|1.6 litro,Santana|1992|2.0 litros
-2027-01-09,Jetta|2021|2.0 litros,Accord|2014|3.5 litros,458 Italia|2011|4.5 litros (V8),D20|1994|4.0 litros
-2027-01-10,Mobi|2021|1.0 litro,Creta|2022|2.0 litros,Azera|2011|3.3 litros,Tigra|1998|1.6 litro
-2027-01-11,Amarok|2022|3.0 litros,Classic|2014|1.0 litro,Sonic|2013|1.6 litro,Tracker|2022|1.2 litro turbo
-2027-01-12,HR-V|2023|1.5 litro,D20|1994|4.0 litros,Corolla|2021|2.0 litros,Voyage|2011|1.6 litro
-2027-01-13,Fastback|2023|1.3 litro,Renegade|2023|1.3 litro Turbo,Classic|2014|1.0 litro,Renegade|2023|1.3 litro Turbo
-2027-01-14,Onix|2023|1.0 litro turbo,Vectra|1998|2.0 litros,Celta|2011|1.0 litro,Opala|1992|4.1 litros (L6)
-2027-01-15,Civic|2016|1.8 litro,Veloster|2013|1.6 litro,Mobi|2021|1.0 litro,Pulse|2022|1.0 litro
-2027-01-16,Corolla Cross|2022|2.0 litros,Brasília|1980|1.6 litro,Virtus|2021|1.0 litro,Agile|2013|1.4 litro
-2027-01-17,Argo|2019|1.0 litro,Polo|2020|1.0 litro,Creta|2022|2.0 litros,Grand Cherokee|2015|3.6 litros V6
-2027-01-18,Equinox|2018|2.0 litros turbo,Tipo|1995|2.0 litros,Passat|1978|1.6 litro,Chevy 500|1991|1.6 litro
-2027-01-19,City|2023|1.5 litro,Fusca TSI|2016|2.0 litros turbo,Titano|2024|2.2 litros,Kombi|2014|1.4 litro
-2027-01-20,Corolla|2021|2.0 litros,Ix35|2017|2.0 litros,Civic|2016|1.8 litro,Fiorino|2014|1.4 litro
-2027-01-21,T-Cross|2020|1.0 litro turbo,Courier|2011|1.6 litro,Bora|2008|2.0 litros,WRX|2016|2.0 litros
-2027-01-22,Virtus|2021|1.0 litro,Marea Turbo|2004|2.0 litros Turbo,Fusca TSI|2016|2.0 litros turbo,Escort|1994|2.0 litros
-2027-01-23,Commander|2022|2.0 litros,Kicks|2018|1.6 litro,Omega|1996|4.1 litros,Fusion|2015|2.0 litros
-2027-01-24,Corolla|2021|2.0 litros,Caravan|1989|4.1 litros,Fusion|2015|2.0 litros,Wrangler|2021|2.0 litros
-2027-01-25,Nivus|2022|1.0 litro,Captiva|2012|2.4 litros,Maverick (Nova geração)|2022|2.0 litros Turbo,Bora|2008|2.0 litros
-2027-01-26,Saveiro|2018|1.6 litro,Celta|2011|1.0 litro,Cruze|2021|1.4 litro,Parati|1991|1.8 litro
-2027-01-27,Cronos|2018|1.3 litro,Focus|2016|2.0 litros,Voyage|2011|1.6 litro,458 Italia|2011|4.5 litros (V8)
-2027-01-28,Civic|2016|1.8 litro,Compass|2018|2.0 litros turbodiesel,Chevette|1988|1.6 litros,Uno|1995|1.0 litro
-2027-01-29,Jetta|2021|2.0 litros,Stilo Abarth|2004|2.4 litros,F-1000|1990|3.9 litros,Montana|2024|1.2 litro turbo
-2027-01-30,Tera|2026|1.0 litro Turbo,Quantum|1993|2.0 litros,147|1979|1.05 litro,Versailles|1993|2.0 litros
-2027-01-31,HR-V|2023|1.5 litro,Tera|2026|1.0 litro Turbo,Santana|1992|2.0 litros,Linea|2011|1.4 litro
-2027-02-01,Creta|2022|2.0 litros,Tracker|2022|1.2 litro turbo,Vectra|1998|2.0 litros,Virtus|2021|1.0 litro
-2027-02-02,Pulse|2022|1.0 litro,Edge|2016|3.5 litros,Strada|2022|1.3 litro,Chevette|1988|1.6 litros
-2027-02-03,T-Cross|2020|1.0 litro turbo,Cobalt|2018|1.8 litro,Santa Fe|2015|3.3 litros,Corcel II|1982|1.6 litro
-2027-02-04,Toro|2021|2.0 litro,Corcel I|1974|1.4 litro,Fox|2016|1.6 litro,Corolla Cross|2022|2.0 litros
-2027-02-05,Tracker|2022|1.2 litro turbo,Kadett|1993|2.0 litros,500|2012|1.4 litro,Equinox|2018|2.0 litros turbo
-2027-02-06,Amarok|2022|3.0 litros,Hilux|2019|2.8 litros turbodiesel,Tucson|2012|2.0 litros,Bolt|2020|66kWh
-2027-02-07,Renegade|2023|1.3 litro Turbo,Doblò|2011|1.8 litro,T-Cross|2020|1.0 litro turbo,Mustang|2016|5.0 litros (V8)
-2027-02-08,Kicks|2018|1.6 litro,Titano|2024|2.2 litros,Fit|2019|1.5 litro,Saveiro|2018|1.6 litro
-2027-02-09,Palio|2012|1.0 litro,147|1979|1.05 litro,Focus|2016|2.0 litros,Nivus|2022|1.0 litro
-2027-02-10,Polo|2020|1.0 litro,Monza|1990|2.0 litros,Jetta|2021|2.0 litros,F-1000|1990|3.9 litros
-2027-02-11,Hilux|2019|2.8 litros turbodiesel,Bronco|2022|2.0 litros Turbo,ZR-V|2024|2.0 litros,Pampa|1993|1.8 litro
-2027-02-12,Onix|2023|1.0 litro turbo,Mobi|2021|1.0 litro,Parati|1991|1.8 litro,Corsa Wagon|2000|1.6 litro
-2027-02-13,Compass|2018|2.0 litros turbodiesel,Chevette|1988|1.6 litros,Territory|2024|1.5 litro Turbo,Cruze|2021|1.4 litro
-2027-02-14,Virtus|2021|1.0 litro,Prisma|2017|1.4 litro,Taos|2022|1.4 litro,Hilux|2019|2.8 litros turbodiesel
-2027-02-15,Fastback|2023|1.3 litro,Grand Siena|2013|1.4 litro,Gol GTi|1989|2.0 litros,Bronco|2022|2.0 litros Turbo
-2027-02-16,Commander|2022|2.0 litros,Uno|1995|1.4 litro turbo,Tempra Turbo|1995|2.0 litros Turbo,Marea Turbo|2004|2.0 litros Turbo
-2027-02-17,Strada|2022|1.3 litro,Jetta|2021|2.0 litros,Tiguan|2019|2.0 litros,Compass|2018|2.0 litros turbodiesel
-2027-02-18,Trailblazer|2021|2.8 litros,Pulse|2022|1.0 litro,Kadett|1993|2.0 litros,Ix35|2017|2.0 litros
-2027-02-19,Equinox|2018|2.0 litros turbo,Uno|1995|1.0 litro,Opala|1992|4.1 litros (L6),City|2023|1.5 litro
-2027-02-20,HB20|2016|1.0 litro,Mobi|2021|1.0 litro,Grand Siena|2013|1.4 litro,Freemont|2012|2.4 litros
-2027-02-21,Ranger|2024|3.0 litros Turbodiesel,Tipo|1995|2.0 litros,Escort|1994|2.0 litros,Trailblazer|2021|2.8 litros
-2027-02-22,Corolla Cross|2022|2.0 litros,City|2023|1.5 litro,Trailblazer|2021|2.8 litros,Corolla|2021|2.0 litros
-2027-02-23,City|2023|1.5 litro,Santana|1992|2.0 litros,500|2012|1.4 litro,Fusca|1994|1.6 litro
-2027-02-24,Mobi|2021|1.0 litro,Versailles|1993|2.0 litros,Ix35|2017|2.0 litros,Doblò|2011|1.8 litro
-2027-02-25,Argo|2019|1.0 litro,Camaro|2014|6.2 litros,Meriva|2007|1.8 litro,Strada|2022|1.3 litro
-2027-02-26,Tracker|2022|1.2 litro turbo,Toro|2021|2.0 litro,Passat|1978|1.6 litro,i30|2011|2.0 litros
-2027-02-27,Cronos|2018|1.3 litro,Virtus|2021|1.0 litro,Punto|2014|1.4 litro Turbo,Caravan|1989|4.1 litros
-2027-02-28,HB20|2016|1.0 litro,Accord Híbrido|2024|2.0 litros,Uno|1995|1.0 litro,Tipo|1995|2.0 litros
-2027-03-01,Amarok|2022|3.0 litros,Captiva|2012|2.4 litros,Maverick GT|1975|5.0 litros,New Fiesta|2014|1.6 litro
-2027-03-02,Polo|2020|1.0 litro,Monza|1990|2.0 litros,Tempra Turbo|1995|2.0 litros Turbo,Elantra|2014|2.0 litros
-2027-03-03,Equinox|2018|2.0 litros turbo,Santa Fe|2015|3.3 litros,Astra|2010|2.0 litros,Maverick (Nova geração)|2022|2.0 litros Turbo
-2027-03-04,Toro|2021|2.0 litro,Veloster|2013|1.6 litro,S10|2021|2.8 litros,Kicks|2018|1.6 litro
-2027-03-05,Jetta|2021|2.0 litros,Trailblazer|2021|2.8 litros,Prisma|2017|1.4 litro,Maverick GT|1975|5.0 litros
-2027-03-06,Corolla Cross|2022|2.0 litros,Corolla|2021|2.0 litros,Mobi|2021|1.0 litro,500|2012|1.4 litro
-2027-03-07,Tera|2026|1.0 litro Turbo,Vectra|1998|2.0 litros,Gol|2003|1.0 litro,Toro|2021|2.0 litro
-2027-03-08,Virtus|2021|1.0 litro,Kombi|2014|1.4 litro,Corcel I|1974|1.4 litro,Série 3|2016|2.0 litros turbo
-2027-03-09,T-Cross|2020|1.0 litro turbo,Verona|1995|2.0 litros,Kicks|2018|1.6 litro,Tempra Turbo|1995|2.0 litros Turbo
-2027-03-10,Commander|2022|2.0 litros,Up|2016|1.0 litro,Fusion|2015|2.0 litros,Tiguan|2019|2.0 litros
-2027-03-11,Ranger|2024|3.0 litros Turbodiesel,Fusca TSI|2016|2.0 litros turbo,Strada|2022|1.3 litro,Classic|2014|1.0 litro
-2027-03-12,Pulse|2022|1.0 litro,Tera|2026|1.0 litro Turbo,Pulse|2022|1.0 litro,Corolla|2021|2.0 litros
-2027-03-13,City|2023|1.5 litro,Celta|2011|1.0 litro,Maverick (Nova geração)|2022|2.0 litros Turbo,Captiva|2012|2.4 litros
-2027-03-14,Palio|2012|1.0 litro,Focus|2016|2.0 litros,New Fiesta|2014|1.6 litro,S10|2021|2.8 litros
-2027-03-15,Hilux|2019|2.8 litros turbodiesel,Cobalt|2018|1.8 litro,Equinox|2018|2.0 litros turbo,Punto|2014|1.4 litro Turbo
-2027-03-16,Creta|2022|2.0 litros,Polo|2020|1.0 litro,Série 3|2016|2.0 litros turbo,Caravan|1989|4.1 litros
-2027-03-17,Kicks|2018|1.6 litro,Equinox|2018|2.0 litros turbo,Monza|1990|2.0 litros,F-1000|1990|3.9 litros
-2027-03-18,Argo|2019|1.0 litro,Kicks|2018|1.6 litro,Fox|2016|1.6 litro,Ranger|2024|3.0 litros Turbodiesel
-2027-03-19,Strada|2022|1.3 litro,Pampa|1993|1.8 litro,Tera|2026|1.0 litro Turbo,Chevette|1988|1.6 litros
-2027-03-20,HR-V|2023|1.5 litro,Brava|2002|1.8 litro,Stilo Abarth|2004|2.4 litros,Strada|2022|1.3 litro
-2027-03-21,Compass|2018|2.0 litros turbodiesel,Cruze|2021|1.4 litro,Up|2016|1.0 litro,Verona|1995|2.0 litros
-2027-03-22,Onix|2023|1.0 litro turbo,Zafira|2011|2.0 litros,i30|2011|2.0 litros,Gladiator|2023|3.6 litros V6
-2027-03-23,Trailblazer|2021|2.8 litros,ZR-V|2024|2.0 litros,Focus|2016|2.0 litros,Camaro|2014|6.2 litros
-2027-03-24,Corolla|2021|2.0 litros,Doblò|2011|1.8 litro,Polo|2020|1.0 litro,Série 3|2016|2.0 litros turbo
-2027-03-25,Fastback|2023|1.3 litro,S10|2021|2.8 litros,458 Italia|2011|4.5 litros (V8),Mustang|2016|5.0 litros (V8)
-2027-03-26,Renegade|2023|1.3 litro Turbo,Bronco|2022|2.0 litros Turbo,Tracker|2022|1.2 litro turbo,Civic|2016|1.8 litro
-2027-03-27,Civic|2016|1.8 litro,Fusca|1994|1.6 litro,Tipo|1995|2.0 litros,Escort|1994|2.0 litros
-2027-03-28,Mobi|2021|1.0 litro,Fastback|2023|1.3 litro,Voyage|2011|1.6 litro,Cruze|2021|1.4 litro
-2027-03-29,Nivus|2022|1.0 litro,Titano|2024|2.2 litros,Escort|1994|2.0 litros,Tipo|1995|2.0 litros
-2027-03-30,Saveiro|2018|1.6 litro,Strada|2022|1.3 litro,Accord|2014|3.5 litros,Fiorino|2014|1.4 litro
-2027-03-31,Polo|2020|1.0 litro,Corsa|1995|1.6 litro,Accord Híbrido|2024|2.0 litros,Tempra Turbo|1995|2.0 litros Turbo
-2027-04-01,Toro|2021|2.0 litro,Fiesta|2013|1.6 litro,Freemont|2012|2.4 litros,911|2005|3.6 litros (boxer 6)
-2027-04-02,Tracker|2022|1.2 litro turbo,Maverick GT|1975|5.0 litros,Chevette|1988|1.6 litros,Santa Fe|2015|3.3 litros
-2027-04-03,Onix|2023|1.0 litro turbo,Uno|1995|1.4 litro turbo,Elantra|2014|2.0 litros,Fusca TSI|2016|2.0 litros turbo
-2027-04-04,Corolla|2021|2.0 litros,Fox|2016|1.6 litro,Corcel II|1982|1.6 litro,Toro|2021|2.0 litro
-2027-04-05,Tera|2026|1.0 litro Turbo,Creta|2022|2.0 litros,T-Cross|2020|1.0 litro turbo,Taos|2022|1.4 litro
-2027-04-06,Argo|2019|1.0 litro,Uno|1995|1.0 litro,911|2005|3.6 litros (boxer 6),Ix35|2017|2.0 litros
-2027-04-07,Commander|2022|2.0 litros,Silverado|2024|5.3 litros,Santa Fe|2015|3.3 litros,WRX|2016|2.0 litros
-2027-04-08,Equinox|2018|2.0 litros turbo,D20|1994|4.0 litros,Fastback|2023|1.3 litro,Opala|1992|4.1 litros (L6)
-2027-04-09,Pulse|2022|1.0 litro,Ranger|2024|3.0 litros Turbodiesel,Cronos|2018|1.3 litro,Tera|2026|1.0 litro Turbo
-2027-04-10,Ranger|2024|3.0 litros Turbodiesel,New Fiesta|2014|1.6 litro,Taos|2022|1.4 litro,Veraneio|1991|4.1 litros
-2027-04-11,Fastback|2023|1.3 litro,Palio|2012|1.0 litro,City|2023|1.5 litro,Montana|2024|1.2 litro turbo
-2027-04-12,Hilux|2019|2.8 litros turbodiesel,Nivus|2022|1.0 litro,Renegade|2023|1.3 litro Turbo,Argo|2019|1.0 litro
-2027-04-13,Jetta|2021|2.0 litros,Sonic|2013|1.6 litro,Marea Turbo|2004|2.0 litros Turbo,Maverick (Nova geração)|2022|2.0 litros Turbo
-2027-04-14,Cronos|2018|1.3 litro,Omega|1996|4.1 litros,Omega|1996|4.1 litros,Fastback|2023|1.3 litro
-2027-04-15,Amarok|2022|3.0 litros,F-1000|1990|3.9 litros,Verona|1995|2.0 litros,Vectra|1998|2.0 litros
-2027-04-16,City|2023|1.5 litro,Classic|2014|1.0 litro,Veloster|2013|1.6 litro,Nivus|2022|1.0 litro
-2027-04-17,Civic|2016|1.8 litro,Prisma|2017|1.4 litro,Tucson|2012|2.0 litros,Corcel I|1974|1.4 litro
-2027-04-18,Nivus|2022|1.0 litro,Commander|2022|2.0 litros,Amarok|2022|3.0 litros,Equinox|2018|2.0 litros turbo
-2027-04-19,Corolla Cross|2022|2.0 litros,Saveiro|2018|1.6 litro,CR-V|2011|2.0 litros,Jetta|2021|2.0 litros
-2027-04-20,Saveiro|2018|1.6 litro,Meriva|2007|1.8 litro,Ka|2019|1.0 litro,HB20|2016|1.0 litro
-2027-04-21,Creta|2022|2.0 litros,Punto|2014|1.4 litro Turbo,Cobalt|2018|1.8 litro,Azera|2011|3.3 litros
-2027-04-22,HB20|2016|1.0 litro,Quantum|1993|2.0 litros,Argo|2019|1.0 litro,147|1979|1.05 litro
-2027-04-23,Virtus|2021|1.0 litro,Parati|1991|1.8 litro,Parati|1991|1.8 litro,Monza|1990|2.0 litros
-2027-04-24,Palio|2012|1.0 litro,Astra|2010|2.0 litros,Vectra|1998|2.0 litros,Grand Cherokee|2015|3.6 litros V6
-2027-04-25,Renegade|2023|1.3 litro Turbo,Ka|2019|1.0 litro,Corsa|1995|1.6 litro,Classic|2014|1.0 litro
-2027-04-26,Strada|2022|1.3 litro,Ix35|2017|2.0 litros,Ecosport|2019|2.0 litros,Zafira|2011|2.0 litros
-2027-04-27,HR-V|2023|1.5 litro,Corolla Cross|2022|2.0 litros,Bravo|2015|1.8 litro,Renegade|2023|1.3 litro Turbo
-2027-04-28,Mobi|2021|1.0 litro,CR-V|2011|2.0 litros,Bora|2008|2.0 litros,Malibu|2011|2.4 litros
-2027-04-29,Compass|2018|2.0 litros turbodiesel,Territory|2024|1.5 litro Turbo,Kadett|1993|2.0 litros,458 Italia|2011|4.5 litros (V8)
-2027-04-30,Kicks|2018|1.6 litro,Kadett|1993|2.0 litros,Toro|2021|2.0 litro,Bravo|2015|1.8 litro
-2027-05-01,T-Cross|2020|1.0 litro turbo,Sonata|2012|2.4 litros,Corolla|2021|2.0 litros,Commander|2022|2.0 litros
-2027-05-02,Trailblazer|2021|2.8 litros,Edge|2016|3.5 litros,Fiorino|2014|1.4 litro,Astra|2010|2.0 litros
-2027-05-03,Palio|2012|1.0 litro,Pulse|2022|1.0 litro,Golf Gti|2015|2.0 litros,Compass|2018|2.0 litros turbodiesel
-2027-05-04,Strada|2022|1.3 litro,Fit|2019|1.5 litro,HB20|2016|1.0 litro,Hilux|2019|2.8 litros turbodiesel
-2027-05-05,Onix|2023|1.0 litro turbo,Spin|2020|1.8 litro,Uno|1995|1.4 litro turbo,Mobi|2021|1.0 litro
-2027-05-06,Compass|2018|2.0 litros turbodiesel,HR-V|2023|1.5 litro,Onix|2023|1.0 litro turbo,Vera Cruz|2010|3.8 litros
-2027-05-07,Creta|2022|2.0 litros,WR-V|2020|1.5 litro,Spin|2020|1.8 litro,Brasília|1980|1.6 litro
-2027-05-08,Kicks|2018|1.6 litro,147|1979|1.05 litro,Quantum|1993|2.0 litros,Quantum|1993|2.0 litros
-2027-05-09,Pulse|2022|1.0 litro,T-Cross|2020|1.0 litro turbo,Versailles|1993|2.0 litros,Willys|1972|2.6 litros
-2027-05-10,Polo|2020|1.0 litro,Azera|2011|3.3 litros,Compass|2018|2.0 litros turbodiesel,Ipanema|1994|1.8 litro
-2027-05-11,Corolla|2021|2.0 litros,Civic|2016|1.8 litro,F-1000|1990|3.9 litros,Pampa|1993|1.8 litro
-2027-05-12,Toro|2021|2.0 litro,Passat|1978|1.6 litro,Territory|2024|1.5 litro Turbo,Marajó|1988|1.6 litro
-2027-05-13,Argo|2019|1.0 litro,Chevette|1988|1.6 litros,Fit|2019|1.5 litro,Titano|2024|2.2 litros
-2027-05-14,Trailblazer|2021|2.8 litros,Tempra Turbo|1995|2.0 litros Turbo,WR-V|2020|1.5 litro,Corcel II|1982|1.6 litro
-2027-05-15,Equinox|2018|2.0 litros turbo,Hilux|2019|2.8 litros turbodiesel,Brava|2002|1.8 litro,Kombi|2014|1.4 litro
-2027-05-16,Tera|2026|1.0 litro Turbo,Courier|2011|1.6 litro,Grand Siena|2013|1.4 litro,Palio|2012|1.0 litro
-2027-05-17,Civic|2016|1.8 litro,Corcel II|1982|1.6 litro,Celta|2011|1.0 litro,Uno|1995|1.4 litro turbo
-2027-05-18,Corolla Cross|2022|2.0 litros,Fiorino|2014|1.4 litro,ZR-V|2024|2.0 litros,Fusca|1994|1.6 litro
-2027-05-19,Virtus|2021|1.0 litro,Compass|2018|2.0 litros turbodiesel,Fusca TSI|2016|2.0 litros turbo,Cobalt|2018|1.8 litro
-2027-05-20,Commander|2022|2.0 litros,Taos|2022|1.4 litro,Edge|2016|3.5 litros,Fit|2019|1.5 litro
-2027-05-21,Nivus|2022|1.0 litro,Stilo Abarth|2004|2.4 litros,Civic|2016|1.8 litro,Santana|1992|2.0 litros
-2027-05-22,Ranger|2024|3.0 litros Turbodiesel,Montana|2024|1.2 litro turbo,Camaro|2014|6.2 litros,Prisma|2017|1.4 litro
-2027-05-23,Saveiro|2018|1.6 litro,Accord|2014|3.5 litros,D20|1994|4.0 litros,Voyage|2011|1.6 litro
-2027-05-24,City|2023|1.5 litro,Onix|2023|1.0 litro turbo,Pampa|1993|1.8 litro,Corsa Wagon|2000|1.6 litro
-2027-05-25,Amarok|2022|3.0 litros,Cronos|2018|1.3 litro,Jetta|2021|2.0 litros,Gol GTi|1989|2.0 litros
-2027-05-26,Hilux|2019|2.8 litros turbodiesel,Maverick (Nova geração)|2022|2.0 litros Turbo,Fiesta|2013|1.6 litro,Saveiro|2018|1.6 litro
-2027-05-27,Jetta|2021|2.0 litros,Marea Turbo|2004|2.0 litros Turbo,Azera|2011|3.3 litros,Bronco|2022|2.0 litros Turbo
-2027-05-28,Fastback|2023|1.3 litro,Elantra|2014|2.0 litros,Hilux|2019|2.8 litros turbodiesel,Focus|2016|2.0 litros
-2027-05-29,Mobi|2021|1.0 litro,Jetta|2021|2.0 litros,Classic|2014|1.0 litro,Marea Turbo|2004|2.0 litros Turbo
-2027-05-30,HR-V|2023|1.5 litro,Gol|2003|1.0 litro,Commander|2022|2.0 litros,Uno|1995|1.0 litro
-2027-05-31,HB20|2016|1.0 litro,500|2012|1.4 litro,Caravan|1989|4.1 litros,Freemont|2012|2.4 litros
-2027-06-01,T-Cross|2020|1.0 litro turbo,Amarok|2022|3.0 litros,Sonic|2013|1.6 litro,Omega|1996|4.1 litros
-2027-06-02,Renegade|2023|1.3 litro Turbo,i30|2011|2.0 litros,147|1979|1.05 litro,Bora|2008|2.0 litros
-2027-06-03,Tracker|2022|1.2 litro turbo,Grand Siena|2013|1.4 litro,Virtus|2021|1.0 litro,Fiesta|2013|1.6 litro
-2027-06-04,Cronos|2018|1.3 litro,Ecosport|2019|2.0 litros,Gol GTi|1989|2.0 litros,Pulse|2022|1.0 litro
-2027-06-05,Onix|2023|1.0 litro turbo,Renegade|2023|1.3 litro Turbo,Linea|2011|1.4 litro,Edge|2016|3.5 litros
-2027-06-06,Equinox|2018|2.0 litros turbo,Escort|1994|2.0 litros,Brasília|1980|1.6 litro,Wrangler|2021|2.0 litros
-2027-06-07,Pulse|2022|1.0 litro,Freemont|2012|2.4 litros,Montana|2024|1.2 litro turbo,Meriva|2007|1.8 litro
-2027-06-08,Polo|2020|1.0 litro,HB20|2016|1.0 litro,Titano|2024|2.2 litros,Celta|2011|1.0 litro
-2027-06-09,Kicks|2018|1.6 litro,Linea|2011|1.4 litro,Courier|2011|1.6 litro,Grand Siena|2013|1.4 litro
-2027-06-10,Tera|2026|1.0 litro Turbo,Caravan|1989|4.1 litros,Santana|1992|2.0 litros,City|2023|1.5 litro
-2027-06-11,Mobi|2021|1.0 litro,Tiguan|2019|2.0 litros,Zafira|2011|2.0 litros,Doblò|2011|1.8 litro
-2027-06-12,Strada|2022|1.3 litro,Gol GTi|1989|2.0 litros,HR-V|2023|1.5 litro,Tracker|2022|1.2 litro turbo
-2027-06-13,Jetta|2021|2.0 litros,Bravo|2015|1.8 litro,Sonata|2012|2.4 litros,Spin|2020|1.8 litro
-2027-06-14,Fastback|2023|1.3 litro,Opala|1992|4.1 litros (L6),Palio|2012|1.0 litro,Parati|1991|1.8 litro
-2027-06-15,Creta|2022|2.0 litros,Agile|2013|1.4 litro,Corolla Cross|2022|2.0 litros,WR-V|2020|1.5 litro
-2027-06-16,Virtus|2021|1.0 litro,Tracker|2022|1.2 litro turbo,Silverado|2024|5.3 litros,Landau|1980|5.0 litros
-2027-06-17,Tracker|2022|1.2 litro turbo,Brasília|1980|1.6 litro,Kombi|2014|1.4 litro,HR-V|2023|1.5 litro
-2027-06-18,Trailblazer|2021|2.8 litros,Tucson|2012|2.0 litros,Fusca|1994|1.6 litro,Kicks|2018|1.6 litro
-2027-06-19,Palio|2012|1.0 litro,Voyage|2011|1.6 litro,Creta|2022|2.0 litros,D20|1994|4.0 litros
-2027-06-20,Cronos|2018|1.3 litro,Golf Gti|2015|2.0 litros,Cruze|2021|1.4 litro,Trailblazer|2021|2.8 litros
-2027-06-21,T-Cross|2020|1.0 litro turbo,Corcel I|1974|1.4 litro,Ranger|2024|3.0 litros Turbodiesel,Cronos|2018|1.3 litro
-2027-06-22,Toro|2021|2.0 litro,Argo|2019|1.0 litro,Doblò|2011|1.8 litro,Polo|2020|1.0 litro
-2027-06-23,HR-V|2023|1.5 litro,Bora|2008|2.0 litros,Nivus|2022|1.0 litro,Versailles|1993|2.0 litros
-2027-06-24,Commander|2022|2.0 litros,Mustang|2016|5.0 litros (V8),Captiva|2012|2.4 litros,Agile|2013|1.4 litro
-2027-06-25,Corolla|2021|2.0 litros,Fusion|2015|2.0 litros,Saveiro|2018|1.6 litro,Linea|2011|1.4 litro
-2027-06-26,Ranger|2024|3.0 litros Turbodiesel,Grand Siena|2013|1.4 litro,Opala|1992|4.1 litros (L6),Del Rey|1989|1.6 litro
-2027-06-27,Civic|2016|1.8 litro,Commander|2022|2.0 litros,Tiguan|2019|2.0 litros,Suprema|1994|3.0 litros
-2027-06-28,Corolla Cross|2022|2.0 litros,Meriva|2007|1.8 litro,Agile|2013|1.4 litro,Kadett|1993|2.0 litros
-2027-06-29,Hilux|2019|2.8 litros turbodiesel,Voyage|2011|1.6 litro,Mustang|2016|5.0 litros (V8),Virtus|2021|1.0 litro
-2027-06-30,Nivus|2022|1.0 litro,Omega|1996|4.1 litros,Bronco|2022|2.0 litros Turbo,Tigra|1998|1.6 litro
-2027-07-01,Saveiro|2018|1.6 litro,Versailles|1993|2.0 litros,Trailblazer|2021|2.8 litros,Onix|2023|1.0 litro turbo
-2027-07-02,Amarok|2022|3.0 litros,Linea|2011|1.4 litro,Fiorino|2014|1.4 litro,Golf Gti|2015|2.0 litros
-2027-07-03,Compass|2018|2.0 litros turbodiesel,Cronos|2018|1.3 litro,Santa Fe|2015|3.3 litros,ZR-V|2024|2.0 litros
-2027-07-04,Renegade|2023|1.3 litro Turbo,Ka|2019|1.0 litro,500|2012|1.4 litro,Elantra|2014|2.0 litros
-2027-07-05,City|2023|1.5 litro,Polo|2020|1.0 litro,Fastback|2023|1.3 litro,Territory|2024|1.5 litro Turbo
-2027-07-06,Argo|2019|1.0 litro,Bora|2008|2.0 litros,Ka|2019|1.0 litro,Tucson|2012|2.0 litros
-2027-07-07,HB20|2016|1.0 litro,Kicks|2018|1.6 litro,HR-V|2023|1.5 litro,Brava|2002|1.8 litro
-2027-07-08,Argo|2019|1.0 litro,Punto|2014|1.4 litro Turbo,Polo|2020|1.0 litro,Stilo Abarth|2004|2.4 litros
-2027-07-09,Renegade|2023|1.3 litro Turbo,Sonic|2013|1.6 litro,Taos|2022|1.4 litro,Creta|2022|2.0 litros
-2027-07-10,HR-V|2023|1.5 litro,Up|2016|1.0 litro,Fit|2019|1.5 litro,Corsa|1995|1.6 litro
-2027-07-11,Cronos|2018|1.3 litro,Maverick GT|1975|5.0 litros,Quantum|1993|2.0 litros,Passat|1978|1.6 litro
-2027-07-12,Saveiro|2018|1.6 litro,Brava|2002|1.8 litro,Celta|2011|1.0 litro,Up|2016|1.0 litro
-2027-07-13,Kicks|2018|1.6 litro,Renegade|2023|1.3 litro Turbo,Hilux|2019|2.8 litros turbodiesel,Sonic|2013|1.6 litro
-2027-07-14,HB20|2016|1.0 litro,Tempra Turbo|1995|2.0 litros Turbo,F-1000|1990|3.9 litros,T-Cross|2020|1.0 litro turbo
-2027-07-15,Corolla Cross|2022|2.0 litros,Agile|2013|1.4 litro,Bravo|2015|1.8 litro,Accord Híbrido|2024|2.0 litros
-2027-07-16,Onix|2023|1.0 litro turbo,Bravo|2015|1.8 litro,147|1979|1.05 litro,Maverick GT|1975|5.0 litros
-2027-07-17,Toro|2021|2.0 litro,Opala|1992|4.1 litros (L6),Fusion|2015|2.0 litros,Fusion|2015|2.0 litros
-2027-07-18,Virtus|2021|1.0 litro,Strada|2022|1.3 litro,S10|2021|2.8 litros,Veloster|2013|1.6 litro
-2027-07-19,Trailblazer|2021|2.8 litros,Silverado|2024|5.3 litros,458 Italia|2011|4.5 litros (V8),Accord|2014|3.5 litros
-2027-07-20,Tracker|2022|1.2 litro turbo,Trailblazer|2021|2.8 litros,Strada|2022|1.3 litro,Ecosport|2019|2.0 litros
-2027-07-21,Jetta|2021|2.0 litros,Celta|2011|1.0 litro,Jetta|2021|2.0 litros,Silverado|2024|5.3 litros
-2027-07-22,Palio|2012|1.0 litro,Palio|2012|1.0 litro,D20|1994|4.0 litros,Tiguan|2019|2.0 litros
-2027-07-23,Amarok|2022|3.0 litros,WR-V|2020|1.5 litro,Cobalt|2018|1.8 litro,Courier|2011|1.6 litro
-2027-07-24,Fastback|2023|1.3 litro,S10|2021|2.8 litros,Chevette|1988|1.6 litros,Gol|2003|1.0 litro
-2027-07-25,City|2023|1.5 litro,Territory|2024|1.5 litro Turbo,Kombi|2014|1.4 litro,Bolt|2020|66kWh
-2027-07-26,Equinox|2018|2.0 litros turbo,Tipo|1995|2.0 litros,Up|2016|1.0 litro,Sonata|2012|2.4 litros
-2027-07-27,Commander|2022|2.0 litros,Corcel I|1974|1.4 litro,Uno|1995|1.4 litro turbo,New Fiesta|2014|1.6 litro
-2027-07-28,T-Cross|2020|1.0 litro turbo,i30|2011|2.0 litros,Voyage|2011|1.6 litro,CR-V|2011|2.0 litros
-2027-07-29,Tera|2026|1.0 litro Turbo,Fastback|2023|1.3 litro,Caravan|1989|4.1 litros,Chevy 500|1991|1.6 litro
-2027-07-30,Pulse|2022|1.0 litro,Fusca|1994|1.6 litro,Corcel I|1974|1.4 litro,i30|2011|2.0 litros
-2027-07-31,Compass|2018|2.0 litros turbodiesel,Prisma|2017|1.4 litro,Gol|2003|1.0 litro,500|2012|1.4 litro
-2027-08-01,Creta|2022|2.0 litros,Bronco|2022|2.0 litros Turbo,ZR-V|2024|2.0 litros,Corolla Cross|2022|2.0 litros
-2027-08-02,Nivus|2022|1.0 litro,Passat|1978|1.6 litro,Série 3|2016|2.0 litros turbo,Ka|2019|1.0 litro
-2027-08-03,Strada|2022|1.3 litro,Veloster|2013|1.6 litro,Linea|2011|1.4 litro,Fox|2016|1.6 litro
-2027-08-04,Corolla|2021|2.0 litros,Argo|2019|1.0 litro,Maverick GT|1975|5.0 litros,Amarok|2022|3.0 litros
-2027-08-05,Hilux|2019|2.8 litros turbodiesel,Ranger|2024|3.0 litros Turbodiesel,Tera|2026|1.0 litro Turbo,Maverick (Nova geração)|2022|2.0 litros Turbo
-2027-08-06,Ranger|2024|3.0 litros Turbodiesel,Tucson|2012|2.0 litros,Fusca|1994|1.6 litro,Caravan|1989|4.1 litros
-2027-08-07,Civic|2016|1.8 litro,Kadett|1993|2.0 litros,Omega|1996|4.1 litros,Celta|2011|1.0 litro
-2027-08-08,Polo|2020|1.0 litro,Freemont|2012|2.4 litros,Stilo Abarth|2004|2.4 litros,Tracker|2022|1.2 litro turbo
-2027-08-09,Mobi|2021|1.0 litro,Brasília|1980|1.6 litro,Zafira|2011|2.0 litros,Fastback|2023|1.3 litro
-2027-08-10,Fastback|2023|1.3 litro,Mobi|2021|1.0 litro,Creta|2022|2.0 litros,Cruze|2021|1.4 litro
-2027-08-11,Onix|2023|1.0 litro turbo,Fusion|2015|2.0 litros,Accord Híbrido|2024|2.0 litros,Civic|2016|1.8 litro
-2027-08-12,Corolla Cross|2022|2.0 litros,Fiesta|2013|1.6 litro,Kadett|1993|2.0 litros,Tucson|2012|2.0 litros
-2027-08-13,Renegade|2023|1.3 litro Turbo,Gol GTi|1989|2.0 litros,Mobi|2021|1.0 litro,Fiesta|2013|1.6 litro
-2027-08-14,Mobi|2021|1.0 litro,Kombi|2014|1.4 litro,Elantra|2014|2.0 litros,Accord|2014|3.5 litros
-2027-08-15,Saveiro|2018|1.6 litro,D20|1994|4.0 litros,Prisma|2017|1.4 litro,Marea Turbo|2004|2.0 litros Turbo
-2027-08-16,Corolla|2021|2.0 litros,Captiva|2012|2.4 litros,Mustang|2016|5.0 litros (V8),Fusca TSI|2016|2.0 litros turbo
-2027-08-17,Argo|2019|1.0 litro,Monza|1990|2.0 litros,Tiguan|2019|2.0 litros,Fusca|1994|1.6 litro
-2027-08-18,Tera|2026|1.0 litro Turbo,Montana|2024|1.2 litro turbo,Onix|2023|1.0 litro turbo,Voyage|2011|1.6 litro
-2027-08-19,Commander|2022|2.0 litros,Focus|2016|2.0 litros,Nivus|2022|1.0 litro,Vectra|1998|2.0 litros
-2027-08-20,Virtus|2021|1.0 litro,Amarok|2022|3.0 litros,Tracker|2022|1.2 litro turbo,Willys|1972|2.6 litros
-2027-08-21,Nivus|2022|1.0 litro,Elantra|2014|2.0 litros,WR-V|2020|1.5 litro,Strada|2022|1.3 litro
-2027-08-22,Toro|2021|2.0 litro,Uno|1995|1.4 litro turbo,Equinox|2018|2.0 litros turbo,Classic|2014|1.0 litro
-2027-08-23,Creta|2022|2.0 litros,Nivus|2022|1.0 litro,Civic|2016|1.8 litro,Linea|2011|1.4 litro
-2027-08-24,Amarok|2022|3.0 litros,Parati|1991|1.8 litro,Toro|2021|2.0 litro,Equinox|2018|2.0 litros turbo
-2027-08-25,Equinox|2018|2.0 litros turbo,Tera|2026|1.0 litro Turbo,Uno|1995|1.0 litro,Del Rey|1989|1.6 litro
-2027-08-26,City|2023|1.5 litro,Equinox|2018|2.0 litros turbo,Cronos|2018|1.3 litro,Zafira|2011|2.0 litros
-2027-08-27,Pulse|2022|1.0 litro,Ecosport|2019|2.0 litros,CR-V|2011|2.0 litros,Chevette|1988|1.6 litros
-2027-08-28,Hilux|2019|2.8 litros turbodiesel,Doblò|2011|1.8 litro,Freemont|2012|2.4 litros,Uno|1995|1.4 litro turbo
-2027-08-29,Strada|2022|1.3 litro,Quantum|1993|2.0 litros,Brava|2002|1.8 litro,Azera|2011|3.3 litros
-2027-08-30,Cronos|2018|1.3 litro,Courier|2011|1.6 litro,Commander|2022|2.0 litros,Kadett|1993|2.0 litros
-2027-08-31,T-Cross|2020|1.0 litro turbo,Classic|2014|1.0 litro,Cruze|2021|1.4 litro,911|2005|3.6 litros (boxer 6)
-2027-09-01,HB20|2016|1.0 litro,Corsa|1995|1.6 litro,Classic|2014|1.0 litro,Ipanema|1994|1.8 litro
-2027-09-02,Polo|2020|1.0 litro,Jetta|2021|2.0 litros,Pampa|1993|1.8 litro,Kicks|2018|1.6 litro
-2027-09-03,Trailblazer|2021|2.8 litros,Ix35|2017|2.0 litros,Marea Turbo|2004|2.0 litros Turbo,Trailblazer|2021|2.8 litros
-2027-09-04,Civic|2016|1.8 litro,Creta|2022|2.0 litros,Grand Siena|2013|1.4 litro,Jetta|2021|2.0 litros
-2027-09-05,Kicks|2018|1.6 litro,Edge|2016|3.5 litros,New Fiesta|2014|1.6 litro,WR-V|2020|1.5 litro
-2027-09-06,Jetta|2021|2.0 litros,Civic|2016|1.8 litro,Fox|2016|1.6 litro,Up|2016|1.0 litro
-2027-09-07,Ranger|2024|3.0 litros Turbodiesel,Corcel II|1982|1.6 litro,Bora|2008|2.0 litros,Cobalt|2018|1.8 litro
-2027-09-08,Compass|2018|2.0 litros turbodiesel,Marea Turbo|2004|2.0 litros Turbo,Titano|2024|2.2 litros,i30|2011|2.0 litros
-2027-09-09,Palio|2012|1.0 litro,F-1000|1990|3.9 litros,Tucson|2012|2.0 litros,New Fiesta|2014|1.6 litro
-2027-09-10,Tracker|2022|1.2 litro turbo,Astra|2010|2.0 litros,Parati|1991|1.8 litro,Renegade|2023|1.3 litro Turbo
-2027-09-11,HR-V|2023|1.5 litro,New Fiesta|2014|1.6 litro,Fusca TSI|2016|2.0 litros turbo,Corsa Wagon|2000|1.6 litro
-2027-09-12,Polo|2020|1.0 litro,Pulse|2022|1.0 litro,Ix35|2017|2.0 litros,Corcel I|1974|1.4 litro
-2027-09-13,Pulse|2022|1.0 litro,Gol|2003|1.0 litro,Versailles|1993|2.0 litros,Virtus|2021|1.0 litro
-2027-09-14,Onix|2023|1.0 litro turbo,Camaro|2014|6.2 litros,Ranger|2024|3.0 litros Turbodiesel,ZR-V|2024|2.0 litros
-2027-09-15,Equinox|2018|2.0 litros turbo,Fox|2016|1.6 litro,T-Cross|2020|1.0 litro turbo,Mustang|2016|5.0 litros (V8)
-2027-09-16,Saveiro|2018|1.6 litro,Santa Fe|2015|3.3 litros,Pulse|2022|1.0 litro,Uno|1995|1.0 litro
-2027-09-17,HR-V|2023|1.5 litro,500|2012|1.4 litro,Passat|1978|1.6 litro,Veraneio|1991|4.1 litros
-2027-09-18,Hilux|2019|2.8 litros turbodiesel,Zafira|2011|2.0 litros,Spin|2020|1.8 litro,Brasília|1980|1.6 litro
-2027-09-19,Toro|2021|2.0 litro,Virtus|2021|1.0 litro,Argo|2019|1.0 litro,500|2012|1.4 litro
-2027-09-20,HB20|2016|1.0 litro,Cobalt|2018|1.8 litro,Renegade|2023|1.3 litro Turbo,Stilo Abarth|2004|2.4 litros
-2027-09-21,Jetta|2021|2.0 litros,Titano|2024|2.2 litros,Captiva|2012|2.4 litros,Bora|2008|2.0 litros
-2027-09-22,Fastback|2023|1.3 litro,147|1979|1.05 litro,Trailblazer|2021|2.8 litros,Saveiro|2018|1.6 litro
-2027-09-23,Commander|2022|2.0 litros,Mustang|2016|5.0 litros (V8),Opala|1992|4.1 litros (L6),Série 3|2016|2.0 litros turbo
-2027-09-24,Amarok|2022|3.0 litros,Accord Híbrido|2024|2.0 litros,Gol GTi|1989|2.0 litros,Maverick GT|1975|5.0 litros
-2027-09-25,City|2023|1.5 litro,Golf Gti|2015|2.0 litros,Sonata|2012|2.4 litros,Grand Cherokee|2015|3.6 litros V6
-2027-09-26,Cronos|2018|1.3 litro,Fit|2019|1.5 litro,Palio|2012|1.0 litro,Polo|2020|1.0 litro
-2027-09-27,Virtus|2021|1.0 litro,Sonata|2012|2.4 litros,Amarok|2022|3.0 litros,Hilux|2019|2.8 litros turbodiesel
-2027-09-28,Argo|2019|1.0 litro,Corolla Cross|2022|2.0 litros,Focus|2016|2.0 litros,Accord Híbrido|2024|2.0 litros
-2027-09-29,T-Cross|2020|1.0 litro turbo,T-Cross|2020|1.0 litro turbo,Corolla|2021|2.0 litros,Titano|2024|2.2 litros
-2027-09-30,Ranger|2024|3.0 litros Turbodiesel,Accord|2014|3.5 litros,Monza|1990|2.0 litros,CR-V|2011|2.0 litros
-2027-10-01,Tera|2026|1.0 litro Turbo,Compass|2018|2.0 litros turbodiesel,Santana|1992|2.0 litros,Bravo|2015|1.8 litro
-2027-10-02,Creta|2022|2.0 litros,HR-V|2023|1.5 litro,Fiesta|2013|1.6 litro,Veloster|2013|1.6 litro
-2027-10-03,Palio|2012|1.0 litro,Uno|1995|1.0 litro,Astra|2010|2.0 litros,Courier|2011|1.6 litro
-2027-10-04,Corolla Cross|2022|2.0 litros,Tracker|2022|1.2 litro turbo,Brasília|1980|1.6 litro,HR-V|2023|1.5 litro
-2027-10-05,Tracker|2022|1.2 litro turbo,Stilo Abarth|2004|2.4 litros,Edge|2016|3.5 litros,Golf Gti|2015|2.0 litros
-2027-10-06,Kicks|2018|1.6 litro,Taos|2022|1.4 litro,Punto|2014|1.4 litro Turbo,Territory|2024|1.5 litro Turbo
-2027-10-07,Corolla|2021|2.0 litros,ZR-V|2024|2.0 litros,Kicks|2018|1.6 litro,Malibu|2011|2.4 litros
-2027-10-08,Compass|2018|2.0 litros turbodiesel,Chevette|1988|1.6 litros,Vectra|1998|2.0 litros,Edge|2016|3.5 litros
-2027-10-09,Renegade|2023|1.3 litro Turbo,Fusca TSI|2016|2.0 litros turbo,Corcel II|1982|1.6 litro,Taos|2022|1.4 litro
-2027-10-10,Strada|2022|1.3 litro,Onix|2023|1.0 litro turbo,City|2023|1.5 litro,Landau|1980|5.0 litros
-2027-10-11,Civic|2016|1.8 litro,HB20|2016|1.0 litro,Verona|1995|2.0 litros,Amarok|2022|3.0 litros
-2027-10-12,Mobi|2021|1.0 litro,Tiguan|2019|2.0 litros,Virtus|2021|1.0 litro,Meriva|2007|1.8 litro
-2027-10-13,Nivus|2022|1.0 litro,Santana|1992|2.0 litros,Agile|2013|1.4 litro,Prisma|2017|1.4 litro
-2027-10-14,Trailblazer|2021|2.8 litros,Cruze|2021|1.4 litro,Courier|2011|1.6 litro,Pampa|1993|1.8 litro
-2027-10-15,Pulse|2022|1.0 litro,Verona|1995|2.0 litros,Doblò|2011|1.8 litro,Monza|1990|2.0 litros
-2027-10-16,Polo|2020|1.0 litro,Spin|2020|1.8 litro,Saveiro|2018|1.6 litro,Bronco|2022|2.0 litros Turbo
+2026-10-19,Corolla Cross|2022|2.0 litros,Fusca TSI|2016|2.0 litros turbo,Taos|2022|1.4 litro,Versailles|1993|2.0 litros
+2026-10-20,Trailblazer|2021|2.8 litros,Versa|2021|1.6 litro,Hilux|2019|2.8 litros turbodiesel,Focus|2016|2.0 litros
+2026-10-21,Mobi|2021|1.0 litro,Prisma|2017|1.4 litro,Classic|2014|1.0 litro,Bravo|2015|1.8 litro
+2026-10-22,Argo|2019|1.0 litro,Ix35|2017|2.0 litros,Opala|1992|4.1 litros (L6),Logan|2013|1.6 litro
+2026-10-23,Sentra|2023|2.0 litros,Fox|2016|1.6 litro,Cruze|2021|1.4 litro,Chevette|1988|1.6 litros
+2026-10-24,HB20|2016|1.0 litro,C3|2008|1.6 litro,Saveiro|2018|1.6 litro,Zafira|2011|2.0 litros
+2026-10-25,HR-V|2023|1.5 litro,Spin|2020|1.8 litro,Tiguan|2019|2.0 litros,Chevy 500|1991|1.6 litro
+2026-10-26,Palio|2012|1.0 litro,Monza|1990|2.0 litros,Santana|1992|2.0 litros,308|2015|1.6 litro Turbo
+2026-10-27,Kwid|2022|1.0 litro,Livina|2013|1.8 litro,Kardian|2024|1.0 litro,Virtus|2021|1.0 litro
+2026-10-28,Renegade|2023|1.3 litro Turbo,Marea Turbo|2004|2.0 litros Turbo,Veloster|2013|1.6 litro,Montana|2024|1.2 litro turbo
+2026-10-29,T-Cross|2020|1.0 litro turbo,Sonata|2012|2.4 litros,Virtus|2021|1.0 litro,Equinox|2018|2.0 litros turbo
+2026-10-30,Basalt|2025|1.0 litro Turbo,Strada|2022|1.3 litro,Toro|2021|2.0 litro,Saveiro|2018|1.6 litro
+2026-10-31,Fastback|2023|1.3 litro,Cronos|2018|1.3 litro,Tera|2026|1.0 litro Turbo,Fit|2019|1.5 litro
+2026-11-01,Kicks|2018|1.6 litro,Versailles|1993|2.0 litros,Fluence|2014|2.0 litros,Tera|2026|1.0 litro Turbo
+2026-11-02,208|2024|1.0 litro Turbo,Verona|1995|2.0 litros,Omega|1996|4.1 litros,Camry|2016|3.5 litros
+2026-11-03,Hilux|2019|2.8 litros turbodiesel,Saveiro|2018|1.6 litro,Bora|2008|2.0 litros,207|2011|1.6 litro
+2026-11-04,SW4|2023|2.8 litros TurboDiesel,D20|1994|4.0 litros,Sandero RS|2019|2.0 litros,Pulse|2022|1.0 litro
+2026-11-05,Kardian|2024|1.0 litro,Grand Siena|2013|1.4 litro,Tiida|2012|1.8 litro,Courier|2011|1.6 litro
+2026-11-06,Saveiro|2018|1.6 litro,Tracker|2022|1.2 litro turbo,SW4|2023|2.8 litros TurboDiesel,Corolla Fielder|2007|1.8 litro
+2026-11-07,Polo|2020|1.0 litro,Punto|2014|1.4 litro Turbo,Corsa|1995|1.6 litro,Corsa Wagon|2000|1.6 litro
+2026-11-08,Cronos|2018|1.3 litro,Bronco|2022|2.0 litros Turbo,Corcel II|1982|1.6 litro,Fiorino|2014|1.4 litro
+2026-11-09,Jetta|2021|2.0 litros,Pampa|1993|1.8 litro,Escort|1994|2.0 litros,Ranger|2024|3.0 litros Turbodiesel
+2026-11-10,City|2023|1.5 litro,Ranger|2024|3.0 litros Turbodiesel,Strada|2022|1.3 litro,Maverick (Nova geração)|2022|2.0 litros Turbo
+2026-11-11,2008|2019|1.6 litro,Virtus|2021|1.0 litro,Grand Siena|2013|1.4 litro,Tracker|2022|1.2 litro turbo
+2026-11-12,Versa|2021|1.6 litro,Renegade|2023|1.3 litro Turbo,HB20|2016|1.0 litro,City|2023|1.5 litro
+2026-11-13,207|2011|1.6 litro,Territory|2024|1.5 litro Turbo,207|2011|1.6 litro,Yaris|2021|1.5 litro
+2026-11-14,Ranger|2024|3.0 litros Turbodiesel,Uno|1995|1.0 litro,Xsara|2000|2.0 litros,Palio|2012|1.0 litro
+2026-11-15,Tera|2026|1.0 litro Turbo,Quantum|1993|2.0 litros,Maverick (Nova geração)|2022|2.0 litros Turbo,Golf Gti|2015|2.0 litros
+2026-11-16,Equinox|2018|2.0 litros turbo,Uno|1995|1.4 litro turbo,2008|2019|1.6 litro,Tiguan|2019|2.0 litros
+2026-11-17,Pulse|2022|1.0 litro,Kadett|1993|2.0 litros,Accord Híbrido|2024|2.0 litros,Voyage|2011|1.6 litro
+2026-11-18,Nivus|2022|1.0 litro,WR-V|2020|1.5 litro,Gol GTi|1989|2.0 litros,Corcel II|1982|1.6 litro
+2026-11-19,Sandero RS|2019|2.0 litros,Accord Híbrido|2024|2.0 litros,S10|2021|2.8 litros,Malibu|2011|2.4 litros
+2026-11-20,Virtus|2021|1.0 litro,Fiorino|2014|1.4 litro,Fit|2019|1.5 litro,Accord Híbrido|2024|2.0 litros
+2026-11-21,Duster|2023|1.3 litro,Veloster|2013|1.6 litro,Passat|1978|1.6 litro,Megane|2011|2.0 litros
+2026-11-22,Onix|2023|1.0 litro turbo,Santa Fe|2015|3.3 litros,Scenic|2001|2.0 litros,Ka|2019|1.0 litro
+2026-11-23,Toro|2021|2.0 litro,Corcel I|1974|1.4 litro,Palio|2012|1.0 litro,Polo|2020|1.0 litro
+2026-11-24,Corolla|2021|2.0 litros,Taos|2022|1.4 litro,Vectra|1998|2.0 litros,Kardian|2024|1.0 litro
+2026-11-25,Tracker|2022|1.2 litro turbo,Commander|2022|2.0 litros,Onix|2023|1.0 litro turbo,Sonic|2013|1.6 litro
+2026-11-26,Creta|2022|2.0 litros,New Fiesta|2014|1.6 litro,Pulse|2022|1.0 litro,Kwid|2022|1.0 litro
+2026-11-27,Compass|2018|2.0 litros turbodiesel,Golf Gti|2015|2.0 litros,Corcel I|1974|1.4 litro,Taos|2022|1.4 litro
+2026-11-28,Yaris|2021|1.5 litro,Sonic|2013|1.6 litro,Fusca|1994|1.6 litro,Grand Siena|2013|1.4 litro
+2026-11-29,Amarok|2022|3.0 litros,500|2012|1.4 litro,Celta|2011|1.0 litro,i30|2011|2.0 litros
+2026-11-30,Civic|2016|1.8 litro,2008|2019|1.6 litro,Prisma|2017|1.4 litro,Freemont|2012|2.4 litros
+2026-12-01,Strada|2022|1.3 litro,CR-V|2011|2.0 litros,Amarok|2022|3.0 litros,Versa|2021|1.6 litro
+2026-12-02,Commander|2022|2.0 litros,Nivus|2022|1.0 litro,Civic|2016|1.8 litro,Linea|2011|1.4 litro
+2026-12-03,Frontier|2022|2.3 litros BiturboDiesel,Creta|2022|2.0 litros,Ranger|2024|3.0 litros Turbodiesel,Doblò|2011|1.8 litro
+2026-12-04,Versa|2021|1.6 litro,Camaro|2014|6.2 litros,Mustang|2016|5.0 litros (V8),Kicks|2018|1.6 litro
+2026-12-05,Corolla Cross|2022|2.0 litros,Prius|2018|1.8 litro,Captur|2022|1.3 litro,Territory|2024|1.5 litro Turbo
+2026-12-06,Kardian|2024|1.0 litro,Tipo|1995|2.0 litros,T-Cross|2020|1.0 litro turbo,Del Rey|1989|1.6 litro
+2026-12-07,Polo|2020|1.0 litro,Clio|2004|1.6 litro,Courier|2011|1.6 litro,Parati|1991|1.8 litro
+2026-12-08,2008|2019|1.6 litro,308|2015|1.6 litro Turbo,Sonata|2012|2.4 litros,C4|2010|2.0 litros
+2026-12-09,Equinox|2018|2.0 litros turbo,ZR-V|2024|2.0 litros,Etios|2019|1.5 litro,Commander|2022|2.0 litros
+2026-12-10,Mobi|2021|1.0 litro,Trailblazer|2021|2.8 litros,Territory|2024|1.5 litro Turbo,Fusca|1994|1.6 litro
+2026-12-11,207|2011|1.6 litro,Kardian|2024|1.0 litro,Prius|2018|1.8 litro,Twingo|1998|1.2 litro
+2026-12-12,Jetta|2021|2.0 litros,Corolla Fielder|2007|1.8 litro,Cobalt|2018|1.8 litro,C3|2008|1.6 litro
+2026-12-13,Kicks|2018|1.6 litro,Fusca|1994|1.6 litro,Cronos|2018|1.3 litro,Gladiator|2023|3.6 litros V6
+2026-12-14,Sentra|2023|2.0 litros,Tiida|2012|1.8 litro,Ka|2019|1.0 litro,Gol GTi|1989|2.0 litros
+2026-12-15,City|2023|1.5 litro,F-1000|1990|3.9 litros,New Fiesta|2014|1.6 litro,Grand Cherokee|2015|3.6 litros V6
+2026-12-16,Frontier|2022|2.3 litros BiturboDiesel,Argo|2019|1.0 litro,500|2012|1.4 litro,Bandeirante|1999|3.7 litros TurboDiesel
+2026-12-17,Basalt|2025|1.0 litro Turbo,Opala|1992|4.1 litros (L6),Chevette|1988|1.6 litros,Jetta|2021|2.0 litros
+2026-12-18,Creta|2022|2.0 litros,Corcel II|1982|1.6 litro,March|2016|1.6 litro,Trailblazer|2021|2.8 litros
+2026-12-19,Cronos|2018|1.3 litro,Megane|2011|2.0 litros,Fastback|2023|1.3 litro,Tiida|2012|1.8 litro
+2026-12-20,T-Cross|2020|1.0 litro turbo,S10|2021|2.8 litros,Yaris|2021|1.5 litro,Marea Turbo|2004|2.0 litros Turbo
+2026-12-21,208|2024|1.0 litro Turbo,Silverado|2024|5.3 litros,WR-V|2020|1.5 litro,GTR|2017|3.8 litros
+2026-12-22,Onix|2023|1.0 litro turbo,Polo|2020|1.0 litro,Tracker|2022|1.2 litro turbo,Onix|2023|1.0 litro turbo
+2026-12-23,Pulse|2022|1.0 litro,Parati|1991|1.8 litro,Corolla Fielder|2007|1.8 litro,Passat|1978|1.6 litro
+2026-12-24,Tera|2026|1.0 litro Turbo,Captur|2022|1.3 litro,Zafira|2011|2.0 litros,500|2012|1.4 litro
+2026-12-25,Duster|2023|1.3 litro,Ecosport|2019|2.0 litros,408|2016|1.6 litro,350Z|2005|3.5 litros
+2026-12-26,Ranger|2024|3.0 litros Turbodiesel,i30|2011|2.0 litros,Commander|2022|2.0 litros,Creta|2022|2.0 litros
+2026-12-27,Virtus|2021|1.0 litro,Freemont|2012|2.4 litros,Accord|2014|3.5 litros,Renegade|2023|1.3 litro Turbo
+2026-12-28,Kwid|2022|1.0 litro,HB20|2016|1.0 litro,Jetta|2021|2.0 litros,2008|2019|1.6 litro
+2026-12-29,SW4|2023|2.8 litros TurboDiesel,Escort|1994|2.0 litros,Uno|1995|1.4 litro turbo,Vera Cruz|2010|3.8 litros
+2026-12-30,Saveiro|2018|1.6 litro,Duster|2023|1.3 litro,Astra|2010|2.0 litros,Veloster|2013|1.6 litro
+2026-12-31,Tracker|2022|1.2 litro turbo,208|2024|1.0 litro Turbo,D20|1994|4.0 litros,Ix35|2017|2.0 litros
+2027-01-01,Strada|2022|1.3 litro,Santana|1992|2.0 litros,Megane|2011|2.0 litros,ZR-V|2024|2.0 litros
+2027-01-02,Compass|2018|2.0 litros turbodiesel,Up|2016|1.0 litro,Versa|2021|1.6 litro,March|2016|1.6 litro
+2027-01-03,Fastback|2023|1.3 litro,Captiva|2012|2.4 litros,Focus|2016|2.0 litros,Punto|2014|1.4 litro Turbo
+2027-01-04,Corolla|2021|2.0 litros,Jetta|2021|2.0 litros,Stilo Abarth|2004|2.4 litros,Sonata|2012|2.4 litros
+2027-01-05,Trailblazer|2021|2.8 litros,Civic|2016|1.8 litro,Corolla Cross|2022|2.0 litros,Wrangler|2021|2.0 litros
+2027-01-06,Hilux|2019|2.8 litros turbodiesel,Montana|2024|1.2 litro turbo,Logan|2013|1.6 litro,Fusca TSI|2016|2.0 litros turbo
+2027-01-07,Civic|2016|1.8 litro,Tera|2026|1.0 litro Turbo,i30|2011|2.0 litros,Celta|2011|1.0 litro
+2027-01-08,HR-V|2023|1.5 litro,Astra|2010|2.0 litros,Freemont|2012|2.4 litros,Basalt|2025|1.0 litro Turbo
+2027-01-09,Argo|2019|1.0 litro,Stilo Abarth|2004|2.4 litros,Basalt|2025|1.0 litro Turbo,T-Cross|2020|1.0 litro turbo
+2027-01-10,Amarok|2022|3.0 litros,Gol|2003|1.0 litro,Pampa|1993|1.8 litro,Cruze|2021|1.4 litro
+2027-01-11,Nivus|2022|1.0 litro,Cobalt|2018|1.8 litro,Fusion|2015|2.0 litros,Uno|1995|1.4 litro turbo
+2027-01-12,Toro|2021|2.0 litro,Tempra Turbo|1995|2.0 litros Turbo,Frontier|2022|2.3 litros BiturboDiesel,Oroch|2023|1.3 litro
+2027-01-13,Palio|2012|1.0 litro,Omega|1996|4.1 litros,Marea Turbo|2004|2.0 litros Turbo,Corolla|2021|2.0 litros
+2027-01-14,Sandero RS|2019|2.0 litros,Twingo|1998|1.2 litro,Uno|1995|1.0 litro,Tigra|1998|1.6 litro
+2027-01-15,HB20|2016|1.0 litro,Oroch|2023|1.3 litro,Silverado|2024|5.3 litros,Kadett|1993|2.0 litros
+2027-01-16,Commander|2022|2.0 litros,Sandero RS|2019|2.0 litros,Trailblazer|2021|2.8 litros,Cronos|2018|1.3 litro
+2027-01-17,Renegade|2023|1.3 litro Turbo,Mobi|2021|1.0 litro,Sonic|2013|1.6 litro,Captur|2022|1.3 litro
+2027-01-18,Yaris|2021|1.5 litro,Yaris|2021|1.5 litro,Titano|2024|2.2 litros,Santa Fe|2015|3.3 litros
+2027-01-19,SW4|2023|2.8 litros TurboDiesel,Toro|2021|2.0 litro,208|2024|1.0 litro Turbo,Azera|2011|3.3 litros
+2027-01-20,Saveiro|2018|1.6 litro,Vectra|1998|2.0 litros,Camaro|2014|6.2 litros,Santana|1992|2.0 litros
+2027-01-21,Basalt|2025|1.0 litro Turbo,Maverick (Nova geração)|2022|2.0 litros Turbo,Creta|2022|2.0 litros,Quantum|1993|2.0 litros
+2027-01-22,2008|2019|1.6 litro,Compass|2018|2.0 litros turbodiesel,Bravo|2015|1.8 litro,Hilux|2019|2.8 litros turbodiesel
+2027-01-23,Tracker|2022|1.2 litro turbo,Azera|2011|3.3 litros,206|2004|1.6 litro,Toro|2021|2.0 litro
+2027-01-24,T-Cross|2020|1.0 litro turbo,Onix|2023|1.0 litro turbo,Fox|2016|1.6 litro,Fox|2016|1.6 litro
+2027-01-25,Corolla Cross|2022|2.0 litros,Zafira|2011|2.0 litros,Montana|2024|1.2 litro turbo,Meriva|2007|1.8 litro
+2027-01-26,Nivus|2022|1.0 litro,Agile|2013|1.4 litro,Livina|2013|1.8 litro,Bolt|2020|66kWh
+2027-01-27,Pulse|2022|1.0 litro,Palio|2012|1.0 litro,Azera|2011|3.3 litros,Marajó|1988|1.6 litro
+2027-01-28,Yaris|2021|1.5 litro,Caravan|1989|4.1 litros,Nivus|2022|1.0 litro,Mustang|2016|5.0 litros (V8)
+2027-01-29,Sandero RS|2019|2.0 litros,Frontier|2022|2.3 litros BiturboDiesel,Compass|2018|2.0 litros turbodiesel,New Fiesta|2014|1.6 litro
+2027-01-30,Jetta|2021|2.0 litros,Celta|2011|1.0 litro,Tucson|2012|2.0 litros,Ipanema|1994|1.8 litro
+2027-01-31,208|2024|1.0 litro Turbo,T-Cross|2020|1.0 litro turbo,HR-V|2023|1.5 litro,Veraneio|1991|4.1 litros
+2027-02-01,Creta|2022|2.0 litros,206|2004|1.6 litro,Parati|1991|1.8 litro,Série 3|2016|2.0 litros turbo
+2027-02-02,Amarok|2022|3.0 litros,Corolla Cross|2022|2.0 litros,Oroch|2023|1.3 litro,Suprema|1994|3.0 litros
+2027-02-03,Kardian|2024|1.0 litro,Kwid|2022|1.0 litro,Série 3|2016|2.0 litros turbo,CR-V|2011|2.0 litros
+2027-02-04,Frontier|2022|2.3 litros BiturboDiesel,SW4|2023|2.8 litros TurboDiesel,Duster|2023|1.3 litro,WRX|2016|2.0 litros
+2027-02-05,Argo|2019|1.0 litro,147|1979|1.05 litro,C4|2010|2.0 litros,Tempra Turbo|1995|2.0 litros Turbo
+2027-02-06,Corolla|2021|2.0 litros,HR-V|2023|1.5 litro,Captiva|2012|2.4 litros,Nivus|2022|1.0 litro
+2027-02-07,Onix|2023|1.0 litro turbo,Fluence|2014|2.0 litros,Golf Gti|2015|2.0 litros,Omega|1996|4.1 litros
+2027-02-08,Versa|2021|1.6 litro,Accord|2014|3.5 litros,Edge|2016|3.5 litros,911|2005|3.6 litros (boxer 6)
+2027-02-09,Polo|2020|1.0 litro,Fusion|2015|2.0 litros,Versailles|1993|2.0 litros,Prius|2018|1.8 litro
+2027-02-10,Mobi|2021|1.0 litro,Hilux|2019|2.8 litros turbodiesel,458 Italia|2011|4.5 litros (V8),Corsa|1995|1.6 litro
+2027-02-11,Strada|2022|1.3 litro,Etios|2019|1.5 litro,Mobi|2021|1.0 litro,Clio|2004|1.6 litro
+2027-02-12,Toro|2021|2.0 litro,Fit|2019|1.5 litro,Kombi|2014|1.4 litro,Compass|2018|2.0 litros turbodiesel
+2027-02-13,Compass|2018|2.0 litros turbodiesel,Equinox|2018|2.0 litros turbo,RAV4|2021|2.5 litros,HR-V|2023|1.5 litro
+2027-02-14,Palio|2012|1.0 litro,Xsara|2000|2.0 litros,Camry|2016|3.5 litros,Agile|2013|1.4 litro
+2027-02-15,City|2023|1.5 litro,Fiesta|2013|1.6 litro,Quantum|1993|2.0 litros,Monza|1990|2.0 litros
+2027-02-16,Tera|2026|1.0 litro Turbo,Tucson|2012|2.0 litros,Twingo|1998|1.2 litro,Scenic|2001|2.0 litros
+2027-02-17,HR-V|2023|1.5 litro,Bravo|2015|1.8 litro,Kicks|2018|1.6 litro,Corcel I|1974|1.4 litro
+2027-02-18,Civic|2016|1.8 litro,Bora|2008|2.0 litros,ZR-V|2024|2.0 litros,Vectra|1998|2.0 litros
+2027-02-19,Cronos|2018|1.3 litro,Gol GTi|1989|2.0 litros,Punto|2014|1.4 litro Turbo,F-1000|1990|3.9 litros
+2027-02-20,Fastback|2023|1.3 litro,Titano|2024|2.2 litros,Fusca TSI|2016|2.0 litros turbo,Ecosport|2019|2.0 litros
+2027-02-21,Virtus|2021|1.0 litro,Mustang|2016|5.0 litros (V8),Verona|1995|2.0 litros,Xsara|2000|2.0 litros
+2027-02-22,207|2011|1.6 litro,Passat|1978|1.6 litro,Maverick GT|1975|5.0 litros,3008|2021|1.6 litro
+2027-02-23,Equinox|2018|2.0 litros turbo,Corolla|2021|2.0 litros,Santa Fe|2015|3.3 litros,Uno|1995|1.0 litro
+2027-02-24,Commander|2022|2.0 litros,Basalt|2025|1.0 litro Turbo,Bronco|2022|2.0 litros Turbo,Caravan|1989|4.1 litros
+2027-02-25,Trailblazer|2021|2.8 litros,Chevette|1988|1.6 litros,Ix35|2017|2.0 litros,Landau|1980|5.0 litros
+2027-02-26,Kwid|2022|1.0 litro,Edge|2016|3.5 litros,CR-V|2011|2.0 litros,Willys|1972|2.6 litros
+2027-02-27,Hilux|2019|2.8 litros turbodiesel,Meriva|2007|1.8 litro,Tempra Turbo|1995|2.0 litros Turbo,Brasília|1980|1.6 litro
+2027-02-28,Duster|2023|1.3 litro,Tiguan|2019|2.0 litros,308|2015|1.6 litro Turbo,Sandero RS|2019|2.0 litros
+2027-03-01,HB20|2016|1.0 litro,Logan|2013|1.6 litro,Kadett|1993|2.0 litros,RAV4|2021|2.5 litros
+2027-03-02,Ranger|2024|3.0 litros Turbodiesel,Corsa|1995|1.6 litro,Clio|2004|1.6 litro,Up|2016|1.0 litro
+2027-03-03,Kicks|2018|1.6 litro,Elantra|2014|2.0 litros,Polo|2020|1.0 litro,Edge|2016|3.5 litros
+2027-03-04,Sentra|2023|2.0 litros,Scenic|2001|2.0 litros,Monza|1990|2.0 litros,D20|1994|4.0 litros
+2027-03-05,Renegade|2023|1.3 litro Turbo,Linea|2011|1.4 litro,Corolla|2021|2.0 litros,Classic|2014|1.0 litro
+2027-03-06,2008|2019|1.6 litro,207|2011|1.6 litro,Agile|2013|1.4 litro,Maverick GT|1975|5.0 litros
+2027-03-07,208|2024|1.0 litro Turbo,Kombi|2014|1.4 litro,Brasília|1980|1.6 litro,Captiva|2012|2.4 litros
+2027-03-08,Frontier|2022|2.3 litros BiturboDiesel,C4|2010|2.0 litros,Fiorino|2014|1.4 litro,Spin|2020|1.8 litro
+2027-03-09,Cronos|2018|1.3 litro,Doblò|2011|1.8 litro,Voyage|2011|1.6 litro,Leaf|2021|Elétrico
+2027-03-10,Ranger|2024|3.0 litros Turbodiesel,Focus|2016|2.0 litros,Caravan|1989|4.1 litros,Tipo|1995|2.0 litros
+2027-03-11,Renegade|2023|1.3 litro Turbo,Courier|2011|1.6 litro,Argo|2019|1.0 litro,Camaro|2014|6.2 litros
+2027-03-12,Fastback|2023|1.3 litro,Amarok|2022|3.0 litros,City|2023|1.5 litro,Fluence|2014|2.0 litros
+2027-03-13,Polo|2020|1.0 litro,Pulse|2022|1.0 litro,Equinox|2018|2.0 litros turbo,Tucson|2012|2.0 litros
+2027-03-14,Kwid|2022|1.0 litro,March|2016|1.6 litro,Renegade|2023|1.3 litro Turbo,Pampa|1993|1.8 litro
+2027-03-15,Equinox|2018|2.0 litros turbo,Fastback|2023|1.3 litro,911|2005|3.6 litros (boxer 6),SW4|2023|2.8 litros TurboDiesel
+2027-03-16,Commander|2022|2.0 litros,Maverick GT|1975|5.0 litros,Brava|2002|1.8 litro,Prisma|2017|1.4 litro
+2027-03-17,Basalt|2025|1.0 litro Turbo,Classic|2014|1.0 litro,Linea|2011|1.4 litro,Elantra|2014|2.0 litros
+2027-03-18,City|2023|1.5 litro,Voyage|2011|1.6 litro,Doblò|2011|1.8 litro,206|2004|1.6 litro
+2027-03-19,Toro|2021|2.0 litro,Kicks|2018|1.6 litro,Spin|2020|1.8 litro,Frontier|2022|2.3 litros BiturboDiesel
+2027-03-20,HB20|2016|1.0 litro,Sentra|2023|2.0 litros,Elantra|2014|2.0 litros,Etios|2019|1.5 litro
+2027-03-21,Pulse|2022|1.0 litro,3008|2021|1.6 litro,C3|2008|1.6 litro,Astra|2010|2.0 litros
+2027-03-22,T-Cross|2020|1.0 litro turbo,Cruze|2021|1.4 litro,Up|2016|1.0 litro,Strada|2022|1.3 litro
+2027-03-23,Hilux|2019|2.8 litros turbodiesel,City|2023|1.5 litro,Gol|2003|1.0 litro,Opala|1992|4.1 litros (L6)
+2027-03-24,Creta|2022|2.0 litros,Ka|2019|1.0 litro,F-1000|1990|3.9 litros,Silverado|2024|5.3 litros
+2027-03-25,Versa|2021|1.6 litro,408|2016|1.6 litro,Tipo|1995|2.0 litros,Civic|2016|1.8 litro
+2027-03-26,Nivus|2022|1.0 litro,Brava|2002|1.8 litro,Ecosport|2019|2.0 litros,Kombi|2014|1.4 litro
+2027-03-27,Sandero RS|2019|2.0 litros,Brasília|1980|1.6 litro,Meriva|2007|1.8 litro,Fusion|2015|2.0 litros
+2027-03-28,Yaris|2021|1.5 litro,Strada|2022|1.3 litro,3008|2021|1.6 litro,S10|2021|2.8 litros
+2027-03-29,Saveiro|2018|1.6 litro,Corolla|2021|2.0 litros,Sentra|2023|2.0 litros,Argo|2019|1.0 litro
+2027-03-30,HR-V|2023|1.5 litro,Oroch|2023|1.3 litro,Fiesta|2013|1.6 litro,Amarok|2022|3.0 litros
+2027-03-31,Civic|2016|1.8 litro,Ix35|2017|2.0 litros,Kwid|2022|1.0 litro,HB20|2016|1.0 litro
+2027-04-01,Sentra|2023|2.0 litros,i30|2011|2.0 litros,147|1979|1.05 litro,Fiesta|2013|1.6 litro
+2027-04-02,Onix|2023|1.0 litro turbo,Basalt|2025|1.0 litro Turbo,RCZ|2013|1.6 litro,408|2016|1.6 litro
+2027-04-03,Kicks|2018|1.6 litro,Classic|2014|1.0 litro,Versailles|1993|2.0 litros,Mobi|2021|1.0 litro
+2027-04-04,Virtus|2021|1.0 litro,Prius|2018|1.8 litro,Gol GTi|1989|2.0 litros,Accord|2014|3.5 litros
+2027-04-05,Jetta|2021|2.0 litros,Brasília|1980|1.6 litro,Argo|2019|1.0 litro,458 Italia|2011|4.5 litros (V8)
+2027-04-06,SW4|2023|2.8 litros TurboDiesel,Doblò|2011|1.8 litro,Duster|2023|1.3 litro,RCZ|2013|1.6 litro
+2027-04-07,Strada|2022|1.3 litro,Tracker|2022|1.2 litro turbo,Voyage|2011|1.6 litro,Bora|2008|2.0 litros
+2027-04-08,Argo|2019|1.0 litro,Opala|1992|4.1 litros (L6),Astra|2010|2.0 litros,Gol|2003|1.0 litro
+2027-04-09,Corolla|2021|2.0 litros,208|2024|1.0 litro Turbo,Spin|2020|1.8 litro,WR-V|2020|1.5 litro
+2027-04-10,207|2011|1.6 litro,3008|2021|1.6 litro,Scenic|2001|2.0 litros,Sentra|2023|2.0 litros
+2027-04-11,Trailblazer|2021|2.8 litros,Kardian|2024|1.0 litro,Corolla|2021|2.0 litros,Stilo Abarth|2004|2.4 litros
+2027-04-12,Compass|2018|2.0 litros turbodiesel,Up|2016|1.0 litro,Logan|2013|1.6 litro,147|1979|1.05 litro
+2027-04-13,Corolla Cross|2022|2.0 litros,Kicks|2018|1.6 litro,Ranger|2024|3.0 litros Turbodiesel,Escort|1994|2.0 litros
+2027-04-14,Duster|2023|1.3 litro,Escort|1994|2.0 litros,Quantum|1993|2.0 litros,Cobalt|2018|1.8 litro
+2027-04-15,Mobi|2021|1.0 litro,Camaro|2014|6.2 litros,Fusion|2015|2.0 litros,208|2024|1.0 litro Turbo
+2027-04-16,Kardian|2024|1.0 litro,Fiesta|2013|1.6 litro,Cruze|2021|1.4 litro,Corolla Cross|2022|2.0 litros
+2027-04-17,Palio|2012|1.0 litro,Kadett|1993|2.0 litros,Bravo|2015|1.8 litro,Duster|2023|1.3 litro
+2027-04-18,Amarok|2022|3.0 litros,Onix|2023|1.0 litro turbo,Versa|2021|1.6 litro,Bronco|2022|2.0 litros Turbo
+2027-04-19,Tracker|2022|1.2 litro turbo,Courier|2011|1.6 litro,Jetta|2021|2.0 litros,Livina|2013|1.8 litro
+2027-04-20,Tera|2026|1.0 litro Turbo,Xsara|2000|2.0 litros,Up|2016|1.0 litro,Verona|1995|2.0 litros
+2027-04-21,Civic|2016|1.8 litro,Voyage|2011|1.6 litro,Taos|2022|1.4 litro,Brava|2002|1.8 litro
+2027-04-22,Yaris|2021|1.5 litro,Stilo Abarth|2004|2.4 litros,Saveiro|2018|1.6 litro,Fastback|2023|1.3 litro
+2027-04-23,Pulse|2022|1.0 litro,Ranger|2024|3.0 litros Turbodiesel,March|2016|1.6 litro,Titano|2024|2.2 litros
+2027-04-24,Amarok|2022|3.0 litros,Etios|2019|1.5 litro,S10|2021|2.8 litros,Scenic|2001|2.0 litros
+2027-04-25,Corolla|2021|2.0 litros,F-1000|1990|3.9 litros,RCZ|2013|1.6 litro,Equinox|2018|2.0 litros turbo
+2027-04-26,Cronos|2018|1.3 litro,Celta|2011|1.0 litro,Livina|2013|1.8 litro,Livina|2013|1.8 litro
+2027-04-27,Corolla Cross|2022|2.0 litros,Fastback|2023|1.3 litro,Virtus|2021|1.0 litro,WRX|2016|2.0 litros
+2027-04-28,Onix|2023|1.0 litro turbo,Passat|1978|1.6 litro,Fusca|1994|1.6 litro,Palio|2012|1.0 litro
+2027-04-29,Kwid|2022|1.0 litro,Toro|2021|2.0 litro,Monza|1990|2.0 litros,Kwid|2022|1.0 litro
+2027-04-30,208|2024|1.0 litro Turbo,Logan|2013|1.6 litro,Pampa|1993|1.8 litro,Ix35|2017|2.0 litros
+2027-05-01,Argo|2019|1.0 litro,Frontier|2022|2.3 litros BiturboDiesel,Kicks|2018|1.6 litro,Sonata|2012|2.4 litros
+2027-05-02,Nivus|2022|1.0 litro,Sonic|2013|1.6 litro,Prius|2018|1.8 litro,Kadett|1993|2.0 litros
+2027-05-03,Polo|2020|1.0 litro,Freemont|2012|2.4 litros,Brasília|1980|1.6 litro,i30|2011|2.0 litros
+2027-05-04,Tera|2026|1.0 litro Turbo,Yaris|2021|1.5 litro,Santa Fe|2015|3.3 litros,Fusca|1994|1.6 litro
+2027-05-05,Jetta|2021|2.0 litros,Focus|2016|2.0 litros,Camry|2016|3.5 litros,308|2015|1.6 litro Turbo
+2027-05-06,Virtus|2021|1.0 litro,Ecosport|2019|2.0 litros,Corolla Cross|2022|2.0 litros,Civic|2016|1.8 litro
+2027-05-07,Creta|2022|2.0 litros,Gol GTi|1989|2.0 litros,Kardian|2024|1.0 litro,Sandero RS|2019|2.0 litros
+2027-05-08,Hilux|2019|2.8 litros turbodiesel,Azera|2011|3.3 litros,i30|2011|2.0 litros,Veloster|2013|1.6 litro
+2027-05-09,Fastback|2023|1.3 litro,March|2016|1.6 litro,Série 3|2016|2.0 litros turbo,Brava|2002|1.8 litro
+2027-05-10,Equinox|2018|2.0 litros turbo,Montana|2024|1.2 litro turbo,Omega|1996|4.1 litros,March|2016|1.6 litro
+2027-05-11,Trailblazer|2021|2.8 litros,Santana|1992|2.0 litros,Corcel II|1982|1.6 litro,Meriva|2007|1.8 litro
+2027-05-12,Compass|2018|2.0 litros turbodiesel,Livina|2013|1.8 litro,Mobi|2021|1.0 litro,Edge|2016|3.5 litros
+2027-05-13,Duster|2023|1.3 litro,Maverick GT|1975|5.0 litros,Cronos|2018|1.3 litro,Marea Turbo|2004|2.0 litros Turbo
+2027-05-14,Sentra|2023|2.0 litros,Spin|2020|1.8 litro,Tracker|2022|1.2 litro turbo,Santa Fe|2015|3.3 litros
+2027-05-15,207|2011|1.6 litro,WR-V|2020|1.5 litro,Sonic|2013|1.6 litro,Omega|1996|4.1 litros
+2027-05-16,Commander|2022|2.0 litros,Veloster|2013|1.6 litro,Grand Siena|2013|1.4 litro,Tracker|2022|1.2 litro turbo
+2027-05-17,Renegade|2023|1.3 litro Turbo,Fusca|1994|1.6 litro,3008|2021|1.6 litro,Toro|2021|2.0 litro
+2027-05-18,Strada|2022|1.3 litro,Tiida|2012|1.8 litro,Corsa|1995|1.6 litro,Azera|2011|3.3 litros
+2027-05-19,T-Cross|2020|1.0 litro turbo,Sonata|2012|2.4 litros,Accord Híbrido|2024|2.0 litros,Basalt|2025|1.0 litro Turbo
+2027-05-20,Saveiro|2018|1.6 litro,Punto|2014|1.4 litro Turbo,Marea Turbo|2004|2.0 litros Turbo,Maverick GT|1975|5.0 litros
+2027-05-21,HB20|2016|1.0 litro,Corsa|1995|1.6 litro,Cobalt|2018|1.8 litro,RAV4|2021|2.5 litros
+2027-05-22,City|2023|1.5 litro,Parati|1991|1.8 litro,Parati|1991|1.8 litro,Commander|2022|2.0 litros
+2027-05-23,Toro|2021|2.0 litro,Creta|2022|2.0 litros,Xsara|2000|2.0 litros,Chevy 500|1991|1.6 litro
+2027-05-24,Frontier|2022|2.3 litros BiturboDiesel,Saveiro|2018|1.6 litro,500|2012|1.4 litro,Leaf|2021|Elétrico
+2027-05-25,Versa|2021|1.6 litro,CR-V|2011|2.0 litros,Verona|1995|2.0 litros,Montana|2024|1.2 litro turbo
+2027-05-26,Kicks|2018|1.6 litro,Fusion|2015|2.0 litros,Tera|2026|1.0 litro Turbo,Maverick (Nova geração)|2022|2.0 litros Turbo
+2027-05-27,Ranger|2024|3.0 litros Turbodiesel,City|2023|1.5 litro,147|1979|1.05 litro,Tiida|2012|1.8 litro
+2027-05-28,HR-V|2023|1.5 litro,207|2011|1.6 litro,Veloster|2013|1.6 litro,Territory|2024|1.5 litro Turbo
+2027-05-29,SW4|2023|2.8 litros TurboDiesel,Tera|2026|1.0 litro Turbo,Creta|2022|2.0 litros,207|2011|1.6 litro
+2027-05-30,Basalt|2025|1.0 litro Turbo,Agile|2013|1.4 litro,206|2004|1.6 litro,RCZ|2013|1.6 litro
+2027-05-31,Tracker|2022|1.2 litro turbo,Kwid|2022|1.0 litro,Silverado|2024|5.3 litros,Quantum|1993|2.0 litros
+2027-06-01,Mobi|2021|1.0 litro,Duster|2023|1.3 litro,Corcel I|1974|1.4 litro,Etios|2019|1.5 litro
+2027-06-02,2008|2019|1.6 litro,Twingo|1998|1.2 litro,Tipo|1995|2.0 litros,ZR-V|2024|2.0 litros
+2027-06-03,Palio|2012|1.0 litro,Accord|2014|3.5 litros,Compass|2018|2.0 litros turbodiesel,F-1000|1990|3.9 litros
+2027-06-04,Kardian|2024|1.0 litro,Zafira|2011|2.0 litros,F-1000|1990|3.9 litros,Linea|2011|1.4 litro
+2027-06-05,Sandero RS|2019|2.0 litros,Versa|2021|1.6 litro,Titano|2024|2.2 litros,Captur|2022|1.3 litro
+2027-06-06,Sentra|2023|2.0 litros,Fluence|2014|2.0 litros,Uno|1995|1.4 litro turbo,Xsara|2000|2.0 litros
+2027-06-07,SW4|2023|2.8 litros TurboDiesel,147|1979|1.05 litro,Oroch|2023|1.3 litro,Escort|1994|2.0 litros
+2027-06-08,Yaris|2021|1.5 litro,Cobalt|2018|1.8 litro,Santana|1992|2.0 litros,Argo|2019|1.0 litro
+2027-06-09,Toro|2021|2.0 litro,Argo|2019|1.0 litro,Vectra|1998|2.0 litros,208|2024|1.0 litro Turbo
+2027-06-10,Strada|2022|1.3 litro,Fit|2019|1.5 litro,RAV4|2021|2.5 litros,Elantra|2014|2.0 litros
+2027-06-11,Fastback|2023|1.3 litro,D20|1994|4.0 litros,Sonata|2012|2.4 litros,Tera|2026|1.0 litro Turbo
+2027-06-12,Tracker|2022|1.2 litro turbo,Cronos|2018|1.3 litro,City|2023|1.5 litro,S10|2021|2.8 litros
+2027-06-13,Polo|2020|1.0 litro,Monza|1990|2.0 litros,Uno|1995|1.0 litro,Passat|1978|1.6 litro
+2027-06-14,Kwid|2022|1.0 litro,Scenic|2001|2.0 litros,Doblò|2011|1.8 litro,Corolla Fielder|2007|1.8 litro
+2027-06-15,Cronos|2018|1.3 litro,Bora|2008|2.0 litros,Captiva|2012|2.4 litros,Malibu|2011|2.4 litros
+2027-06-16,HR-V|2023|1.5 litro,Kombi|2014|1.4 litro,Civic|2016|1.8 litro,Pampa|1993|1.8 litro
+2027-06-17,Hilux|2019|2.8 litros turbodiesel,Bronco|2022|2.0 litros Turbo,Gol|2003|1.0 litro,Taos|2022|1.4 litro
+2027-06-18,Kicks|2018|1.6 litro,Palio|2012|1.0 litro,Fiorino|2014|1.4 litro,458 Italia|2011|4.5 litros (V8)
+2027-06-19,207|2011|1.6 litro,Meriva|2007|1.8 litro,Trailblazer|2021|2.8 litros,Bravo|2015|1.8 litro
+2027-06-20,208|2024|1.0 litro Turbo,Vectra|1998|2.0 litros,Clio|2004|1.6 litro,Virtus|2021|1.0 litro
+2027-06-21,Palio|2012|1.0 litro,Civic|2016|1.8 litro,Freemont|2012|2.4 litros,Trailblazer|2021|2.8 litros
+2027-06-22,Argo|2019|1.0 litro,Tucson|2012|2.0 litros,Nivus|2022|1.0 litro,Fox|2016|1.6 litro
+2027-06-23,Civic|2016|1.8 litro,2008|2019|1.6 litro,2008|2019|1.6 litro,Kicks|2018|1.6 litro
+2027-06-24,Virtus|2021|1.0 litro,S10|2021|2.8 litros,SW4|2023|2.8 litros TurboDiesel,Hilux|2019|2.8 litros turbodiesel
+2027-06-25,Compass|2018|2.0 litros turbodiesel,Megane|2011|2.0 litros,Punto|2014|1.4 litro Turbo,Jetta|2021|2.0 litros
+2027-06-26,Frontier|2022|2.3 litros BiturboDiesel,Prisma|2017|1.4 litro,Golf Gti|2015|2.0 litros,Onix|2023|1.0 litro turbo
+2027-06-27,Jetta|2021|2.0 litros,Silverado|2024|5.3 litros,Basalt|2025|1.0 litro Turbo,Corolla Cross|2022|2.0 litros
+2027-06-28,City|2023|1.5 litro,ZR-V|2024|2.0 litros,Fluence|2014|2.0 litros,Mustang|2016|5.0 litros (V8)
+2027-06-29,Mobi|2021|1.0 litro,C3|2008|1.6 litro,Ix35|2017|2.0 litros,Golf Gti|2015|2.0 litros
+2027-06-30,Sandero RS|2019|2.0 litros,Uno|1995|1.0 litro,Ecosport|2019|2.0 litros,Renegade|2023|1.3 litro Turbo
+2027-07-01,T-Cross|2020|1.0 litro turbo,Territory|2024|1.5 litro Turbo,Opala|1992|4.1 litros (L6),Sonic|2013|1.6 litro
+2027-07-02,Onix|2023|1.0 litro turbo,Commander|2022|2.0 litros,WR-V|2020|1.5 litro,Stilo Abarth|2004|2.4 litros
+2027-07-03,Nivus|2022|1.0 litro,Taos|2022|1.4 litro,Yaris|2021|1.5 litro,Doblò|2011|1.8 litro
+2027-07-04,HB20|2016|1.0 litro,Trailblazer|2021|2.8 litros,Toro|2021|2.0 litro,Fluence|2014|2.0 litros
+2027-07-05,Trailblazer|2021|2.8 litros,SW4|2023|2.8 litros TurboDiesel,HR-V|2023|1.5 litro,Tipo|1995|2.0 litros
+2027-07-06,Corolla|2021|2.0 litros,Corolla Fielder|2007|1.8 litro,T-Cross|2020|1.0 litro turbo,Ka|2019|1.0 litro
+2027-07-07,Versa|2021|1.6 litro,Renegade|2023|1.3 litro Turbo,Commander|2022|2.0 litros,Silverado|2024|5.3 litros
+2027-07-08,Commander|2022|2.0 litros,Maverick (Nova geração)|2022|2.0 litros Turbo,Mustang|2016|5.0 litros (V8),Tempra Turbo|1995|2.0 litros Turbo
+2027-07-09,Equinox|2018|2.0 litros turbo,Astra|2010|2.0 litros,Tempra Turbo|1995|2.0 litros Turbo,Bronco|2022|2.0 litros Turbo
+2027-07-10,Ranger|2024|3.0 litros Turbodiesel,Corcel II|1982|1.6 litro,Maverick GT|1975|5.0 litros,Versa|2021|1.6 litro
+2027-07-11,Basalt|2025|1.0 litro Turbo,Sandero RS|2019|2.0 litros,Bora|2008|2.0 litros,C3|2008|1.6 litro
+2027-07-12,Saveiro|2018|1.6 litro,HB20|2016|1.0 litro,Brava|2002|1.8 litro,Parati|1991|1.8 litro
+2027-07-13,Kardian|2024|1.0 litro,Mobi|2021|1.0 litro,308|2015|1.6 litro Turbo,Wrangler|2021|2.0 litros
+2027-07-14,2008|2019|1.6 litro,Fusca TSI|2016|2.0 litros turbo,Captur|2022|1.3 litro,Focus|2016|2.0 litros
+2027-07-15,Duster|2023|1.3 litro,Jetta|2021|2.0 litros,Focus|2016|2.0 litros,Gol GTi|1989|2.0 litros
+2027-07-16,Renegade|2023|1.3 litro Turbo,Tipo|1995|2.0 litros,Tiida|2012|1.8 litro,Duster|2023|1.3 litro
+2027-07-17,Tera|2026|1.0 litro Turbo,T-Cross|2020|1.0 litro turbo,Passat|1978|1.6 litro,Punto|2014|1.4 litro Turbo
+2027-07-18,Amarok|2022|3.0 litros,Amarok|2022|3.0 litros,Caravan|1989|4.1 litros,Fiesta|2013|1.6 litro
+2027-07-19,Corolla Cross|2022|2.0 litros,Fiorino|2014|1.4 litro,Onix|2023|1.0 litro turbo,Creta|2022|2.0 litros
+2027-07-20,Creta|2022|2.0 litros,Titano|2024|2.2 litros,Celta|2011|1.0 litro,Camry|2016|3.5 litros
+2027-07-21,Pulse|2022|1.0 litro,500|2012|1.4 litro,Hilux|2019|2.8 litros turbodiesel,Fusca TSI|2016|2.0 litros turbo
+2027-07-22,Yaris|2021|1.5 litro,Pampa|1993|1.8 litro,Escort|1994|2.0 litros,Twingo|1998|1.2 litro
+2027-07-23,Strada|2022|1.3 litro,Tempra Turbo|1995|2.0 litros Turbo,Ka|2019|1.0 litro,Corsa|1995|1.6 litro
+2027-07-24,City|2023|1.5 litro,Versailles|1993|2.0 litros,Fit|2019|1.5 litro,Voyage|2011|1.6 litro
+2027-07-25,Basalt|2025|1.0 litro Turbo,HR-V|2023|1.5 litro,Elantra|2014|2.0 litros,3008|2021|1.6 litro
+2027-07-26,Amarok|2022|3.0 litros,Tiguan|2019|2.0 litros,Twingo|1998|1.2 litro,SW4|2023|2.8 litros TurboDiesel
+2027-07-27,Trailblazer|2021|2.8 litros,Accord Híbrido|2024|2.0 litros,Etios|2019|1.5 litro,Prius|2018|1.8 litro
+2027-07-28,Commander|2022|2.0 litros,Clio|2004|1.6 litro,911|2005|3.6 litros (boxer 6),Corcel II|1982|1.6 litro
+2027-07-29,Kardian|2024|1.0 litro,Elantra|2014|2.0 litros,Territory|2024|1.5 litro Turbo,Oroch|2023|1.3 litro
+2027-07-30,Frontier|2022|2.3 litros BiturboDiesel,Fox|2016|1.6 litro,Fiesta|2013|1.6 litro,Fiorino|2014|1.4 litro
+2027-07-31,Sandero RS|2019|2.0 litros,Nivus|2022|1.0 litro,C4|2010|2.0 litros,Cronos|2018|1.3 litro
+2027-08-01,207|2011|1.6 litro,Sentra|2023|2.0 litros,Courier|2011|1.6 litro,Veraneio|1991|4.1 litros
+2027-08-02,Mobi|2021|1.0 litro,Omega|1996|4.1 litros,Corolla Fielder|2007|1.8 litro,Logan|2013|1.6 litro
+2027-08-03,Argo|2019|1.0 litro,New Fiesta|2014|1.6 litro,ZR-V|2024|2.0 litros,Freemont|2012|2.4 litros
+2027-08-04,Corolla Cross|2022|2.0 litros,Corcel I|1974|1.4 litro,Edge|2016|3.5 litros,Agile|2013|1.4 litro
+2027-08-05,Pulse|2022|1.0 litro,Mustang|2016|5.0 litros (V8),Chevette|1988|1.6 litros,Up|2016|1.0 litro
+2027-08-06,T-Cross|2020|1.0 litro turbo,C4|2010|2.0 litros,208|2024|1.0 litro Turbo,GTR|2017|3.8 litros
+2027-08-07,Onix|2023|1.0 litro turbo,Gol|2003|1.0 litro,Renegade|2023|1.3 litro Turbo,Willys|1972|2.6 litros
+2027-08-08,Versa|2021|1.6 litro,Brava|2002|1.8 litro,CR-V|2011|2.0 litros,500|2012|1.4 litro
+2027-08-09,2008|2019|1.6 litro,Chevette|1988|1.6 litros,Kwid|2022|1.0 litro,Grand Siena|2013|1.4 litro
+2027-08-10,Kwid|2022|1.0 litro,408|2016|1.6 litro,Accord|2014|3.5 litros,Landau|1980|5.0 litros
+2027-08-11,Hilux|2019|2.8 litros turbodiesel,Caravan|1989|4.1 litros,Sentra|2023|2.0 litros,New Fiesta|2014|1.6 litro
+2027-08-12,Equinox|2018|2.0 litros turbo,Captur|2022|1.3 litro,207|2011|1.6 litro,Série 3|2016|2.0 litros turbo
+2027-08-13,Polo|2020|1.0 litro,206|2004|1.6 litro,Prisma|2017|1.4 litro,Pulse|2022|1.0 litro
+2027-08-14,Cronos|2018|1.3 litro,Hilux|2019|2.8 litros turbodiesel,New Fiesta|2014|1.6 litro,HB20|2016|1.0 litro
+2027-08-15,Toro|2021|2.0 litro,Santa Fe|2015|3.3 litros,Tiguan|2019|2.0 litros,CR-V|2011|2.0 litros
+2027-08-16,Compass|2018|2.0 litros turbodiesel,Linea|2011|1.4 litro,Linea|2011|1.4 litro,HR-V|2023|1.5 litro
+2027-08-17,Creta|2022|2.0 litros,Pulse|2022|1.0 litro,Equinox|2018|2.0 litros turbo,Sentra|2023|2.0 litros
+2027-08-18,Nivus|2022|1.0 litro,Edge|2016|3.5 litros,Stilo Abarth|2004|2.4 litros,Chevette|1988|1.6 litros
+2027-08-19,Fastback|2023|1.3 litro,Polo|2020|1.0 litro,Frontier|2022|2.3 litros BiturboDiesel,Verona|1995|2.0 litros
+2027-08-20,Duster|2023|1.3 litro,Virtus|2021|1.0 litro,Meriva|2007|1.8 litro,Megane|2011|2.0 litros
+2027-08-21,Kicks|2018|1.6 litro,Verona|1995|2.0 litros,Camaro|2014|6.2 litros,Camaro|2014|6.2 litros
+2027-08-22,Tracker|2022|1.2 litro turbo,Cruze|2021|1.4 litro,Kadett|1993|2.0 litros,Santana|1992|2.0 litros
+2027-08-23,Virtus|2021|1.0 litro,Bravo|2015|1.8 litro,Fastback|2023|1.3 litro,Uno|1995|1.0 litro
+2027-08-24,Ranger|2024|3.0 litros Turbodiesel,Grand Siena|2013|1.4 litro,Fusca TSI|2016|2.0 litros turbo,Kardian|2024|1.0 litro
+2027-08-25,Tera|2026|1.0 litro Turbo,Quantum|1993|2.0 litros,Polo|2020|1.0 litro,Courier|2011|1.6 litro
+2027-08-26,Civic|2016|1.8 litro,Golf Gti|2015|2.0 litros,Kombi|2014|1.4 litro,Corcel I|1974|1.4 litro
+2027-08-27,208|2024|1.0 litro Turbo,Marea Turbo|2004|2.0 litros Turbo,Megane|2011|2.0 litros,Versailles|1993|2.0 litros
+2027-08-28,Jetta|2021|2.0 litros,Uno|1995|1.4 litro turbo,Palio|2012|1.0 litro,Tigra|1998|1.6 litro
+2027-08-29,Sentra|2023|2.0 litros,Captiva|2012|2.4 litros,Agile|2013|1.4 litro,Classic|2014|1.0 litro
+2027-08-30,SW4|2023|2.8 litros TurboDiesel,Compass|2018|2.0 litros turbodiesel,Amarok|2022|3.0 litros,2008|2019|1.6 litro
+2027-08-31,Renegade|2023|1.3 litro Turbo,Corolla Cross|2022|2.0 litros,408|2016|1.6 litro,Saveiro|2018|1.6 litro
+2027-09-01,HR-V|2023|1.5 litro,308|2015|1.6 litro Turbo,D20|1994|4.0 litros,Corsa Wagon|2000|1.6 litro
+2027-09-02,Palio|2012|1.0 litro,Equinox|2018|2.0 litros turbo,Tucson|2012|2.0 litros,Mobi|2021|1.0 litro
+2027-09-03,HB20|2016|1.0 litro,Ka|2019|1.0 litro,458 Italia|2011|4.5 litros (V8),Bora|2008|2.0 litros
+2027-09-04,Corolla|2021|2.0 litros,Pampa|1993|1.8 litro,Fox|2016|1.6 litro,Astra|2010|2.0 litros
+2027-09-05,Saveiro|2018|1.6 litro,Maverick (Nova geração)|2022|2.0 litros Turbo,Bronco|2022|2.0 litros Turbo,Kombi|2014|1.4 litro
+2027-09-06,Basalt|2025|1.0 litro Turbo,Amarok|2022|3.0 litros,Zafira|2011|2.0 litros,Yaris|2021|1.5 litro
+2027-09-07,Virtus|2021|1.0 litro,Gol|2003|1.0 litro,C3|2008|1.6 litro,D20|1994|4.0 litros
+2027-09-08,Equinox|2018|2.0 litros turbo,Cobalt|2018|1.8 litro,Azera|2011|3.3 litros,Fastback|2023|1.3 litro
+2027-09-09,Corolla|2021|2.0 litros,Oroch|2023|1.3 litro,Sandero RS|2019|2.0 litros,Amarok|2022|3.0 litros
+2027-09-10,Sentra|2023|2.0 litros,Tera|2026|1.0 litro Turbo,Maverick (Nova geração)|2022|2.0 litros Turbo,Titano|2024|2.2 litros
+2027-09-11,Commander|2022|2.0 litros,Sandero RS|2019|2.0 litros,Classic|2014|1.0 litro,Suprema|1994|3.0 litros
+2027-09-12,Corolla Cross|2022|2.0 litros,HR-V|2023|1.5 litro,Strada|2022|1.3 litro,Clio|2004|1.6 litro
+2027-09-13,Toro|2021|2.0 litro,Tiguan|2019|2.0 litros,HB20|2016|1.0 litro,Celta|2011|1.0 litro
+2027-09-14,Onix|2023|1.0 litro turbo,Fox|2016|1.6 litro,Pulse|2022|1.0 litro,Bandeirante|1999|3.7 litros TurboDiesel
+2027-09-15,Hilux|2019|2.8 litros turbodiesel,Montana|2024|1.2 litro turbo,Montana|2024|1.2 litro turbo,Spin|2020|1.8 litro
+2027-09-16,Duster|2023|1.3 litro,Accord Híbrido|2024|2.0 litros,Maverick (Nova geração)|2022|2.0 litros Turbo,Strada|2022|1.3 litro
+2027-09-17,208|2024|1.0 litro Turbo,Quantum|1993|2.0 litros,Marea Turbo|2004|2.0 litros Turbo,Monza|1990|2.0 litros
+2027-09-18,Nivus|2022|1.0 litro,C3|2008|1.6 litro,Freemont|2012|2.4 litros,Ipanema|1994|1.8 litro
+2027-09-19,SW4|2023|2.8 litros TurboDiesel,Prius|2018|1.8 litro,Golf Gti|2015|2.0 litros,Opala|1992|4.1 litros (L6)
+2027-09-20,Ranger|2024|3.0 litros Turbodiesel,D20|1994|4.0 litros,Up|2016|1.0 litro,City|2023|1.5 litro
+2027-09-21,Fastback|2023|1.3 litro,Megane|2011|2.0 litros,Versailles|1993|2.0 litros,147|1979|1.05 litro
+2027-09-22,Amarok|2022|3.0 litros,Jetta|2021|2.0 litros,Silverado|2024|5.3 litros,Bolt|2020|66kWh
+2027-09-23,Palio|2012|1.0 litro,Chevette|1988|1.6 litros,Tempra Turbo|1995|2.0 litros Turbo,408|2016|1.6 litro
+2027-09-24,HB20|2016|1.0 litro,Trailblazer|2021|2.8 litros,Fluence|2014|2.0 litros,C4|2010|2.0 litros
+2027-09-25,Saveiro|2018|1.6 litro,Elantra|2014|2.0 litros,147|1979|1.05 litro,Vera Cruz|2010|3.8 litros
+2027-09-26,Civic|2016|1.8 litro,Linea|2011|1.4 litro,Mobi|2021|1.0 litro,911|2005|3.6 litros (boxer 6)
+2027-09-27,Kwid|2022|1.0 litro,Stilo Abarth|2004|2.4 litros,D20|1994|4.0 litros,Cruze|2021|1.4 litro
+2027-09-28,Yaris|2021|1.5 litro,408|2016|1.6 litro,Corcel II|1982|1.6 litro,Ranger|2024|3.0 litros Turbodiesel
+2027-09-29,207|2011|1.6 litro,Kicks|2018|1.6 litro,Santana|1992|2.0 litros,Cobalt|2018|1.8 litro
+2027-09-30,Compass|2018|2.0 litros turbodiesel,Scenic|2001|2.0 litros,Virtus|2021|1.0 litro,Frontier|2022|2.3 litros BiturboDiesel
+2027-10-01,Cronos|2018|1.3 litro,Equinox|2018|2.0 litros turbo,Ix35|2017|2.0 litros,Fusion|2015|2.0 litros
+2027-10-02,Renegade|2023|1.3 litro Turbo,Fastback|2023|1.3 litro,Amarok|2022|3.0 litros,T-Cross|2020|1.0 litro turbo
+2027-10-03,Frontier|2022|2.3 litros BiturboDiesel,C4|2010|2.0 litros,208|2024|1.0 litro Turbo,206|2004|1.6 litro
+2027-10-04,Kicks|2018|1.6 litro,500|2012|1.4 litro,Yaris|2021|1.5 litro,Marajó|1988|1.6 litro
+2027-10-05,Kardian|2024|1.0 litro,New Fiesta|2014|1.6 litro,207|2011|1.6 litro,Compass|2018|2.0 litros turbodiesel
+2027-10-06,City|2023|1.5 litro,Compass|2018|2.0 litros turbodiesel,Verona|1995|2.0 litros,350Z|2005|3.5 litros
+2027-10-07,Mobi|2021|1.0 litro,HB20|2016|1.0 litro,Gol|2003|1.0 litro,Prisma|2017|1.4 litro
+2027-10-08,Argo|2019|1.0 litro,Nivus|2022|1.0 litro,Captur|2022|1.3 litro,Del Rey|1989|1.6 litro
+2027-10-09,Tera|2026|1.0 litro Turbo,Xsara|2000|2.0 litros,Scenic|2001|2.0 litros,Ecosport|2019|2.0 litros
+2027-10-10,Versa|2021|1.6 litro,Classic|2014|1.0 litro,Courier|2011|1.6 litro,Caravan|1989|4.1 litros
+2027-10-11,Polo|2020|1.0 litro,Sonata|2012|2.4 litros,Toro|2021|2.0 litro,Captiva|2012|2.4 litros
+2027-10-12,Jetta|2021|2.0 litros,WR-V|2020|1.5 litro,Chevette|1988|1.6 litros,Uno|1995|1.4 litro turbo
+2027-10-13,HR-V|2023|1.5 litro,Titano|2024|2.2 litros,Cronos|2018|1.3 litro,Fit|2019|1.5 litro
+2027-10-14,Pulse|2022|1.0 litro,Focus|2016|2.0 litros,Mustang|2016|5.0 litros (V8),Tiguan|2019|2.0 litros
+2027-10-15,Trailblazer|2021|2.8 litros,Duster|2023|1.3 litro,Jetta|2021|2.0 litros,Zafira|2011|2.0 litros
+2027-10-16,Sandero RS|2019|2.0 litros,Veloster|2013|1.6 litro,Série 3|2016|2.0 litros turbo,Gol|2003|1.0 litro
+2027-10-17,Creta|2022|2.0 litros,Corcel I|1974|1.4 litro,Veloster|2013|1.6 litro,Gladiator|2023|3.6 litros V6
+2027-10-18,Tracker|2022|1.2 litro turbo,Uno|1995|1.0 litro,ZR-V|2024|2.0 litros,Grand Cherokee|2015|3.6 litros V6

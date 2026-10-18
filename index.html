@@ -41,7 +41,7 @@ button:disabled{opacity:.5;cursor:default}
 #msg{margin-top:14px;min-height:1.4em;font-weight:600}
 .ok{color:var(--ok)}.bad{color:var(--ac)}
 .wrong{color:var(--mut);font-size:.9rem;margin-top:6px}
-.lvl{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0 4px}
+.lvl{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0 4px}
 .lvl button{padding:10px 4px;font-size:.9rem;background:var(--card);color:var(--tx);border:1px solid var(--bd)}
 .lvl button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
 input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
@@ -343,16 +343,21 @@ let CARS=[
 ["Xsara",2000,"R$ 35.000","Perua","EW10J4","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Citroen","BE4/5","Foi o primeiro veículo a sair da linha de montagem da Citroën em Porto Real em 2001. A família do pintor espanhol Pablo Picasso foi consultada e licenciou oficialmente os direitos de assinatura do artista para o emblema cursivo em relevo cromado aplicado nas portas dianteiras e bagageira.","",""]
 ];
 let START=4; let ROUNDS; // dicas visíveis no início: 4 no Fácil, 2 nos outros níveis (definido em setup)
-const cl=c=>(LEVEL===1?EASY_ORDER:DEF_ORDER).map(k=>[CL[k][0],CL[k][1](c)]).filter(x=>x[1]!==""&&x[1]!=null);
+const cl=c=>(LEVELS[LEVEL-1].easy?EASY_ORDER:DEF_ORDER).map(k=>[CL[k][0],CL[k][1](c)]).filter(x=>x[1]!==""&&x[1]!=null);
 const maxPts=c=>Math.max(1,cl(c).length+1-START);
 const totalMax=()=>deck.reduce((t,c)=>t+maxPts(c),0);
+// pool = nível dos carros na planilha (1 a 4) usado em cada dificuldade. Os 3 primeiros níveis usam os mesmos carros (e o mesmo carro do dia).
+// start = dicas abertas no início; opts = alternativas de múltipla escolha (0 = digitar o nome); easy = ordem de dicas sem códigos técnicos.
+// Para trocar os nomes dos níveis, edite o campo name abaixo.
 const LEVELS=[
- {n:1,name:"Fácil",desc:"Marcas mais populares em modelos atuais. A marca já aparece nas primeiras dicas e você escolhe entre 4 alternativas"},
- {n:2,name:"Médio",desc:"As mesmas marcas, incluindo modelos antigos e fora de linha"},
- {n:3,name:"Difícil",desc:"Soma as marcas de luxo (BMW, Mercedes, Audi, Porsche, Ferrari...)"},
- {n:4,name:"Expert",desc:"Todos os tipos de carros e marcas"}];
+ {n:1,name:"Muito fácil",pool:1,start:4,opts:4,easy:true,desc:"Marcas mais populares em modelos atuais. 4 dicas abertas no início (com a marca) e 4 alternativas para escolher"},
+ {n:2,name:"Fácil",pool:1,start:2,opts:6,easy:true,desc:"Os mesmos carros, mas só 2 dicas abertas no início e 6 alternativas para escolher"},
+ {n:3,name:"Médio fácil",pool:1,start:2,opts:0,easy:true,desc:"Os mesmos carros populares, mas agora você digita o nome, com só 2 dicas abertas no início"},
+ {n:4,name:"Médio",pool:2,start:2,opts:0,easy:false,desc:"As mesmas marcas, incluindo modelos antigos e fora de linha. Você digita o nome do carro"},
+ {n:5,name:"Difícil",pool:3,start:2,opts:0,easy:false,desc:"Soma as marcas de luxo (BMW, Mercedes, Audi, Porsche, Ferrari...)"},
+ {n:6,name:"Expert",pool:4,start:2,opts:0,easy:false,desc:"Todos os tipos de carros e marcas"}];
 let LEVEL=1;
-const pool=()=>{const p=CARS.filter(c=>c[9]<=LEVEL);return p.length?p:CARS};
+const pool=()=>{const p=CARS.filter(c=>c[9]<=LEVELS[LEVEL-1].pool);return p.length?p:CARS};
 const lvName=()=>LEVELS[LEVEL-1].name;
 const names=c=>c[0].split("|").map(x=>x.trim());
 const label=c=>names(c)[0];
@@ -367,8 +372,13 @@ const $=id=>document.getElementById(id);
 const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"");
 const show=(id,v)=>$(id).classList.toggle("hide",!v);
 // ---- Ofensivas e dias anteriores (ficam salvos no navegador de cada jogador) ----
-let S={days:{},back:{},st:{p:0,w:0,x:0},g:{},sh:{}};
-try{const t=localStorage.getItem("carrodle_v1");if(t){const o=JSON.parse(t);S={days:o.days||{},back:o.back||{},st:o.st||{p:0,w:0,x:0},g:o.g||{},sh:o.sh||{}}}}catch(e){}
+let S={days:{},back:{},st:{p:0,w:0,x:0},g:{},sh:{},v:3};
+try{const t=localStorage.getItem("carrodle_v1");if(t){const o=JSON.parse(t);S={days:o.days||{},back:o.back||{},st:o.st||{p:0,w:0,x:0},g:o.g||{},sh:o.sh||{}};
+ // Migração dos níveis salvos: a versão 1 tinha 4 níveis, a 2 tinha 5 e a atual (3) tem 6.
+ const mig=M=>{const nd={};for(const d in S.days){nd[d]={};for(const l in S.days[d])nd[d][M[l]||l]=S.days[d][l]}S.days=nd;
+  const rm=m=>{const nm={};for(const k of Object.keys(m)){const p=k.split("|");nm[p[0]+"|"+(M[p[1]]||p[1])]=m[k]}return nm};S.back=rm(S.back);S.sh=rm(S.sh)};
+ if(!o.v)mig({1:1,2:4,3:5,4:6});else if(o.v===2)mig({1:1,2:2,3:4,4:5,5:6});
+ S.v=3}}catch(e){}
 const saveS=()=>{try{localStorage.setItem("carrodle_v1",JSON.stringify(S))}catch(e){}};
 const doneToday=()=>(S.days[dkey(todayN())]||{})[LEVEL]; // resultado de hoje neste nível (W ou L), ou nada se ainda não jogou
 const dayN=d=>Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);
@@ -410,7 +420,7 @@ function openPast(){const t=todayN(),lv=String(LEVEL);let h="";
  $("pastList").innerHTML=h||'<div class="row"><span>Ainda não há dias anteriores. Volte amanhã!</span></div>';
  $("pastInfo").textContent=`Nível ${lvName()} (troque no menu). ✅ acertou · ❌ errou · ⚪ ainda não jogou. Cada dia só pode ser jogado uma vez e não conta para a ofensiva.`;
  show("menu",false);show("done",false);show("past",true)}
-function setup(){START=LEVEL===1?4:2;renderStats();const P=pool();ROUNDS=Math.min(8,P.length);
+function setup(){START=LEVELS[LEVEL-1].start;renderStats();const P=pool();ROUNDS=Math.min(8,P.length);
  $("lvl").innerHTML=LEVELS.map(l=>`<button data-n="${l.n}" class="${l.n===LEVEL?"on":""}">${l.name}</button>`).join("");
  $("lvInfo").textContent=`${LEVELS[LEVEL-1].desc} · ${P.length} carro${P.length>1?"s":""} neste nível`;
  $("cars").innerHTML=[...new Set(P.map(label))].sort((x,y)=>x.localeCompare(y,"pt")).map(n=>`<option value="${n}">`).join("");
@@ -424,7 +434,7 @@ let mode,deck,idx,car,shown,score,over,steps,hist,fails,dayNum,fromPast=false;
 const hh=s=>{let x=5381;for(const ch of s)x=((x*33)^ch.charCodeAt(0))>>>0;return x};
 let CAL={}; // calendário fixo (calendario.csv): data -> chave do carro de cada nível
 function dayCar(n){const P=pool(),e=CAL[dkey(n)];
- if(e&&e[LEVEL-1]){const c=P.find(c=>ckey(c)===e[LEVEL-1]);if(c)return c}
+ const pc=LEVELS[LEVEL-1].pool;if(e&&e[pc-1]){const c=P.find(c=>ckey(c)===e[pc-1]);if(c)return c}
  const p=[...P].sort((a,b)=>hh(a[0]+a[1])-hh(b[0]+b[1]));return p[((n%p.length)+p.length)%p.length]}
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 
@@ -440,10 +450,10 @@ function load(){car=deck[idx];shown=START;over=false;steps="";fails=0;
  buildOpts();
  ["next","share","shareImg","report","toPast","back"].forEach(i=>show(i,false));show("ta",false);$("fact").innerHTML="";show("fact",false);$("photo").innerHTML="";render()}
 // Fácil: em vez de digitar, o jogador escolhe entre 4 alternativas (a certa e 3 do mesmo estilo de carroceria, quando possível)
-function buildOpts(){const mc=LEVEL===1;show("opts",mc);show("inrow",!mc);if(!mc){$("opts").innerHTML="";return}
+function buildOpts(){const N=LEVELS[LEVEL-1].opts,mc=N>0;show("opts",mc);show("inrow",!mc);if(!mc){$("opts").innerHTML="";return}
  const me=label(car),seen=new Set([me]),same=[],other=[];
  for(const c of shuffle(pool())){const l=label(c);if(seen.has(l))continue;seen.add(l);(c[3]===car[3]?same:other).push(l)}
- $("opts").innerHTML=shuffle([me,...[...same,...other].slice(0,3)]).map(l=>`<button class="sec" data-v="${esc(l)}">${esc(l)}</button>`).join("")}
+ $("opts").innerHTML=shuffle([me,...[...same,...other].slice(0,N-1)]).map(l=>`<button class="sec" data-v="${esc(l)}">${esc(l)}</button>`).join("")}
 function render(){const L=cl(car);$("clues").innerHTML=L.map((x,i)=>`<div class="row"><span>${x[0]}</span>${i<shown||over?`<b>${x[1]}</b>`:`<span class="hid">••••••</span>`}</div>`).join("");
  $("hint").disabled=over||shown>=L.length}
 function revealExtras(){const f=car[12];$("fact").innerHTML=f?`💡 <b>Curiosidade:</b> ${esc(f)}`:"";show("fact",!!f);

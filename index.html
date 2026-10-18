@@ -4,6 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Carrodle</title>
+<meta name="description" content="Carrodle: descubra o carro com poucas dicas. Tem carro do dia, níveis de dificuldade e ofensivas.">
+<meta name="theme-color" content="#d62828">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Carrodle 🏎️ Que carro sou eu?">
+<meta property="og:description" content="Descubra o carro com poucas dicas: ano, valor médio, motor, câmbio e mais. Tem carro do dia e ofensivas!">
+<!-- TROQUE SEU-SITE.netlify.app pelo endereço real do seu site nas duas linhas abaixo -->
+<meta property="og:image" content="https://SEU-SITE.netlify.app/og-image.png">
+<meta property="og:url" content="https://SEU-SITE.netlify.app/">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 :root{--bg:#f4f4f1;--card:#fff;--tx:#1b1b1b;--mut:#6b6b66;--ac:#d62828;--ok:#2a9d4f;--bd:#e0e0da;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141414;--card:#1f1f1f;--tx:#f0f0ec;--mut:#9a9a94;--ac:#ff5a5a;--ok:#4cc27a;--bd:#333}}
@@ -43,6 +52,16 @@ input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
 .foot a{color:inherit;text-decoration:underline}
 .pl{padding:6px 12px;font-size:.85rem;margin-left:8px}
 .bk{padding:8px 12px;font-size:.9rem;margin-bottom:10px}
+.fact{margin-top:12px;padding:12px 14px;border-left:4px solid var(--ac);background:var(--card);border-radius:8px;font-size:.95rem;line-height:1.5}
+#photo img{width:100%;border-radius:12px;margin-top:12px;display:block}
+#photo small{color:var(--mut);font-size:.75rem;display:block;margin-top:4px}
+.gar{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.gar span{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:4px 10px;font-size:.85rem}
+.pix{margin-top:14px}
+.pix summary{cursor:pointer;list-style:none;color:var(--mut);opacity:.8}
+.pix summary::-webkit-details-marker{display:none}
+.pix p{margin:8px 0}
+.pix button{padding:6px 12px;font-size:.8rem}
 .hide{display:none!important}
 </style>
 </head>
@@ -60,6 +79,7 @@ input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
 <button class="big" id="mDaily">📅 Carro do dia<small>O mesmo desafio para todo mundo hoje. Jogue quando quiser, e depois jogue o modo completo também.</small></button>
 <button class="big sec" id="mPast">🗓️ Dias anteriores<small>Jogue os carros do dia que você perdeu</small></button>
 <button class="big" id="mAll">🏁 Todos os carros do nível<small id="mAllSub"></small></button>
+<button class="big sec" id="mMe">📊 Minhas estatísticas<small>Acertos, médias e a garagem de carros descobertos</small></button>
 <button class="big sec" id="mShare">📣 Divulgar o jogo<small>Convide amigos para jogar</small></button>
 </section>
 
@@ -68,6 +88,16 @@ input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
 <p class="sub" id="pastInfo"></p>
 <div class="card" id="pastList"></div>
 <div class="btns"><button class="sec" id="pastBack">Voltar ao menu</button></div>
+</section>
+
+<section id="me" class="hide">
+<h2 class="h2">📊 Minhas estatísticas</h2>
+<p class="sub">Dados salvos neste aparelho.</p>
+<div class="card" id="meList"></div>
+<h2 class="h2" style="margin-top:16px">🚗 Garagem</h2>
+<p class="sub">Carros que você já acertou.</p>
+<div class="gar" id="meGar"></div>
+<div class="btns"><button class="sec" id="meBack">Voltar ao menu</button></div>
 </section>
 
 <section id="game" class="hide">
@@ -82,171 +112,180 @@ input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
 <div class="btns"><button class="sec" id="hint">Mais uma dica (−1)</button><button class="sec" id="skip">Desistir</button></div>
 <div id="msg"></div>
 <div class="wrong" id="wr"></div>
+<div class="fact hide" id="fact"></div>
+<div id="photo"></div>
 <div class="btns" id="after">
 <button id="next" class="hide"></button>
 <button id="share" class="hide">📤 Compartilhar resultado</button>
+<button id="shareImg" class="hide">🖼️ Compartilhar imagem</button>
+<button id="report" class="sec hide">🐞 Reportar erro neste carro</button>
 <button id="back" class="sec hide">Voltar ao menu</button>
 </div>
 <textarea id="ta" class="hide" readonly></textarea>
 </section>
-<footer class="foot">Feito por <a href="https://www.instagram.com/rsdaniells" target="_blank" rel="noopener noreferrer">Daniel Reis</a> com Claude</footer>
+<footer class="foot">Valores médios de referência (base: Tabela FIPE, ref. out/2026) e podem variar.<br>Feito por <a href="https://www.instagram.com/rsdaniells" target="_blank" rel="noopener noreferrer">Daniel Reis</a> com Claude
+<details class="pix"><summary>☕ Apoie o projeto</summary>
+<p>O Carrodle é gratuito e feito por hobby. Se curtiu e quiser ajudar a mantê-lo, dá para contribuir por Pix (totalmente opcional 🙂).<br>Chave Pix (Copia e cola): <b id="pixKey"></b></p>
+<button class="sec" id="pixCopy">Copiar chave Pix</button>
+</details></footer>
 </main>
 <script>
 // Para adicionar carros: copie uma linha e edite. Ordem das dicas = ordem dos campos em LABELS.
 // Valores: preço médio de mercado (Tabela FIPE, ref. out/2026; BMW e Porsche: jul/2026 e out/2026 conforme a Fonte da planilha). Atualize à mão.
-// Campos: nome, ano, valor, estilo, código do motor, tamanho do motor, câmbio, tração, país, nível, marca, código do câmbio (opcional).
+// Campos: nome, ano, valor, estilo, código do motor, tamanho do motor, câmbio, tração, país, nível, marca, código do câmbio, curiosidade, foto (URL), crédito da foto. Os 4 últimos são opcionais.
 // Nome = só o nome do carro (sem marca e sem motor). Use | para aceitar outros jeitos de escrever (ex.: Gol GTi|Gol GTI). A marca também é aceita no chute (ex.: Volkswagen Gol GTi).
 // Último campo = nível (1 Fácil, 2 Médio, 3 Difícil, 4 Expert). O jogo usa os carros com nível menor ou igual ao nível escolhido.
-const LABELS=["Ano","Valor médio","Estilo","Tamanho do motor","Código do motor","Câmbio","Código do câmbio","Tração","País de origem","Marca"];
+const LABELS=["Ano","Valor médio (ref. out/2026)","Estilo","Tamanho do motor","Código do motor","Câmbio","Código do câmbio","Tração","País de origem","Marca"];
 // Posição de cada dica nos campos de cada carro (ordem das dicas = ordem desta lista). Dicas vazias são puladas.
 const ORDER=[1,2,3,5,4,6,11,7,8,10];
+const REPORT_URL="https://ig.me/m/rsdaniells"; // para onde vai o botão Reportar erro (mensagem direta no Instagram)
 let CARS=[
-["Série 3|Serie 3|320i",2016,"R$ 108.352","Sedã","N20B20","2.0 litros turbo","Automático 8 marchas","Traseira","Brasil",3,"BMW","ZF 8HP"],
-["Opala|Opala SS",1992,"R$ 38.980","Cupê","250-S","4.1 litros (L6)","Manual 4 marchas","Traseira","Brasil",2,"Chevrolet",""],
-["Onix",2023,"R$ 82.000","Hatch","Ecotec Turbo","1.0 litro turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Chevrolet","GM 6T30"],
-["Tracker",2022,"R$ 108.000","SUV","Ecotec Turbo","1.2 litro turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Chevrolet","GM 6T35"],
-["S10",2021,"R$ 195.000","Picape","Duramax","2.8 litros","Automático com conversor de torque","Traseira 4x4","Brasil",2,"Chevrolet","GM 6L50"],
-["Montana",2024,"R$ 125.000","Picape","Ecotec Turbo","1.2 litro turbo","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","GM 6T35"],
-["Spin",2020,"R$ 68.000","Minivan","Família 1","1.8 litro","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","GM 6T30"],
-["Celta",2011,"R$ 22.000","Hatch","Família 1","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15"],
-["Classic",2014,"R$ 27.000","Hatch","Família 1","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15"],
-["Corsa",1995,"R$ 12.000","Hatch","Família 1","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15"],
-["Astra",2010,"R$ 31.000","Hatch","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F23"],
-["Vectra",1998,"R$ 28.000","Sedã","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F18"],
-["Omega",1996,"R$ 45.000","Sedã","Chevrolet 250","4.1 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","Eaton Clark FSO-2405"],
-["Monza",1990,"R$ 24.000","Sedã","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F16"],
-["Kadett",1993,"R$ 11.000","Hatch","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F16"],
-["Meriva",2007,"R$ 26.000","Minivan","Família 1","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F17"],
-["Zafira",2011,"R$ 36.000","Minivan","Família 2","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","Aisin AW 50-40LE"],
-["D20",1994,"R$ 75.000","Picape","Maxion S4T","4.0 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","ZF S5-420"],
-["Chevette",1988,"R$ 18.000","Sedã","Isuzu/GM","1.6 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","Clark/Tremec T-50/ Isuzu"],
-["Camaro",2014,"R$ 180.000","Cupê","GM Small-Block L99","6.2 litros","Automático com conversor de torque","Traseira","Brasil",2,"Chevrolet","GM 6L80"],
-["Cobalt",2018,"R$ 52.000","Sedã","Família 1","1.8 litro","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","GM 6T30"],
-["Prisma",2017,"R$ 48.000","Sedã","Família 1","1.4 litro","Manual de 6 marchas","Dianteira","Brasil",2,"Chevrolet","GM F17-6"],
-["Agile",2013,"R$ 31.000","Hatch","Família 1","1.4 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15"],
-["Sonic",2013,"R$ 33.000","Hatch","Ecotec","1.6 litro","Automático com conversor de torque","Dianteira","México",2,"Chevrolet","GM 6T30"],
-["Equinox",2018,"R$ 105.000","SUV","Ecotec Turbo","2.0 litros turbo","Automático com conversor de torque","Integral sob demanda","México",1,"Chevrolet","GM 9T50"],
-["Captiva",2012,"R$ 38.000","SUV","Ecotec","2.4 litros","Automático com conversor de torque","Dianteira","México",2,"Chevrolet","GM 6T45"],
-["Trailblazer",2021,"R$ 215.000","SUV","Duramax","2.8 litros","Automático com conversor de torque","Traseira 4x4","Brasil",1,"Chevrolet","GM 6L50"],
-["Caravan",1989,"R$ 45.000","Perua","Chevrolet 250","4.1 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","Clark CL-2205"],
-["Corsa Wagon",2000,"R$ 17.000","Perua","Família 1","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",4,"Chevrolet","GM F15"],
-["Ipanema",1994,"R$ 15.000","Perua","Família 2","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",4,"Chevrolet","GM F16"],
-["Suprema",1994,"R$ 40.000","Perua","Opel C30NE","3.0 litros","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","ZF S5-18/3"],
-["Marajó",1988,"R$ 18.000","Perua","Isuzu/GM","1.6 litro","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","Clark/Tremec T-50/ Isuzu"],
-["Chevy 500",1991,"R$ 20.000","Picape","Isuzu/GM","1.6 litro","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","Clark/Tremec T-50/ Isuzu"],
-["Veraneio",1991,"R$ 60.000","Picape","Chevrolet 250","4.1 litros","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","Clark CL-2205"],
-["Silverado",2024,"R$ 380.000","Picape","Ecotec 3 V8","5.3 litros","Automático com conversor de torque","Integral sob demanda","México",2,"Chevrolet","GM 10L80"],
-["Malibu",2011,"R$ 42.000","Sedã","Ecotec","2.4 litros","Automático com conversor de torque","Dianteira","Estados Unidos",4,"Chevrolet","GM 6T40"],
-["Cruze",2021,"R$ 95.000","Sedã","Ecotec Turbo","1.4 litro","Automático com conversor de torque","Dianteira","Argentina",2,"Chevrolet","GM 6T35"],
-["Bolt",2020,"R$ 140.000","Hatch","Elétrico","66kWh","Automático","Dianteira","Estados Unidos",4,"Chevrolet","GM 1ET25"],
-["Tigra",1998,"R$ 28.000","Cupê","Ecotec Família 1","1.6 litro","Manual de 5 marchas","Dianteira","Alemanha",4,"Chevrolet","GM F15"],
-["458 Italia|458|Italia",2011,"R$ 2.342.925","Cupê","F136 FB","4.5 litros (V8)","Dupla embreagem 7 marchas","Traseira","Itália",3,"Ferrari","Getrag 7DCL750"],
-["500|Fiat 500",2012,"R$ 41.257","Hatch","Fire Evo","1.4 litro","Manual 5 marchas","Dianteira","México",2,"Fiat","C510"],
-["Argo|Argo Drive",2019,"R$ 49.998","Hatch","Firefly","1.0 litro","Manual 5 marchas","Dianteira","Brasil",1,"Fiat",""],
-["Bravo",2015,"R$ 39.747","Hatch","E.torQ","1.8 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat","C510"],
-["Cronos",2018,"R$ 48.015","Sedã","Firefly","1.3 litro","Manual 5 marchas","Dianteira","Argentina",1,"Fiat",""],
-["Doblò|Doblo",2011,"R$ 37.779","Minivan","Powertrain 1.8","1.8 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat",""],
-["Fiorino",2014,"R$ 48.796","Furgão","Fire Evo","1.4 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat",""],
-["Freemont",2012,"R$ 46.064","SUV","World Engine 2.4","2.4 litros","Automático 6 marchas","Dianteira","México",2,"Fiat",""],
-["Grand Siena",2013,"R$ 34.121","Sedã","Fire Evo","1.4 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat",""],
-["Linea",2011,"R$ 32.000","Sedã","T-jet","1.4 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C510"],
-["Marea Turbo",2004,"R$ 40.000","Sedã","Fivetech (182A1000)","2.0 litros Turbo","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C530"],
-["Palio",2012,"R$ 24.000","Hatch","Fire","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Fiat","C513"],
-["Punto",2014,"R$ 48.000","Hatch","T-jet","1.4 litro Turbo","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C510"],
-["Tempra Turbo",1995,"R$ 35.000","Sedã","Sevel ACT Turbo","2.0 litros Turbo","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C503"],
-["Uno|Uno Mille",1995,"R$ 8.931","Hatch","Fiasa 1.0","1.0 litro","Manual 4 marchas","Dianteira","Brasil",2,"Fiat",""],
-["Uno|Uno Turbo",1995,"R$ 28.562","Hatch","Fiasa 1.4 Turbo","1.4 litro turbo","Manual 5 marchas","Dianteira","Brasil",2,"Fiat",""],
-["Strada",2022,"R$ 72.000","Picape","Firefly (GSE N4)","1.3 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Fiat","C513"],
-["Toro",2021,"R$ 115.000","Picape","Multijet II","2.0 litro","Automático com conversor de torque","Integral sob demanda","Brasil",1,"Fiat","ZF-95P48"],
-["Titano",2024,"R$ 210.000","Picape","BlueHDI 2.2 (DW12)","2.2 litros","Automático com conversor de torque","Traseira com 4x4 temporário","Brasil",2,"Fiat","Aisin TL-80SC"],
-["Tipo",1995,"R$ 25.000","Hatch","Lampredi Twin Cam (836A3.000)","2.0 litros","Manual de 5 marchas","Dianteira","Itália",2,"Fiat","C503"],
-["Stilo Abarth",2004,"R$ 30.000","Hatch","Fivetech (192A2000)","2.4 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C530"],
-["Fastback",2023,"R$ 125.000","SUV","GSE T4/ T270","1.3 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Fiat","Aisin TF-72SC"],
-["Pulse",2022,"R$ 88.000","SUV","GSE T3/ T200","1.0 litro","CVT","Dianteira","Brasil",1,"Fiat","Aisin K312"],
-["Mobi",2021,"R$ 44.000","Hatch","Fire Evo","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Fiat","C513"],
-["147",1979,"R$ 18.000","Hatch","Fiasa 1050","1.05 litro","Manual de 4 marchas","Dianteira","Brasil",2,"Fiat","C501"],
-["Brava",2002,"R$ 18.000","Hatch","Pratola Serra","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C510"],
-["Mustang|Mustang GT",2016,"R$ 347.988","Cupê","Coyote","5.0 litros (V8)","Automático 6 marchas","Traseira","Estados Unidos",2,"Ford","6R80"],
-["Ka",2019,"R$ 44.000","Hatch","Ti-VCT","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MX65"],
-["New Fiesta",2014,"R$ 39.000","Hatch","Sigma Ti-VCT","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","IB5"],
-["Fiesta",2013,"R$ 27.000","Sedã","Zetec RoCam","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","IB5"],
-["Focus",2016,"R$ 58.000","Hatch","Duratec","2.0 litros","Automatizado","Dianteira","Argentina",2,"Ford","Powershift"],
-["Ecosport",2019,"R$ 68.000","SUV","Duratec","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Ford","6F35"],
-["Ranger",2024,"R$ 290.000","Picape","Lion V6","3.0 litros Turbodiesel","Automático com conversor de torque","Integral sob demanda","Argentina",1,"Ford","10R80"],
-["Maverick (Nova geração)",2022,"R$ 185.000","Picape","Ecoboost","2.0 litros Turbo","Automático com conversor de torque","Integral sob demanda","México",2,"Ford","8F35"],
-["Territory",2024,"R$ 190.000","SUV","Ecoboost","1.5 litro Turbo","Automatizado","Dianteira","Estados Unidos",2,"Ford","Magna 7DCT300"],
-["Bronco",2022,"R$ 210.000","SUV","Ecoboost","2.0 litros Turbo","Automático com conversor de torque","Integral","México",2,"Ford","SelectShift"],
-["Escort",1994,"R$ 40.000","Hatch","AP 2000i","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MQ200"],
-["Verona",1995,"R$ 18.000","Sedã","AP 2000i","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MQ200"],
-["Versailles",1993,"R$ 22.000","Sedã","AP 2000i","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MQ013"],
-["Corcel II",1982,"R$ 20.000","Cupê","CHT","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford",""],
-["Maverick GT",1975,"R$ 140.000","Cupê","Windsor 302 V8","5.0 litros","Manual de 4 marchas","Traseira","Brasil",2,"Ford","Clark 260F"],
-["F-1000",1990,"R$ 75.000","Picape","MWM D229-4","3.9 litros","Manual de 5 marchas","Traseira","Brasil",2,"Ford","Clark CL-2615"],
-["Courier",2011,"R$ 24.000","Picape","Zetec RoCam","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","IB5"],
-["Edge",2016,"R$ 95.000","SUV","Duratec 35","3.5 litros","Automático com conversor de torque","Integral sob demanda","Estados Unidos",2,"Ford","6F50"],
-["Landau",1980,"R$ 70.000","Sedã","Windsor 302 V8","5.0 litros","Automático de 3 marchas","Traseira","Brasil",4,"Ford","Cruise-O-Matic C4"],
-["Pampa",1993,"R$ 28.000","Picape","CHT","1.8 litro","Manual de 5 marchas","4X4","Brasil",2,"Ford",""],
-["Del Rey",1989,"R$ 22.000","Sedã","CHT","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",4,"Ford",""],
-["Corcel I",1974,"R$ 26.000","Cupê","Cléon-Fonte","1.4 litro","Manual de 4 marchas","Dianteira","Brasil",2,"Ford",""],
-["Fusion",2015,"R$ 68.000","Sedã","Ecoboost","2.0 litros","Automático com Conversor de Binário","Integral sob demanda","México",2,"Ford","6F35"],
-["Civic",2016,"R$ 71.305","Sedã","R18Z1","1.8 litro","Manual 5 marchas","Dianteira","Brasil",1,"Honda",""],
-["Fit",2019,"R$ 72.000","Hatch","L15A7","1.5 litro","CVT","Dianteira","Brasil",2,"Honda","M-CVT"],
-["City",2023,"R$ 115.000","Hatch","L15B","1.5 litro","CVT","Dianteira","Brasil",1,"Honda","M-CVT"],
-["HR-V",2023,"R$ 170.000","SUV","L15BG","1.5 litro","CVT","Dianteira","Brasil",1,"Honda","LL-CVT"],
-["WR-V",2020,"R$ 78.000","Hatch","i-VTEC FlexOne","1.5 litro","CVT","Dianteira","Brasil",2,"Honda","M-CVT"],
-["ZR-V",2024,"R$ 185.000","SUV","DOHC i-VTEC","2.0 litros","CVT","Dianteira","México",2,"Honda","LL-CVT"],
-["CR-V",2011,"R$ 50.000","SUV","SOHC i-VTEC","2.0 litros","Automático com Conversor de Binário","Integral","México",2,"Honda","MZHA"],
-["Accord",2014,"R$ 75.000","Sedã","J35Y V6 i-VTEC","3.5 litros","Automático com Conversor de Binário","Dianteira","Estados Unidos",2,"Honda","6AT"],
-["Accord Híbrido",2024,"R$ 310.000","Sedã","LFB2","2.0 litros","e-CVT","Dianteira","Estados Unidos",2,"Honda","e-CVT"],
-["HB20",2016,"R$ 47.405","Hatch","Kappa","1.0 litro","Manual 5 marchas","Dianteira","Brasil",1,"Hyundai",""],
-["Compass",2018,"R$ 92.271","SUV","Multijet II","2.0 litros turbodiesel","Automático 9 marchas","Integral (4x4)","Brasil",1,"Jeep","ZF 9HP"],
-["Renegade",2023,"R$ 108.000","SUV","GSE T4/ T270","1.3 litro Turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Jeep","Aisin TF-72SC"],
-["Commander",2022,"R$ 185.000","SUV","Multijet II TD380","2.0 litros","Automático com conversor de torque","Integral sob demanda","Brasil",1,"Jeep","ZF 9HP48"],
-["Wrangler",2021,"R$ 380.000","SUV","Hurricane 4","2.0 litros","Automático com conversor de torque","4x4","Estados Unidos",4,"Jeep","ZF 8HP75"],
-["Gladiator",2023,"R$ 410.000","Picape","Pentastar","3.6 litros V6","Automático com conversor de torque","4x4","Estados Unidos",4,"Jeep","ZF 8HP75"],
-["Grand Cherokee",2015,"R$ 95.000","SUV","Pentastar","3.6 litros V6","Automático com conversor de torque","Integral Permanente","Estados Unidos",4,"Jeep","ZF 8H970"],
-["Willys",1972,"R$ 45.000","Jipe","Hurricane","2.6 litros","Manual de 4 marchas","Traseira 4x4","Brasil",4,"Jeep","Tremec T-90"],
-["Kicks",2018,"R$ 73.192","SUV","HR16DE","1.6 litro","CVT","Dianteira","Brasil",1,"Nissan",""],
-["911|911 Targa",2005,"R$ 302.355","Cupê (Targa)","M96/01","3.6 litros (boxer 6)","Manual 6 marchas","Traseira","Alemanha",3,"Porsche",""],
-["WRX",2016,"R$ 140.000","Sedã","FA20F (FA20DIT)","2.0 litros","Manual de 6 marchas","Integral","Japão",4,"Subaru","TY751"],
-["Corolla",2021,"R$ 115.000","Sedã","M20A-FKB","2.0 litros","CVT","Dianteira","Brasil",1,"Toyota","Direct Shift-CVT (K120)"],
-["Corolla Cross",2022,"R$ 125.603","SUV","M20A-FKS","2.0 litros","CVT","Dianteira","Brasil",1,"Toyota",""],
-["Hilux|Hilux SRV",2019,"R$ 181.081","Picape","1GD-FTV","2.8 litros turbodiesel","Automático 6 marchas","Integral (4x4 selecionável)","Argentina",1,"Toyota",""],
-["Fusca",1994,"R$ 45.704","Sedã","Tipo 1 (boxer a ar)","1.6 litro","Manual 4 marchas","Traseira","Brasil",2,"Volkswagen",""],
-["Fusca TSI",2016,"R$ 132.195","Hatch","EA888","2.0 litros turbo","DSG 6 marchas (automatizado)","Dianteira","México",2,"Volkswagen","DQ250"],
-["Gol GTi",1989,"R$ 20.803","Hatch","AP 2000","2.0 litros","Manual 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
-["Golf Gti",2015,"R$ 130.000","Hatch","EA888","2.0 litros","Automatizado 6 marchas","Dianteira","Alemanha",2,"Volkswagen","DQ250 (02E)"],
-["T-Cross",2020,"R$ 87.793","SUV","EA211 TSI","1.0 litro turbo","Automático 6 marchas","Dianteira","Brasil",1,"Volkswagen",""],
-["Gol",2003,"R$ 16.000","Hatch","EA111","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
-["Polo",2020,"R$ 78.000","Hatch","EA211 TSI","1.0 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ250-6F"],
-["Santana",1992,"R$ 28.000","Sedã","AP-2000I","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
-["Jetta",2021,"R$ 180.000","Sedã","EA888","2.0 litros","Automatizado","Dianteira","Brasil",1,"Volkswagen","DQ381"],
-["Virtus",2021,"R$ 84.000","Sedã","EA211 TSI","1.0 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ250-6F"],
-["Voyage",2011,"R$ 30.000","Sedã","EA111","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","MQ200"],
-["Brasília",1980,"R$ 22.000","Hatch","Boxer","1.6 litro","Manual de 4 marchas","Traseira","Brasil",2,"Volkswagen",""],
-["Passat",1978,"R$ 45.000","Hatch","BS (EA827)","1.6 litro","Manual de 4 marchas","Dianteira","Brasil",2,"Volkswagen",""],
-["Parati",1991,"R$ 15.000","Perua","AP-1800S (EA827)","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
-["Quantum",1993,"R$ 26.000","Perua","AP-2000I","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen",""],
-["Saveiro",2018,"R$ 62.000","Picape","EA211 MSI","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Volkswagen","MQ200"],
-["Amarok",2022,"R$ 215.000","Picape","EA897","3.0 litros","Automático com conversor de torque","Integral Permanente","Argentina",1,"Volkswagen","ZF 8H5970"],
-["Nivus",2022,"R$ 105.000","SUV","EA211 TSI","1.0 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ250-6F"],
-["Taos",2022,"R$ 145.000","SUV","EA211 TSI","1.4 litro","Automático com conversor de torque","Dianteira","Argentina",2,"Volkswagen","Aisin AQ250-6F"],
-["Tiguan",2019,"R$ 155.000","SUV","EA888 TSI","2.0 litros","Automatizado","Integral sob demanda","México",2,"Volkswagen","DQ500"],
-["Up",2016,"R$ 48.000","Hatch","EA211 TSI","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","MQ200"],
-["Fox",2016,"R$ 46.000","Hatch","EA211 MSI","1.6 litro","Manual de 6 marchas","Dianteira","Brasil",2,"Volkswagen","MQ250"],
-["Kombi",2014,"R$ 110.000","Furgão","EA111","1.4 litro","Manual de 4 marchas","Traseira","Brasil",2,"Volkswagen",""],
-["Bora",2008,"R$ 28.000","Sedã","EA113","2.0 litros","Automático com conversor de torque","Dianteira","México",2,"Volkswagen","Aisin AQ250-6F"],
-["Tera",2026,"R$ 115.000","SUV","EA211","1.0 litro Turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ160-6F"],
-["Creta",2022,"R$ 130.000","SUV","Smartstream G2.0","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",1,"Hyundai","Mobis A6MF1"],
-["Tucson",2012,"R$ 38.000","SUV","Beta II","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Hyundai","F4A42"],
-["Ix35",2017,"R$ 75.000","SUV","G4NA","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Hyundai","Mobis A6MF1"],
-["Santa Fe",2015,"R$ 82.000","SUV","Lambda II","3.3 litros","Automático com conversor de torque","Integral sob demanda","Coreia do Sul",2,"Hyundai","Mobis A6MF1"],
-["Vera Cruz",2010,"R$ 44.000","SUV","Lambda (G6DA)","3.8 litros","Automático com conversor de torque","Integral sob demanda","Coreia do Sul",4,"Hyundai","Aisin TF-81SC"],
-["Elantra",2014,"R$ 55.000","Sedã","G4NA","2.0 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6GF1"],
-["i30",2011,"R$ 38.000","Hatch","Beta II","2.0 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","A4CF2"],
-["Azera",2011,"R$ 38.000","Sedã","Lambda V6","3.3 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6LF1"],
-["Sonata",2012,"R$ 58.000","Sedã","Theta II","2.4 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6MF2"],
-["Veloster",2013,"R$ 52.000","Hatch","Gamma","1.6 litro","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6GF1"]
+["Série 3|Serie 3|320i",2016,"R$ 108.352","Sedã","N20B20","2.0 litros turbo","Automático 8 marchas","Traseira","Brasil",3,"BMW","ZF 8HP","O Série 3 é o sedã esportivo mais famoso da BMW desde 1975 e foi produzido no Brasil, na fábrica de Araquari (SC).","",""],
+["Opala|Opala SS",1992,"R$ 38.980","Cupê","250-S","4.1 litros (L6)","Manual 4 marchas","Traseira","Brasil",2,"Chevrolet","","O Opala foi lançado em 1968 e ficou em produção por 24 anos, até 1992, um dos carros nacionais mais longevos.","",""],
+["Onix",2023,"R$ 82.000","Hatch","Ecotec Turbo","1.0 litro turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Chevrolet","GM 6T30","O Onix foi o carro mais vendido do Brasil por vários anos seguidos.","",""],
+["Tracker",2022,"R$ 108.000","SUV","Ecotec Turbo","1.2 litro turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Chevrolet","GM 6T35","","",""],
+["S10",2021,"R$ 195.000","Picape","Duramax","2.8 litros","Automático com conversor de torque","Traseira 4x4","Brasil",2,"Chevrolet","GM 6L50","A S10 chegou ao mercado brasileiro em 1995 e virou uma das picapes médias mais conhecidas do país.","",""],
+["Montana",2024,"R$ 125.000","Picape","Ecotec Turbo","1.2 litro turbo","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","GM 6T35","","",""],
+["Spin",2020,"R$ 68.000","Minivan","Família 1","1.8 litro","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","GM 6T30","A Spin é uma minivan de 7 lugares que a Chevrolet lançou no Brasil em 2012.","",""],
+["Celta",2011,"R$ 22.000","Hatch","Família 1","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15","O Celta foi lançado em 2000 e foi o primeiro carro produzido na fábrica da GM em Gravataí (RS).","",""],
+["Classic",2014,"R$ 27.000","Hatch","Família 1","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15","O Classic nasceu como uma versão do Corsa Sedan e foi vendido até 2016.","",""],
+["Corsa",1995,"R$ 12.000","Hatch","Família 1","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15","O Corsa chegou ao Brasil em 1994 e deu origem a outros modelos da GM, como o Celta e o Classic.","",""],
+["Astra",2010,"R$ 31.000","Hatch","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F23","O Astra foi fabricado no Brasil entre 1998 e 2011, em versões hatch e sedã.","",""],
+["Vectra",1998,"R$ 28.000","Sedã","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F18","O Vectra foi lançado no Brasil em 1993 e era uma das opções de sedã médio da época.","",""],
+["Omega",1996,"R$ 45.000","Sedã","Chevrolet 250","4.1 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","Eaton Clark FSO-2405","O Omega nacional foi lançado em 1992 e teve versões com motor de 6 cilindros.","",""],
+["Monza",1990,"R$ 24.000","Sedã","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F16","O Monza foi lançado em 1982 e foi um dos carros mais vendidos do Brasil nos anos 80.","",""],
+["Kadett",1993,"R$ 11.000","Hatch","Família 2","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F16","O Kadett foi lançado no Brasil em 1989, e a versão GSi virou sonho de consumo nos anos 90.","",""],
+["Meriva",2007,"R$ 26.000","Minivan","Família 1","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F17","A Meriva foi uma minivan compacta que a Chevrolet vendeu no Brasil entre 2002 e 2012.","",""],
+["Zafira",2011,"R$ 36.000","Minivan","Família 2","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","Aisin AW 50-40LE","A Zafira ficou conhecida pelo sistema Flex7, que permitia rebater e rearranjar os bancos.","",""],
+["D20",1994,"R$ 75.000","Picape","Maxion S4T","4.0 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","ZF S5-420","A D20 foi uma das picapes mais marcantes da Chevrolet no Brasil e ficou em linha de 1985 a 1996.","",""],
+["Chevette",1988,"R$ 18.000","Sedã","Isuzu/GM","1.6 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","Clark/Tremec T-50/ Isuzu","O Chevette foi produzido no Brasil de 1973 a 1993.","",""],
+["Camaro",2014,"R$ 180.000","Cupê","GM Small-Block L99","6.2 litros","Automático com conversor de torque","Traseira","Brasil",2,"Chevrolet","GM 6L80","O Camaro foi lançado nos Estados Unidos em 1966 como rival direto do Ford Mustang.","",""],
+["Cobalt",2018,"R$ 52.000","Sedã","Família 1","1.8 litro","Automático com conversor de torque","Dianteira","Brasil",2,"Chevrolet","GM 6T30","","",""],
+["Prisma",2017,"R$ 48.000","Sedã","Família 1","1.4 litro","Manual de 6 marchas","Dianteira","Brasil",2,"Chevrolet","GM F17-6","O Prisma foi o sedã compacto da Chevrolet por mais de uma década, primeiro sobre a base do Celta e depois do Onix.","",""],
+["Agile",2013,"R$ 31.000","Hatch","Família 1","1.4 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Chevrolet","GM F15","","",""],
+["Sonic",2013,"R$ 33.000","Hatch","Ecotec","1.6 litro","Automático com conversor de torque","Dianteira","México",2,"Chevrolet","GM 6T30","","",""],
+["Equinox",2018,"R$ 105.000","SUV","Ecotec Turbo","2.0 litros turbo","Automático com conversor de torque","Integral sob demanda","México",1,"Chevrolet","GM 9T50","","",""],
+["Captiva",2012,"R$ 38.000","SUV","Ecotec","2.4 litros","Automático com conversor de torque","Dianteira","México",2,"Chevrolet","GM 6T45","","",""],
+["Trailblazer",2021,"R$ 215.000","SUV","Duramax","2.8 litros","Automático com conversor de torque","Traseira 4x4","Brasil",1,"Chevrolet","GM 6L50","O Trailblazer é um SUV construído sobre a mesma base da picape S10.","",""],
+["Caravan",1989,"R$ 45.000","Perua","Chevrolet 250","4.1 litros","Manual de 5 marchas","Traseira","Brasil",2,"Chevrolet","Clark CL-2205","A Caravan é a perua do Opala e foi lançada em 1975.","",""],
+["Corsa Wagon",2000,"R$ 17.000","Perua","Família 1","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",4,"Chevrolet","GM F15","","",""],
+["Ipanema",1994,"R$ 15.000","Perua","Família 2","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",4,"Chevrolet","GM F16","A Ipanema foi a versão perua do Kadett.","",""],
+["Suprema",1994,"R$ 40.000","Perua","Opel C30NE","3.0 litros","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","ZF S5-18/3","A Suprema foi a versão perua do Omega.","",""],
+["Marajó",1988,"R$ 18.000","Perua","Isuzu/GM","1.6 litro","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","Clark/Tremec T-50/ Isuzu","A Marajó foi a versão perua do Chevette.","",""],
+["Chevy 500",1991,"R$ 20.000","Picape","Isuzu/GM","1.6 litro","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","Clark/Tremec T-50/ Isuzu","A Chevy 500 foi uma picape pequena derivada do Chevette.","",""],
+["Veraneio",1991,"R$ 60.000","Picape","Chevrolet 250","4.1 litros","Manual de 5 marchas","Traseira","Brasil",4,"Chevrolet","Clark CL-2205","A Veraneio foi uma das peruas grandes mais famosas do Brasil, usada por famílias, táxis e pela polícia.","",""],
+["Silverado",2024,"R$ 380.000","Picape","Ecotec 3 V8","5.3 litros","Automático com conversor de torque","Integral sob demanda","México",2,"Chevrolet","GM 10L80","","",""],
+["Malibu",2011,"R$ 42.000","Sedã","Ecotec","2.4 litros","Automático com conversor de torque","Dianteira","Estados Unidos",4,"Chevrolet","GM 6T40","","",""],
+["Cruze",2021,"R$ 95.000","Sedã","Ecotec Turbo","1.4 litro","Automático com conversor de torque","Dianteira","Argentina",2,"Chevrolet","GM 6T35","","",""],
+["Bolt",2020,"R$ 140.000","Hatch","Elétrico","66kWh","Automático","Dianteira","Estados Unidos",4,"Chevrolet","GM 1ET25","","",""],
+["Tigra",1998,"R$ 28.000","Cupê","Ecotec Família 1","1.6 litro","Manual de 5 marchas","Dianteira","Alemanha",4,"Chevrolet","GM F15","","",""],
+["458 Italia|458|Italia",2011,"R$ 2.342.925","Cupê","F136 FB","4.5 litros (V8)","Dupla embreagem 7 marchas","Traseira","Itália",3,"Ferrari","Getrag 7DCL750","O 458 Italia está entre os últimos V8 aspirados da Ferrari, e seu motor girava até cerca de 9.000 rpm.","",""],
+["500|Fiat 500",2012,"R$ 41.257","Hatch","Fire Evo","1.4 litro","Manual 5 marchas","Dianteira","México",2,"Fiat","C510","O Fiat 500 moderno foi lançado em 2007 como homenagem ao 500 original, de 1957.","",""],
+["Argo|Argo Drive",2019,"R$ 49.998","Hatch","Firefly","1.0 litro","Manual 5 marchas","Dianteira","Brasil",1,"Fiat","","O Argo substituiu o Palio na linha da Fiat, em 2017.","",""],
+["Bravo",2015,"R$ 39.747","Hatch","E.torQ","1.8 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat","C510","","",""],
+["Cronos",2018,"R$ 48.015","Sedã","Firefly","1.3 litro","Manual 5 marchas","Dianteira","Argentina",1,"Fiat","","O Cronos é produzido na Argentina.","",""],
+["Doblò|Doblo",2011,"R$ 37.779","Minivan","Powertrain 1.8","1.8 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat","","","",""],
+["Fiorino",2014,"R$ 48.796","Furgão","Fire Evo","1.4 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat","","A Fiorino está no mercado brasileiro desde 1980 e é referência em furgão leve.","",""],
+["Freemont",2012,"R$ 46.064","SUV","World Engine 2.4","2.4 litros","Automático 6 marchas","Dianteira","México",2,"Fiat","","O Freemont foi um SUV de 7 lugares da Fiat feito a partir do Dodge Journey.","",""],
+["Grand Siena",2013,"R$ 34.121","Sedã","Fire Evo","1.4 litro","Manual 5 marchas","Dianteira","Brasil",2,"Fiat","","","",""],
+["Linea",2011,"R$ 32.000","Sedã","T-jet","1.4 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C510","O Linea foi o sedã médio da Fiat, vendido no Brasil de 2008 a 2016.","",""],
+["Marea Turbo",2004,"R$ 40.000","Sedã","Fivetech (182A1000)","2.0 litros Turbo","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C530","O Marea Turbo usava um motor 2.0 20V turbo de cerca de 180 cv.","",""],
+["Palio",2012,"R$ 24.000","Hatch","Fire","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Fiat","C513","O Palio foi lançado em 1996 e se tornou um dos carros mais vendidos do Brasil.","",""],
+["Punto",2014,"R$ 48.000","Hatch","T-jet","1.4 litro Turbo","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C510","","",""],
+["Tempra Turbo",1995,"R$ 35.000","Sedã","Sevel ACT Turbo","2.0 litros Turbo","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C503","O Tempra Turbo foi um dos sedãs nacionais mais rápidos dos anos 90.","",""],
+["Uno|Uno Mille",1995,"R$ 8.931","Hatch","Fiasa 1.0","1.0 litro","Manual 4 marchas","Dianteira","Brasil",2,"Fiat","","O Uno Mille popularizou o carro 1.0 no Brasil nos anos 90.","",""],
+["Uno|Uno Turbo",1995,"R$ 28.562","Hatch","Fiasa 1.4 Turbo","1.4 litro turbo","Manual 5 marchas","Dianteira","Brasil",2,"Fiat","","O Uno Turbo foi lançado em 1994 e rendia cerca de 118 cv, muito para um carro compacto da época.","",""],
+["Strada",2022,"R$ 72.000","Picape","Firefly (GSE N4)","1.3 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Fiat","C513","A Strada é a picape compacta mais vendida do Brasil há anos.","",""],
+["Toro",2021,"R$ 115.000","Picape","Multijet II","2.0 litro","Automático com conversor de torque","Integral sob demanda","Brasil",1,"Fiat","ZF-95P48","A Toro, lançada em 2016, popularizou a picape média de carroceria monobloco no Brasil.","",""],
+["Titano",2024,"R$ 210.000","Picape","BlueHDI 2.2 (DW12)","2.2 litros","Automático com conversor de torque","Traseira com 4x4 temporário","Brasil",2,"Fiat","Aisin TL-80SC","","",""],
+["Tipo",1995,"R$ 25.000","Hatch","Lampredi Twin Cam (836A3.000)","2.0 litros","Manual de 5 marchas","Dianteira","Itália",2,"Fiat","C503","","",""],
+["Stilo Abarth",2004,"R$ 30.000","Hatch","Fivetech (192A2000)","2.4 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C530","","",""],
+["Fastback",2023,"R$ 125.000","SUV","GSE T4/ T270","1.3 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Fiat","Aisin TF-72SC","O Fastback é o SUV cupê da Fiat, lançado em 2023.","",""],
+["Pulse",2022,"R$ 88.000","SUV","GSE T3/ T200","1.0 litro","CVT","Dianteira","Brasil",1,"Fiat","Aisin K312","O Pulse foi lançado em 2021 e é o SUV compacto da Fiat.","",""],
+["Mobi",2021,"R$ 44.000","Hatch","Fire Evo","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Fiat","C513","O Mobi foi lançado em 2016 e é um dos carros mais baratos do país.","",""],
+["147",1979,"R$ 18.000","Hatch","Fiasa 1050","1.05 litro","Manual de 4 marchas","Dianteira","Brasil",2,"Fiat","C501","O Fiat 147, lançado em 1976, ficou famoso como o primeiro carro de série do mundo movido a álcool.","",""],
+["Brava",2002,"R$ 18.000","Hatch","Pratola Serra","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Fiat","C510","","",""],
+["Mustang|Mustang GT",2016,"R$ 347.988","Cupê","Coyote","5.0 litros (V8)","Automático 6 marchas","Traseira","Estados Unidos",2,"Ford","6R80","O Mustang nasceu em 1964 e criou a categoria dos pony cars.","",""],
+["Ka",2019,"R$ 44.000","Hatch","Ti-VCT","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MX65","A primeira geração do Ford Ka chegou ao Brasil em 1997.","",""],
+["New Fiesta",2014,"R$ 39.000","Hatch","Sigma Ti-VCT","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","IB5","","",""],
+["Fiesta",2013,"R$ 27.000","Sedã","Zetec RoCam","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","IB5","","",""],
+["Focus",2016,"R$ 58.000","Hatch","Duratec","2.0 litros","Automatizado","Dianteira","Argentina",2,"Ford","Powershift","","",""],
+["Ecosport",2019,"R$ 68.000","SUV","Duratec","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Ford","6F35","O EcoSport popularizou os SUVs compactos no Brasil a partir de 2003.","",""],
+["Ranger",2024,"R$ 290.000","Picape","Lion V6","3.0 litros Turbodiesel","Automático com conversor de torque","Integral sob demanda","Argentina",1,"Ford","10R80","A Ranger é produzida na Argentina e exportada para vários países.","",""],
+["Maverick (Nova geração)",2022,"R$ 185.000","Picape","Ecoboost","2.0 litros Turbo","Automático com conversor de torque","Integral sob demanda","México",2,"Ford","8F35","A nova Maverick é importada do México.","",""],
+["Territory",2024,"R$ 190.000","SUV","Ecoboost","1.5 litro Turbo","Automatizado","Dianteira","Estados Unidos",2,"Ford","Magna 7DCT300","","",""],
+["Bronco",2022,"R$ 210.000","SUV","Ecoboost","2.0 litros Turbo","Automático com conversor de torque","Integral","México",2,"Ford","SelectShift","","",""],
+["Escort",1994,"R$ 40.000","Hatch","AP 2000i","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MQ200","O Escort foi produzido no Brasil entre 1983 e 2003.","",""],
+["Verona",1995,"R$ 18.000","Sedã","AP 2000i","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MQ200","O Verona foi a versão sedã do Escort e saiu de linha em 1996.","",""],
+["Versailles",1993,"R$ 22.000","Sedã","AP 2000i","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","MQ013","O Versailles era a versão da Ford do Santana, fruto da parceria Autolatina entre Ford e Volkswagen.","",""],
+["Corcel II",1982,"R$ 20.000","Cupê","CHT","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","","O Corcel foi derivado do Renault 12 e marcou os anos 70 e 80 no Brasil.","",""],
+["Maverick GT",1975,"R$ 140.000","Cupê","Windsor 302 V8","5.0 litros","Manual de 4 marchas","Traseira","Brasil",2,"Ford","Clark 260F","A Maverick GT chegou em 1974 com o motor V8 302, um ícone dos muscle cars brasileiros.","",""],
+["F-1000",1990,"R$ 75.000","Picape","MWM D229-4","3.9 litros","Manual de 5 marchas","Traseira","Brasil",2,"Ford","Clark CL-2615","","",""],
+["Courier",2011,"R$ 24.000","Picape","Zetec RoCam","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Ford","IB5","","",""],
+["Edge",2016,"R$ 95.000","SUV","Duratec 35","3.5 litros","Automático com conversor de torque","Integral sob demanda","Estados Unidos",2,"Ford","6F50","","",""],
+["Landau",1980,"R$ 70.000","Sedã","Windsor 302 V8","5.0 litros","Automático de 3 marchas","Traseira","Brasil",4,"Ford","Cruise-O-Matic C4","O Landau foi o carro de luxo da Ford no Brasil e chegou a ter versões com motor V8.","",""],
+["Pampa",1993,"R$ 28.000","Picape","CHT","1.8 litro","Manual de 5 marchas","4X4","Brasil",2,"Ford","","A Pampa foi uma picape derivada do Corcel.","",""],
+["Del Rey",1989,"R$ 22.000","Sedã","CHT","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",4,"Ford","","O Del Rey foi um sedã da Ford construído sobre a base do Corcel.","",""],
+["Corcel I",1974,"R$ 26.000","Cupê","Cléon-Fonte","1.4 litro","Manual de 4 marchas","Dianteira","Brasil",2,"Ford","","O Corcel foi lançado em 1968 com base no Renault 12.","",""],
+["Fusion",2015,"R$ 68.000","Sedã","Ecoboost","2.0 litros","Automático com Conversor de Binário","Integral sob demanda","México",2,"Ford","6F35","","",""],
+["Civic",2016,"R$ 71.305","Sedã","R18Z1","1.8 litro","Manual 5 marchas","Dianteira","Brasil",1,"Honda","","O Civic é fabricado no Brasil, em Sumaré (SP), desde 1997.","",""],
+["Fit",2019,"R$ 72.000","Hatch","L15A7","1.5 litro","CVT","Dianteira","Brasil",2,"Honda","M-CVT","O Fit ficou conhecido pelo grande espaço interno e pelos bancos Magic Seat.","",""],
+["City",2023,"R$ 115.000","Hatch","L15B","1.5 litro","CVT","Dianteira","Brasil",1,"Honda","M-CVT","","",""],
+["HR-V",2023,"R$ 170.000","SUV","L15BG","1.5 litro","CVT","Dianteira","Brasil",1,"Honda","LL-CVT","","",""],
+["WR-V",2020,"R$ 78.000","Hatch","i-VTEC FlexOne","1.5 litro","CVT","Dianteira","Brasil",2,"Honda","M-CVT","","",""],
+["ZR-V",2024,"R$ 185.000","SUV","DOHC i-VTEC","2.0 litros","CVT","Dianteira","México",2,"Honda","LL-CVT","","",""],
+["CR-V",2011,"R$ 50.000","SUV","SOHC i-VTEC","2.0 litros","Automático com Conversor de Binário","Integral","México",2,"Honda","MZHA","","",""],
+["Accord",2014,"R$ 75.000","Sedã","J35Y V6 i-VTEC","3.5 litros","Automático com Conversor de Binário","Dianteira","Estados Unidos",2,"Honda","6AT","","",""],
+["Accord Híbrido",2024,"R$ 310.000","Sedã","LFB2","2.0 litros","e-CVT","Dianteira","Estados Unidos",2,"Honda","e-CVT","","",""],
+["HB20",2016,"R$ 47.405","Hatch","Kappa","1.0 litro","Manual 5 marchas","Dianteira","Brasil",1,"Hyundai","","O HB20 foi lançado em 2012 e é produzido em Piracicaba (SP).","",""],
+["Compass",2018,"R$ 92.271","SUV","Multijet II","2.0 litros turbodiesel","Automático 9 marchas","Integral (4x4)","Brasil",1,"Jeep","ZF 9HP","O Compass é fabricado em Goiana (PE).","",""],
+["Renegade",2023,"R$ 108.000","SUV","GSE T4/ T270","1.3 litro Turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Jeep","Aisin TF-72SC","O Renegade é o SUV compacto da Jeep fabricado em Goiana (PE).","",""],
+["Commander",2022,"R$ 185.000","SUV","Multijet II TD380","2.0 litros","Automático com conversor de torque","Integral sob demanda","Brasil",1,"Jeep","ZF 9HP48","","",""],
+["Wrangler",2021,"R$ 380.000","SUV","Hurricane 4","2.0 litros","Automático com conversor de torque","4x4","Estados Unidos",4,"Jeep","ZF 8HP75","O Wrangler descende do Willys MB, o jipe da Segunda Guerra Mundial.","",""],
+["Gladiator",2023,"R$ 410.000","Picape","Pentastar","3.6 litros V6","Automático com conversor de torque","4x4","Estados Unidos",4,"Jeep","ZF 8HP75","","",""],
+["Grand Cherokee",2015,"R$ 95.000","SUV","Pentastar","3.6 litros V6","Automático com conversor de torque","Integral Permanente","Estados Unidos",4,"Jeep","ZF 8H970","","",""],
+["Willys",1972,"R$ 45.000","Jipe","Hurricane","2.6 litros","Manual de 4 marchas","Traseira 4x4","Brasil",4,"Jeep","Tremec T-90","O Jeep brasileiro descende do Willys MB, o jipe da Segunda Guerra Mundial.","",""],
+["Kicks",2018,"R$ 73.192","SUV","HR16DE","1.6 litro","CVT","Dianteira","Brasil",1,"Nissan","","","",""],
+["911|911 Targa",2005,"R$ 302.355","Cupê (Targa)","M96/01","3.6 litros (boxer 6)","Manual 6 marchas","Traseira","Alemanha",3,"Porsche","","O 911 é fabricado desde 1963 e mantém o motor na traseira.","",""],
+["WRX",2016,"R$ 140.000","Sedã","FA20F (FA20DIT)","2.0 litros","Manual de 6 marchas","Integral","Japão",4,"Subaru","TY751","O WRX usa motor boxer e tração integral simétrica, marcas registradas da Subaru.","",""],
+["Corolla",2021,"R$ 115.000","Sedã","M20A-FKB","2.0 litros","CVT","Dianteira","Brasil",1,"Toyota","Direct Shift-CVT (K120)","O Corolla é um dos nomes de carro mais vendidos da história.","",""],
+["Corolla Cross",2022,"R$ 125.603","SUV","M20A-FKS","2.0 litros","CVT","Dianteira","Brasil",1,"Toyota","","O Corolla Cross é produzido em Sorocaba (SP).","",""],
+["Hilux|Hilux SRV",2019,"R$ 181.081","Picape","1GD-FTV","2.8 litros turbodiesel","Automático 6 marchas","Integral (4x4 selecionável)","Argentina",1,"Toyota","","","",""],
+["Fusca",1994,"R$ 45.704","Sedã","Tipo 1 (boxer a ar)","1.6 litro","Manual 4 marchas","Traseira","Brasil",2,"Volkswagen","","O Fusca voltou a ser produzido no Brasil em 1993, no governo de Itamar Franco, depois de sair de linha em 1986.","",""],
+["Fusca TSI",2016,"R$ 132.195","Hatch","EA888","2.0 litros turbo","DSG 6 marchas (automatizado)","Dianteira","México",2,"Volkswagen","DQ250","A produção mundial do Fusca terminou em 2019, no México.","",""],
+["Gol GTi",1989,"R$ 20.803","Hatch","AP 2000","2.0 litros","Manual 5 marchas","Dianteira","Brasil",2,"Volkswagen","","O Gol GTi, de 1989, foi um dos primeiros nacionais com injeção eletrônica.","",""],
+["Golf Gti",2015,"R$ 130.000","Hatch","EA888","2.0 litros","Automatizado 6 marchas","Dianteira","Alemanha",2,"Volkswagen","DQ250 (02E)","O Golf GTI, lançado em 1976, é considerado o criador dos hot hatches.","",""],
+["T-Cross",2020,"R$ 87.793","SUV","EA211 TSI","1.0 litro turbo","Automático 6 marchas","Dianteira","Brasil",1,"Volkswagen","","O T-Cross é fabricado em São José dos Pinhais (PR).","",""],
+["Gol",2003,"R$ 16.000","Hatch","EA111","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","","O Gol foi o carro mais vendido do Brasil por 27 anos seguidos.","",""],
+["Polo",2020,"R$ 78.000","Hatch","EA211 TSI","1.0 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ250-6F","","",""],
+["Santana",1992,"R$ 28.000","Sedã","AP-2000I","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","","O Santana foi lançado no Brasil em 1984.","",""],
+["Jetta",2021,"R$ 180.000","Sedã","EA888","2.0 litros","Automatizado","Dianteira","Brasil",1,"Volkswagen","DQ381","","",""],
+["Virtus",2021,"R$ 84.000","Sedã","EA211 TSI","1.0 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ250-6F","O Virtus é o sedã derivado do Polo.","",""],
+["Voyage",2011,"R$ 30.000","Sedã","EA111","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","MQ200","O Voyage é a versão sedã do Gol.","",""],
+["Brasília",1980,"R$ 22.000","Hatch","Boxer","1.6 litro","Manual de 4 marchas","Traseira","Brasil",2,"Volkswagen","","A Brasília foi produzida de 1973 a 1982 e usava motor traseiro refrigerado a ar, como o Fusca.","",""],
+["Passat",1978,"R$ 45.000","Hatch","BS (EA827)","1.6 litro","Manual de 4 marchas","Dianteira","Brasil",2,"Volkswagen","","O Passat foi um dos primeiros Volkswagen nacionais com motor dianteiro refrigerado a água.","",""],
+["Parati",1991,"R$ 15.000","Perua","AP-1800S (EA827)","1.8 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","","A Parati é a versão perua do Gol.","",""],
+["Quantum",1993,"R$ 26.000","Perua","AP-2000I","2.0 litros","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","","A Quantum era a perua do Santana.","",""],
+["Saveiro",2018,"R$ 62.000","Picape","EA211 MSI","1.6 litro","Manual de 5 marchas","Dianteira","Brasil",1,"Volkswagen","MQ200","A Saveiro é a picape derivada do Gol.","",""],
+["Amarok",2022,"R$ 215.000","Picape","EA897","3.0 litros","Automático com conversor de torque","Integral Permanente","Argentina",1,"Volkswagen","ZF 8H5970","","",""],
+["Nivus",2022,"R$ 105.000","SUV","EA211 TSI","1.0 litro","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ250-6F","","",""],
+["Taos",2022,"R$ 145.000","SUV","EA211 TSI","1.4 litro","Automático com conversor de torque","Dianteira","Argentina",2,"Volkswagen","Aisin AQ250-6F","","",""],
+["Tiguan",2019,"R$ 155.000","SUV","EA888 TSI","2.0 litros","Automatizado","Integral sob demanda","México",2,"Volkswagen","DQ500","","",""],
+["Up",2016,"R$ 48.000","Hatch","EA211 TSI","1.0 litro","Manual de 5 marchas","Dianteira","Brasil",2,"Volkswagen","MQ200","O up! foi lançado no Brasil em 2014.","",""],
+["Fox",2016,"R$ 46.000","Hatch","EA211 MSI","1.6 litro","Manual de 6 marchas","Dianteira","Brasil",2,"Volkswagen","MQ250","O Fox foi lançado no Brasil em 2003.","",""],
+["Kombi",2014,"R$ 110.000","Furgão","EA111","1.4 litro","Manual de 4 marchas","Traseira","Brasil",2,"Volkswagen","","A Kombi foi produzida no Brasil de 1957 a 2013, uma das produções mais longas do mundo.","",""],
+["Bora",2008,"R$ 28.000","Sedã","EA113","2.0 litros","Automático com conversor de torque","Dianteira","México",2,"Volkswagen","Aisin AQ250-6F","","",""],
+["Tera",2026,"R$ 115.000","SUV","EA211","1.0 litro Turbo","Automático com conversor de torque","Dianteira","Brasil",1,"Volkswagen","Aisin AQ160-6F","O Tera é o SUV compacto da Volkswagen construído sobre a plataforma MQB A0.","",""],
+["Creta",2022,"R$ 130.000","SUV","Smartstream G2.0","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",1,"Hyundai","Mobis A6MF1","O Creta é produzido em Piracicaba (SP).","",""],
+["Tucson",2012,"R$ 38.000","SUV","Beta II","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Hyundai","F4A42","","",""],
+["Ix35",2017,"R$ 75.000","SUV","G4NA","2.0 litros","Automático com conversor de torque","Dianteira","Brasil",2,"Hyundai","Mobis A6MF1","","",""],
+["Santa Fe",2015,"R$ 82.000","SUV","Lambda II","3.3 litros","Automático com conversor de torque","Integral sob demanda","Coreia do Sul",2,"Hyundai","Mobis A6MF1","","",""],
+["Vera Cruz",2010,"R$ 44.000","SUV","Lambda (G6DA)","3.8 litros","Automático com conversor de torque","Integral sob demanda","Coreia do Sul",4,"Hyundai","Aisin TF-81SC","","",""],
+["Elantra",2014,"R$ 55.000","Sedã","G4NA","2.0 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6GF1","","",""],
+["i30",2011,"R$ 38.000","Hatch","Beta II","2.0 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","A4CF2","","",""],
+["Azera",2011,"R$ 38.000","Sedã","Lambda V6","3.3 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6LF1","","",""],
+["Sonata",2012,"R$ 58.000","Sedã","Theta II","2.4 litros","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6MF2","","",""],
+["Veloster",2013,"R$ 52.000","Hatch","Gamma","1.6 litro","Automático com conversor de torque","Dianteira","Coreia do Sul",2,"Hyundai","Mobis A6GF1","O Veloster tinha três portas: uma do lado do motorista e duas do lado do passageiro.","",""]
 ];
 const START=2; let ROUNDS;
 const cl=c=>ORDER.map((k,i)=>[LABELS[i],c[k]]).filter(x=>x[1]!==""&&x[1]!=null);
@@ -262,14 +301,19 @@ const pool=()=>{const p=CARS.filter(c=>c[9]<=LEVEL);return p.length?p:CARS};
 const lvName=()=>LEVELS[LEVEL-1].name;
 const names=c=>c[0].split("|").map(x=>x.trim());
 const label=c=>names(c)[0];
+const ckey=c=>label(c)+"|"+c[1]+"|"+c[5];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const full=c=>(c[10]?c[10]+" ":"")+label(c);
 const isMatch=(c,v)=>{const nv=norm(v);return names(c).some(n=>norm(n)===nv||(c[10]&&norm(c[10]+" "+n)===nv))};
+function lev(a,b){const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let p=[...Array(n+1).keys()];for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+// Aceita pequenos erros de digitação (1 letra em nomes de 5 a 8 letras, 2 letras em nomes maiores)
+const isClose=(c,v)=>{const nv=norm(v);if(nv.length<5)return false;const th=nv.length>=9?2:1;return names(c).some(n=>{const nn=norm(n);return Math.abs(nn.length-nv.length)<=th&&lev(nn,nv)<=th})};
 const $=id=>document.getElementById(id);
 const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"");
 const show=(id,v)=>$(id).classList.toggle("hide",!v);
 // ---- Ofensivas e dias anteriores (ficam salvos no navegador de cada jogador) ----
-let S={days:{},back:{}};
-try{const t=localStorage.getItem("carrodle_v1");if(t){const o=JSON.parse(t);S={days:o.days||{},back:o.back||{}}}}catch(e){}
+let S={days:{},back:{},st:{p:0,w:0,x:0},g:{}};
+try{const t=localStorage.getItem("carrodle_v1");if(t){const o=JSON.parse(t);S={days:o.days||{},back:o.back||{},st:o.st||{p:0,w:0,x:0},g:o.g||{}}}}catch(e){}
 const saveS=()=>{try{localStorage.setItem("carrodle_v1",JSON.stringify(S))}catch(e){}};
 const dayN=d=>Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);
 const todayN=()=>dayN(new Date());
@@ -289,6 +333,12 @@ function recordDaily(win){const k=dkey(dayNum),lv=String(LEVEL),r=win?"W":"L";
  else if(!S.back[k+"|"+lv])S.back[k+"|"+lv]=r;
  saveS();renderStats();
  if(dayNum===todayN())$("msg").textContent+=` · 🔥 Ofensiva: ${stats().cur}`}
+function recordRound(win,used){S.st.p++;if(win){S.st.w++;S.st.x+=Math.max(0,used-START);S.g[ckey(car)]=1}saveS()}
+function openMe(){const s=S.st,st=stats(),g=CARS.filter(c=>S.g[ckey(c)]);
+ const rate=s.p?Math.round(100*s.w/s.p):0,avg=s.w?(s.x/s.w).toFixed(1).replace(".",","):"-";
+ $("meList").innerHTML=[["Partidas jogadas",s.p],["Acertos",`${s.w} (${rate}%)`],["Média de dicas extras por acerto",avg],["Ofensiva atual / recorde",`${st.cur} / ${st.best} dias`],["Carros descobertos",`${g.length} de ${CARS.length}`]].map(r=>`<div class="row"><span>${r[0]}</span><b>${r[1]}</b></div>`).join("");
+ $("meGar").innerHTML=g.length?g.sort((a,b)=>full(a).localeCompare(full(b),"pt")).map(c=>`<span>${esc(full(c))} ${c[1]}</span>`).join(""):"Você ainda não descobriu nenhum carro. Bora jogar!";
+ show("menu",false);show("me",true)}
 function openPast(){const t=todayN(),lv=String(LEVEL);let h="";
  for(let n=t-1;n>=Math.max(LAUNCH,t-59);n--){const k=dkey(n);const r=(S.days[k]&&S.days[k][lv])||S.back[k+"|"+lv];
   const ic=r==="W"?"✅":r==="L"?"❌":"⚪";
@@ -309,7 +359,10 @@ let mode,deck,idx,car,shown,score,over,steps,hist,fails,dayNum,fromPast=false;
 
 // Carro do dia: ordem fixa e embaralhada (pelo nome e ano), escolhida pelo número do dia. Adicionar carros muda a sequência dos dias.
 const hh=s=>{let x=5381;for(const ch of s)x=((x*33)^ch.charCodeAt(0))>>>0;return x};
-function dayCar(n){const p=[...pool()].sort((a,b)=>hh(a[0]+a[1])-hh(b[0]+b[1]));return p[((n%p.length)+p.length)%p.length]}
+let CAL={}; // calendário fixo (calendario.csv): data -> chave do carro de cada nível
+function dayCar(n){const P=pool(),e=CAL[dkey(n)];
+ if(e&&e[LEVEL-1]){const c=P.find(c=>ckey(c)===e[LEVEL-1]);if(c)return c}
+ const p=[...P].sort((a,b)=>hh(a[0]+a[1])-hh(b[0]+b[1]));return p[((n%p.length)+p.length)%p.length]}
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 
 function startMode(m,n){mode=m;score=0;idx=0;hist=[];dayNum=n==null?todayN():n;fromPast=n!=null;
@@ -321,35 +374,42 @@ function load(){car=deck[idx];shown=START;over=false;steps="";fails=0;
  $("pt").textContent=mode==="daily"?"":`Pontos: ${score}`;
  $("msg").textContent="";$("msg").className="";$("wr").textContent="";$("g").value="";
  ["g","go","hint","skip"].forEach(i=>$(i).disabled=false);
- ["next","share","back"].forEach(i=>show(i,false));show("ta",false);render()}
+ ["next","share","shareImg","report","back"].forEach(i=>show(i,false));show("ta",false);$("fact").innerHTML="";show("fact",false);$("photo").innerHTML="";render()}
 function render(){const L=cl(car);$("clues").innerHTML=L.map((x,i)=>`<div class="row"><span>${x[0]}</span>${i<shown||over?`<b>${x[1]}</b>`:`<span class="hid">••••••</span>`}</div>`).join("");
  $("hint").disabled=over||shown>=L.length}
-function finish(win,pts){over=true;steps+=win?"🟩":"⬛";shown=cl(car).length;render();
+function revealExtras(){const f=car[12];$("fact").innerHTML=f?`💡 <b>Curiosidade:</b> ${esc(f)}`:"";show("fact",!!f);
+ const ph=car[13];$("photo").innerHTML=ph?`<img src="${esc(ph)}" alt="Foto: ${esc(full(car))}" referrerpolicy="no-referrer" loading="lazy" onerror="this.style.display='none'">${car[14]?`<small>Foto: ${esc(car[14])}</small>`:""}`:""}
+function finish(win,pts,used){over=true;steps+=win?"🟩":"⬛";shown=cl(car).length;render();
  ["g","go","hint","skip"].forEach(i=>$(i).disabled=true);
  if(win){score+=pts;$("msg").textContent=`✅ Acertou! ${full(car)}${mode==="all"?` (+${pts} pts)`:""}`;$("msg").className="ok"}
  else{$("msg").textContent=`❌ Era o ${full(car)}`;$("msg").className="bad"}
  hist.push(win?"🟩":"🟥");
+ recordRound(win,used);
  if(mode==="daily")recordDaily(win);
+ revealExtras();show("report",true);
  if(mode==="all")$("pt").textContent=`Pontos: ${score}`;
  const last=mode==="daily"||idx===deck.length-1;
  if(!last){$("next").textContent="Próximo carro";show("next",true)}
  else{ if(mode==="all"){$("msg").textContent+=` · Fim! ${score}/${totalMax()} pts`}
-  show("share",true);show("back",true)}}
+  show("share",true);show("shareImg",true);show("back",true)}}
 function wrong(txt){fails++;steps+="🟥";shown=Math.min(shown+1,cl(car).length);render();if(txt)$("wr").textContent=txt}
 
 $("go").onclick=()=>{const v=$("g").value.trim();if(!v)return;
  const nv=norm(v);
  const cand=[...new Set(pool().filter(c=>names(c).some(n=>norm(n).includes(nv))).map(label))];
  const partial=nv.length>=4&&cand.length===1&&cand[0]===label(car);
- if(isMatch(car,v)||partial)finish(true,Math.max(1,cl(car).length+1-shown));
+ const other=pool().some(c=>label(c)!==label(car)&&isMatch(c,v));
+ if(isMatch(car,v)||partial||(!other&&isClose(car,v)))finish(true,Math.max(1,cl(car).length+1-shown),shown);
  else{wrong(`"${v}" não é. Uma dica nova foi revelada (−1).`);$("g").value=""}};
 $("g").onkeydown=e=>{if(e.key==="Enter")$("go").click()};
 $("hint").onclick=()=>wrong();
-$("skip").onclick=()=>finish(false,0);
+$("skip").onclick=()=>finish(false,0,shown);
 $("next").onclick=()=>{idx++;load()};
 const goBack=()=>{show("game",false);if(fromPast)openPast();else{show("menu",true);renderStats()}};
 $("back").onclick=goBack;$("topBack").onclick=goBack;
 $("mPast").onclick=openPast;
+$("mMe").onclick=openMe;
+$("meBack").onclick=()=>{show("me",false);show("menu",true);renderStats()};
 $("pastBack").onclick=()=>{show("past",false);show("menu",true)};
 $("pastList").onclick=e=>{const b=e.target.closest("button");if(b){show("past",false);startMode("daily",+b.dataset.n)}};
 $("mDaily").onclick=()=>startMode("daily");
@@ -367,8 +427,31 @@ $("share").onclick=()=>{
  else send(`🏎️ Carrodle Nível ${lvName()}\n${hist.join("")}\nFiz ${score}/${totalMax()} pontos. Consegue me superar?`)};
 $("mShare").onclick=()=>{show("ta",false);send("🏎️ Carrodle Descubra o carro com poucas dicas: ano, valor médio, motor, câmbio e mais. Vem jogar!")};
 
+$("report").onclick=async()=>{const t=`Carrodle: encontrei um erro no carro "${full(car)} (${car[1]})": `;
+ try{await navigator.clipboard.writeText(t);$("wr").textContent="Texto copiado! Cole na mensagem e conte o que está errado."}catch(e){$("wr").textContent=`Conte o erro sobre: ${full(car)} (${car[1]})`}
+ window.open(REPORT_URL,"_blank","noopener")};
+$("shareImg").onclick=()=>{const W=1080,c=document.createElement("canvas");c.width=W;c.height=W;const x=c.getContext("2d"),F="system-ui,Segoe UI,Roboto,sans-serif";
+ x.fillStyle="#141414";x.fillRect(0,0,W,W);x.fillStyle="#d62828";x.fillRect(0,0,W,16);x.textAlign="center";
+ x.fillStyle="#f0f0ec";x.font="bold 120px "+F;x.fillText("🏎️ Carrodle",W/2,200);
+ x.fillStyle="#9a9a94";x.font="44px "+F;x.fillText("Que carro sou eu?",W/2,270);
+ const daily=mode==="daily",sq=daily?[...steps]:hist,st=stats();
+ x.fillStyle="#f0f0ec";x.font="bold 46px "+F;x.fillText(daily?`${dayNum===todayN()?"Carro do dia":"Dia anterior"} · ${dfmt(dayNum)} · ${lvName()}`:`Nível ${lvName()} · ${deck.length} rodadas`,W/2,400);
+ const col={"🟩":"#2a9d4f","🟥":"#d62828","⬛":"#555"},size=100,gap=16,per=Math.min(sq.length,8);
+ sq.forEach((e,i)=>{const r=Math.floor(i/8),k=i%8,n=Math.min(8,sq.length-r*8),sx=(W-(n*size+(n-1)*gap))/2;x.fillStyle=col[e]||"#555";x.fillRect(sx+k*(size+gap),470+r*(size+gap),size,size)});
+ const w=daily&&steps.endsWith("🟩"),n=sq.length,y=470+Math.ceil(sq.length/8)*(size+gap)+90;
+ x.fillStyle="#f0f0ec";x.font="bold 56px "+F;x.fillText(daily?(w?`Descobri com ${n} tentativa${n>1?"s":""}!`:"Não descobri dessa vez"):`${score}/${totalMax()} pontos`,W/2,y);
+ if(daily&&dayNum===todayN()&&st.cur>1){x.fillStyle="#ff9f43";x.font="bold 50px "+F;x.fillText(`🔥 ${st.cur} dias seguidos`,W/2,y+80)}
+ x.fillStyle="#9a9a94";x.font="38px "+F;x.fillText("Joga também: "+SITE.replace(/^https?:\/\//,"").replace(/\/$/,""),W/2,1020);
+ c.toBlob(async b=>{if(!b)return;const f=new File([b],"carrodle-resultado.png",{type:"image/png"});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],text:"🏎️ Carrodle"});return}catch(e){if(e&&e.name==="AbortError")return}}
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="carrodle-resultado.png";a.click();$("wr").textContent="Imagem salva no seu aparelho."})};
+
+const PIX="79859d54-f378-49b9-8190-7b44cd166318"; // chave Pix mostrada no rodapé
+$("pixKey").textContent=PIX;
+$("pixCopy").onclick=async()=>{try{await navigator.clipboard.writeText(PIX);$("pixCopy").textContent="Chave copiada! Obrigado 💚"}catch(e){$("pixCopy").textContent="Copie a chave acima"}};
+
 // Carrega a lista de carros do arquivo carros.csv (na mesma pasta do site). Se não achar, usa a lista acima.
-function parseCSV(t){t=t.replace(/^\uFEFF/,"");
+function csvRows(t){t=t.replace(/^\uFEFF/,"");
  const first=t.split(/\r?\n/)[0]||"";
  const d=(first.match(/;/g)||[]).length>(first.match(/,/g)||[]).length?";":",";
  const rows=[];let row=[],cur="",q=false;
@@ -379,8 +462,11 @@ function parseCSV(t){t=t.replace(/^\uFEFF/,"");
   else if(c==="\n"){row.push(cur);rows.push(row);row=[];cur=""}
   else if(c!=="\r")cur+=c}
  if(cur!==""||row.length){row.push(cur);rows.push(row)}
- return rows.map(r=>r.map(x=>x.trim())).filter(r=>r.length>=9&&r[0]&&/^\d{4}$/.test(r[1])).map(r=>{r=r.slice(0,12);r[1]=+r[1];r[9]=[1,2,3,4].includes(+r[9])?+r[9]:2;r[10]=r[10]||"";r[11]=r[11]||"";return r})}
+ return rows.map(r=>r.map(x=>x.trim()))}
+function parseCSV(t){return csvRows(t).filter(r=>r.length>=9&&r[0]&&/^\d{4}$/.test(r[1])).map(r=>{r=r.slice(0,15);r[1]=+r[1];r[9]=[1,2,3,4].includes(+r[9])?+r[9]:2;for(const i of [10,11,12,13,14])r[i]=r[i]||"";return r})}
+function parseCal(t){const o={};for(const r of csvRows(t)){if(/^\d{4}-\d{2}-\d{2}$/.test(r[0]))o[r[0]]=r.slice(1,5)}return o}
 fetch("carros.csv",{cache:"no-store"}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{const rows=parseCSV(t);if(rows.length){CARS=rows;setup()}}).catch(()=>{});
+fetch("calendario.csv",{cache:"no-store"}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{CAL=parseCal(t)}).catch(()=>{});
 </script>
 </body>
 </html>

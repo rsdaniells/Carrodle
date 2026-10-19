@@ -64,6 +64,14 @@ input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
 .pix button{padding:6px 12px;font-size:.8rem}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
 .opts button{padding:14px 8px;font-size:1rem}
+select{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:1rem;font-family:inherit}
+.cc{display:flex;gap:12px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px;margin-top:10px}
+.cc .im{flex:none;position:relative;width:96px;height:64px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ac);overflow:hidden;font-size:1.8rem}
+.cc .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cc h3{margin:0 0 2px;font-size:1rem}
+.cc .meta{color:var(--mut);font-size:.8rem;margin-bottom:4px}
+.cc p{margin:0;font-size:.9rem;line-height:1.4}
+.cc small{color:var(--mut);font-size:.7rem}
 .hide{display:none!important}
 </style>
 </head>
@@ -82,6 +90,7 @@ input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
 <button class="big sec" id="mPast">🗓️ Dias anteriores<small>Jogue os carros do dia que você perdeu</small></button>
 <button class="big" id="mAll">🏁 Todos os carros do nível<small id="mAllSub"></small></button>
 <button class="big sec" id="mMe">📊 Minhas estatísticas<small>Acertos, médias e a garagem de carros descobertos</small></button>
+<button class="big sec" id="mCat">📚 Curiosidades<small>Conheça os carros do jogo, com curiosidades e ilustrações</small></button>
 <button class="big sec" id="mShare">📣 Divulgar o jogo<small>Convide amigos para jogar</small></button>
 </section>
 
@@ -97,6 +106,16 @@ input[type=checkbox]{flex:none;width:18px;height:18px;padding:0}
 <p class="sub" id="doneText"></p>
 <div class="fact hide" id="doneFact"></div>
 <div class="btns"><button id="doneShare">📤 Compartilhar resultado</button><button class="sec" id="donePast">🗓️ Jogar dias anteriores</button><button class="sec" id="doneBack">Voltar ao menu</button></div>
+</section>
+
+<section id="cat" class="hide">
+<h2 class="h2">📚 Curiosidades</h2>
+<p class="sub">Conheça os carros do jogo. Os carros do dia de hoje ficam bloqueados até você jogá-los, para não dar spoiler.</p>
+<div class="in"><input id="catQ" placeholder="Buscar por carro ou marca" autocomplete="off"></div>
+<div class="in"><select id="catBrand"></select></div>
+<label class="chk"><input type="checkbox" id="catOnly" checked> Mostrar só carros com curiosidade</label>
+<div id="catList"></div>
+<div class="btns"><button class="sec hide" id="catMore">Mostrar mais</button><button class="sec" id="catBack">Voltar ao menu</button></div>
 </section>
 
 <section id="me" class="hide">
@@ -357,7 +376,7 @@ const LEVELS=[
  {n:5,name:"Difícil",pool:3,start:2,opts:0,easy:false,desc:"Soma as marcas de luxo (BMW, Mercedes, Audi, Porsche, Ferrari...)"},
  {n:6,name:"Expert",pool:4,start:2,opts:0,easy:false,desc:"Todos os tipos de carros e marcas"}];
 let LEVEL=1;
-const pool=()=>{const p=CARS.filter(c=>c[9]<=LEVELS[LEVEL-1].pool);return p.length?p:CARS};
+const pool=(L=LEVEL)=>{const p=CARS.filter(c=>c[9]<=LEVELS[L-1].pool);return p.length?p:CARS};
 const lvName=()=>LEVELS[LEVEL-1].name;
 const names=c=>c[0].split("|").map(x=>x.trim());
 const label=c=>names(c)[0];
@@ -412,6 +431,21 @@ function showDone(){const k=dkey(todayN()),r=S.days[k][LEVEL],c=dayCar(todayN())
  $("doneText").textContent=(r==="W"?`Você acertou o carro do dia de hoje (nível ${lvName()}): ${full(c)}.`:`O carro de hoje (nível ${lvName()}) era ${full(c)}.`)+` 🔥 ${st.cur} dia${st.cur===1?"":"s"} seguido${st.cur===1?"":"s"}. Volte amanhã para um novo desafio ou jogue os dias anteriores.`;
  $("doneFact").innerHTML=c[12]?`💡 <b>Curiosidade:</b> ${esc(c[12])}`:"";show("doneFact",!!c[12]);
  show("doneShare",!!S.sh[k+"|"+LEVEL]);show("menu",false);show("done",true)}
+// ---- Curiosidades: catálogo dos carros (com foto, se houver URL na planilha, ou um desenho do tipo de carroceria) ----
+const SIL={"sedan":[[[4,38],[4,30],[8,27],[26,23],[38,13],[44,10],[76,10],[84,14],[94,23],[110,27],[116,31],[116,38]],[[[40,15],[45,12],[75,12],[82,15],[89,22],[34,22]]]],"hatch":[[[4,38],[4,28],[8,26],[22,22],[34,11],[40,9],[84,9],[90,12],[98,22],[110,26],[116,31],[116,38]],[[[36,14],[41,11],[83,11],[88,14],[93,21],[28,21]]]],"suv":[[[4,38],[4,22],[8,19],[24,17],[34,7],[40,5],[84,5],[90,8],[98,18],[110,22],[116,27],[116,38]],[[[36,10],[41,7],[83,7],[88,10],[93,17],[30,17]]]],"pickup":[[[4,38],[4,24],[56,24],[60,12],[66,8],[84,8],[90,11],[99,22],[110,26],[116,31],[116,38]],[[[64,12],[68,10],[83,10],[87,12],[92,21],[62,21]]]],"wagon":[[[4,38],[4,26],[8,24],[22,20],[32,10],[38,8],[82,8],[88,11],[97,22],[110,26],[116,31],[116,38]],[[[34,13],[39,10],[81,10],[86,13],[91,21],[27,21]]]],"coupe":[[[4,38],[4,31],[9,28],[34,25],[48,14],[54,12],[70,12],[78,15],[96,26],[112,29],[116,33],[116,38]],[[[50,16],[55,14],[69,14],[76,17],[86,24],[44,24]]]],"van":[[[4,38],[4,16],[8,10],[78,10],[86,14],[100,25],[112,28],[116,32],[116,38]],[[[60,13],[77,13],[83,16],[92,24],[60,24]],[[10,14],[55,14],[55,24],[10,24]]]],"jeep":[[[6,38],[6,16],[20,16],[20,9],[74,9],[74,16],[84,16],[90,24],[112,26],[116,30],[116,38]],[[[24,12],[70,12],[70,22],[24,22]]]]};
+const poly=a=>a.map(p=>p.join(",")).join(" ");
+function art(c){const e=norm(c[3]),k=e.includes("hatch")?"hatch":e.includes("sed")?"sedan":e.includes("suv")?"suv":e.includes("pic")?"pickup":e.includes("perua")?"wagon":e.includes("cup")?"coupe":(e.includes("minivan")||e.includes("furg"))?"van":e.includes("jipe")?"jeep":"sedan";
+ const [b,g]=SIL[k];return `<svg viewBox="0 0 120 50" width="90" aria-hidden="true"><polygon points="${poly(b)}" fill="currentColor"/>${g.map(x=>`<polygon points="${poly(x)}" fill="var(--bg)" opacity=".85"/>`).join("")}<circle cx="28" cy="40" r="8.5" fill="var(--card)" stroke="currentColor" stroke-width="3.5"/><circle cx="92" cy="40" r="8.5" fill="var(--card)" stroke="currentColor" stroke-width="3.5"/></svg>`}
+// carros que são o carro do dia de hoje em algum nível e ainda não foram jogados: ficam bloqueados para não dar spoiler
+const lockedKeys=()=>{const t=todayN(),dn=S.days[dkey(t)]||{},set=new Set();for(let L=1;L<=LEVELS.length;L++)if(!dn[L])set.add(ckey(dayCar(t,L)));return set};
+let catN=30;
+function buildBrands(){const cur=$("catBrand").value;
+ $("catBrand").innerHTML='<option value="">Todas as marcas</option>'+[...new Set(CARS.map(c=>c[10]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pt")).map(b=>`<option value="${esc(b)}">${esc(b)}</option>`).join("");$("catBrand").value=cur}
+function renderCat(){const q=norm($("catQ").value),b=$("catBrand").value,only=$("catOnly").checked,lk=lockedKeys();
+ const L=CARS.filter(c=>(!b||c[10]===b)&&(!only||c[12])&&(!q||norm(full(c)+" "+names(c).join(" ")).includes(q))).sort((x,y)=>full(x).localeCompare(full(y),"pt")||x[1]-y[1]);
+ $("catList").innerHTML=L.slice(0,catN).map(c=>lk.has(ckey(c))?'<div class="cc"><div class="im">🔒</div><div><h3>Carro misterioso</h3><p style="color:var(--mut)">Este é um dos carros do dia de hoje. Jogue o carro do dia para liberar.</p></div></div>'
+  :`<div class="cc"><div class="im">${art(c)}${c[13]?`<img src="${esc(c[13])}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="this.remove()">`:""}</div><div><h3>${esc(full(c))}</h3><div class="meta">${[c[1],c[3],c[5],c[8]].filter(Boolean).map(esc).join(" · ")}</div><p>${c[12]?esc(c[12]):'<span style="color:var(--mut)">Ainda sem curiosidade.</span>'}</p>${c[13]&&c[14]?`<small>Foto: ${esc(c[14])}</small>`:""}</div></div>`).join("")||'<p class="sub" style="margin-top:12px">Nenhum carro encontrado.</p>';
+ show("catMore",L.length>catN)}
 function openPast(){const t=todayN(),lv=String(LEVEL);let h="";
  for(let n=t-1;n>=Math.max(LAUNCH,t-59);n--){const k=dkey(n);const r=(S.days[k]&&S.days[k][lv])||S.back[k+"|"+lv];
   const ic=r==="W"?"✅":r==="L"?"❌":"⚪";
@@ -433,8 +467,8 @@ let mode,deck,idx,car,shown,score,over,steps,hist,fails,dayNum,fromPast=false;
 // Carro do dia: ordem fixa e embaralhada (pelo nome e ano), escolhida pelo número do dia. Adicionar carros muda a sequência dos dias.
 const hh=s=>{let x=5381;for(const ch of s)x=((x*33)^ch.charCodeAt(0))>>>0;return x};
 let CAL={}; // calendário fixo (calendario.csv): data -> chave do carro de cada nível
-function dayCar(n){const P=pool(),e=CAL[dkey(n)];
- const pc=LEVELS[LEVEL-1].pool;if(e&&e[pc-1]){const c=P.find(c=>ckey(c)===e[pc-1]);if(c)return c}
+function dayCar(n,L=LEVEL){const P=pool(L),e=CAL[dkey(n)];
+ const pc=LEVELS[L-1].pool;if(e&&e[pc-1]){const c=P.find(c=>ckey(c)===e[pc-1]);if(c)return c}
  const p=[...P].sort((a,b)=>hh(a[0]+a[1])-hh(b[0]+b[1]));return p[((n%p.length)+p.length)%p.length]}
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 
@@ -504,6 +538,10 @@ const goBack=()=>{show("game",false);if(fromPast)openPast();else{show("menu",tru
 $("back").onclick=goBack;$("topBack").onclick=goBack;
 $("mPast").onclick=openPast;
 $("mMe").onclick=openMe;
+$("mCat").onclick=()=>{catN=30;buildBrands();renderCat();show("menu",false);show("cat",true)};
+$("catQ").oninput=()=>{catN=30;renderCat()};$("catBrand").onchange=()=>{catN=30;renderCat()};$("catOnly").onchange=()=>{catN=30;renderCat()};
+$("catMore").onclick=()=>{catN+=30;renderCat()};
+$("catBack").onclick=()=>{show("cat",false);show("menu",true);renderStats()};
 $("meBack").onclick=()=>{show("me",false);show("menu",true);renderStats()};
 $("pastBack").onclick=()=>{show("past",false);show("menu",true)};
 $("pastList").onclick=e=>{const b=e.target.closest("button");if(b){show("past",false);startMode("daily",+b.dataset.n)}};

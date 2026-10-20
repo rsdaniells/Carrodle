@@ -72,6 +72,19 @@ select{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid var(-
 .cc .meta{color:var(--mut);font-size:.8rem;margin-bottom:4px}
 .cc p{margin:0;font-size:.9rem;line-height:1.4}
 .cc small{color:var(--mut);font-size:.7rem}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:24px;font-size:.9rem;z-index:50;max-width:90%;text-align:center}
+.ach{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.ach div{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 10px;font-size:.78rem;line-height:1.3}
+.ach div.off{opacity:.45;filter:grayscale(1)}
+.ach b{display:block;font-size:.88rem}
+details.brand{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin-top:8px}
+details.brand summary{cursor:pointer;font-weight:600;display:flex;justify-content:space-between;gap:8px}
+.bar{display:block;height:6px;background:var(--bd);border-radius:3px;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--ok);border-radius:3px}
+.gcars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.gcars div{text-align:center;font-size:.75rem;color:var(--tx);color:var(--ac)}
+.gcars div span{color:var(--tx);display:block}
+.gcars div.off{opacity:.35;filter:grayscale(1)}
 .hide{display:none!important}
 </style>
 </head>
@@ -82,6 +95,7 @@ select{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid var(-
 
 <section id="menu">
 <div class="card stats" id="stats"></div>
+<div class="fact hide" id="didYou" style="margin:0 0 12px"></div>
 <p class="sub">Descubra o carro com poucas dicas: ano, valor médio, estilo, motor, câmbio e mais.</p>
 <div class="lvl" id="lvl"></div>
 <p class="sub" id="lvInfo"></p>
@@ -91,6 +105,8 @@ select{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid var(-
 <button class="big" id="mAll">🏁 Todos os carros do nível<small id="mAllSub"></small></button>
 <button class="big sec" id="mMe">📊 Minhas estatísticas<small>Acertos, médias e a garagem de carros descobertos</small></button>
 <button class="big sec" id="mCat">📚 Curiosidades<small>Conheça os carros do jogo, com curiosidades e ilustrações</small></button>
+<button class="big sec" id="mHL">💰 Mais caro ou mais barato?<small>Compare o valor de dois carros e faça uma sequência de acertos</small></button>
+<button class="big sec" id="mChal">🤝 Desafie um amigo<small>Jogue 5 carros e mande o link: seu amigo joga os mesmos</small></button>
 <button class="big sec" id="mShare">📣 Divulgar o jogo<small>Convide amigos para jogar</small></button>
 </section>
 
@@ -108,6 +124,23 @@ select{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid var(-
 <div class="btns"><button id="doneShare">📤 Compartilhar resultado</button><button class="sec" id="donePast">🗓️ Jogar dias anteriores</button><button class="sec" id="doneBack">Voltar ao menu</button></div>
 </section>
 
+<section id="hl" class="hide">
+<h2 class="h2">💰 Mais caro ou mais barato?</h2>
+<div class="top"><span id="hlScore"></span><span id="hlBest"></span></div>
+<div class="cc" id="hlA"></div>
+<p class="sub" style="text-align:center;margin:10px 0 0">O próximo carro é…</p>
+<div class="cc" id="hlB"></div>
+<div class="btns" id="hlBtns"><button id="hlUp">⬆️ Mais caro</button><button id="hlDown">⬇️ Mais barato</button></div>
+<div id="hlMsg" class="fact hide"></div>
+<div class="btns"><button id="hlNext" class="hide">Continuar</button><button class="sec" id="hlBack">Voltar ao menu</button></div>
+</section>
+
+<section id="chal" class="hide">
+<h2 class="h2">🤝 Você foi desafiado!</h2>
+<p class="sub" id="chalText"></p>
+<div class="btns"><button id="chalGo">Aceitar desafio</button><button class="sec" id="chalNo">Agora não</button></div>
+</section>
+
 <section id="cat" class="hide">
 <h2 class="h2">📚 Curiosidades</h2>
 <p class="sub">Conheça os carros do jogo. Os carros do dia de hoje ficam bloqueados até você jogá-los, para não dar spoiler.</p>
@@ -123,8 +156,10 @@ select{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid var(-
 <p class="sub">Dados salvos neste aparelho.</p>
 <div class="card" id="meList"></div>
 <h2 class="h2" style="margin-top:16px">🚗 Garagem</h2>
-<p class="sub">Carros que você já acertou.</p>
-<div class="gar" id="meGar"></div>
+<p class="sub">Carros que você já acertou, por marca. Toque numa marca para ver os que faltam.</p>
+<div id="meGar"></div>
+<h2 class="h2" style="margin-top:16px" id="meAchT">🏅 Conquistas</h2>
+<div class="ach" id="meAch"></div>
 <div class="btns"><button class="sec" id="meBack">Voltar ao menu</button></div>
 </section>
 
@@ -153,6 +188,7 @@ select{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid var(-
 </div>
 <textarea id="ta" class="hide" readonly></textarea>
 </section>
+<div class="toast hide" id="toast"></div>
 <footer class="foot">Valores médios de referência (base: Tabela FIPE, ref. out/2026) e podem variar.<br>Feito por <a href="https://www.instagram.com/rsdaniells" target="_blank" rel="noopener noreferrer">Daniel Reis</a> com Claude
 <details class="pix"><summary>☕ Apoie o projeto</summary>
 <p>O Carrodle é gratuito e feito por hobby. Se curtiu e quiser ajudar a mantê-lo, dá para contribuir por Pix (totalmente opcional 🙂).<br>Chave Pix (Copia e cola): <b id="pixKey"></b></p>
@@ -413,18 +449,22 @@ function stats(){const ds=Object.keys(S.days).filter(k=>Object.keys(S.days[k]).l
  return {cur,best,total:ds.length,today:set.has(dkey(todayN()))}}
 function renderStats(){const s=stats();
  $("stats").innerHTML=`🔥 <b>${s.cur}</b> dia${s.cur===1?"":"s"} seguido${s.cur===1?"":"s"} &nbsp;·&nbsp; 🏆 recorde <b>${s.best}</b> &nbsp;·&nbsp; 📅 <b>${s.total}</b> dia${s.total===1?"":"s"} jogado${s.total===1?"":"s"}<br><span style="color:var(--mut)">${s.today?"Você já jogou o carro do dia hoje. Volte amanhã para manter a ofensiva!":(s.cur>0?"Jogue o carro do dia hoje para manter sua ofensiva!":"Jogue o carro do dia para começar sua ofensiva!")}</span>`;
- $("mDailySub").textContent=doneToday()?"✅ Você já jogou hoje neste nível. Volte amanhã ou jogue os dias anteriores.":"Um desafio por dia, igual para todo mundo. Cada dia só pode ser jogado uma vez.";allSub()}
+ $("mDailySub").textContent=doneToday()?"✅ Você já jogou hoje neste nível. Volte amanhã ou jogue os dias anteriores.":"Um desafio por dia, igual para todo mundo. Cada dia só pode ser jogado uma vez.";allSub();try{didYou()}catch(e){}}
 function recordDaily(win){const k=dkey(dayNum),lv=String(LEVEL),r=win?"W":"L";
  if(dayNum===todayN()){S.days[k]=S.days[k]||{};if(!S.days[k][lv])S.days[k][lv]=r}
  else if(!S.back[k+"|"+lv])S.back[k+"|"+lv]=r;
  S.sh[k+"|"+lv]=steps;
- saveS();renderStats();
+ saveS();renderStats();checkAch();
  if(dayNum===todayN())$("msg").textContent+=` · 🔥 Ofensiva: ${stats().cur}`}
-function recordRound(win,used){S.st.p++;S.seen[ckey(car)]=1;if(win){S.st.w++;S.st.x+=Math.max(0,used-START);S.g[ckey(car)]=1}saveS()}
+function recordRound(win,used){S.st.p++;S.seen[ckey(car)]=1;if(win){S.st.w++;S.st.x+=Math.max(0,used-START);S.g[ckey(car)]=1;if(used<=START)S.st.z=(S.st.z||0)+1}saveS();checkAch()}
 function openMe(){const s=S.st,st=stats(),g=CARS.filter(c=>S.g[ckey(c)]);
  const rate=s.p?Math.round(100*s.w/s.p):0,avg=s.w?(s.x/s.w).toFixed(1).replace(".",","):"-";
  $("meList").innerHTML=[["Partidas jogadas",s.p],["Acertos",`${s.w} (${rate}%)`],["Média de dicas extras por acerto",avg],["Ofensiva atual / recorde",`${st.cur} / ${st.best} dias`],["Carros descobertos",`${g.length} de ${CARS.length}`]].map(r=>`<div class="row"><span>${r[0]}</span><b>${r[1]}</b></div>`).join("");
- $("meGar").innerHTML=g.length?g.sort((a,b)=>full(a).localeCompare(full(b),"pt")).map(c=>`<span>${esc(full(c))} ${c[1]}</span>`).join(""):"Você ainda não descobriu nenhum carro. Bora jogar!";
+ const bm={};for(const c of CARS)if(c[10])(bm[c[10]]=bm[c[10]]||[]).push(c);
+ $("meGar").innerHTML=Object.keys(bm).map(k=>{const L=bm[k].sort((x,y)=>full(x).localeCompare(full(y),"pt")),f=L.filter(c=>S.g[ckey(c)]).length;return {k,L,f}}).sort((x,y)=>y.f/y.L.length-x.f/x.L.length||x.k.localeCompare(y.k,"pt"))
+  .map(o=>`<details class="brand"><summary><span>${esc(o.k)}</span><span>${o.f}/${o.L.length}</span></summary><span class="bar"><i style="width:${Math.round(100*o.f/o.L.length)}%"></i></span><div class="gcars">${o.L.map(c=>S.g[ckey(c)]?`<div>${art(c)}<span>${esc(label(c))} ${c[1]}</span></div>`:`<div class="off">${art(c)}<span>???</span></div>`).join("")}</div></details>`).join("");
+ const un=ACH.filter(a=>S.ach&&S.ach[a.id]).length;$("meAchT").textContent=`🏅 Conquistas (${un}/${ACH.length})`;
+ $("meAch").innerHTML=ACH.map(a=>`<div class="${S.ach&&S.ach[a.id]?"":"off"}">${a.i}<b>${esc(a.n)}</b>${esc(a.d)}</div>`).join("");
  show("menu",false);show("me",true)}
 function showDone(){const k=dkey(todayN()),r=S.days[k][LEVEL],c=dayCar(todayN()),st=stats();
  $("doneTitle").textContent=r==="W"?"🎉 Parabéns!":"Não foi dessa vez";
@@ -474,6 +514,7 @@ function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Ma
 
 // Evita repetir carros: sorteia primeiro entre os que o jogador ainda não viu (salvo no navegador) e nunca repete o mesmo nome na mesma partida.
 // Quando os carros novos acabam, a lista de vistos do nível é zerada e a sequência recomeça.
+let chal=null,pendingChal=null;
 let renewed=false;
 function pickDeck(n){const P=pool(),d=[],used=new Set();
  const take=arr=>{for(const c of shuffle(arr)){if(d.length>=n)break;const l=label(c);if(used.has(l))continue;used.add(l);d.push(c)}};
@@ -482,13 +523,13 @@ function pickDeck(n){const P=pool(),d=[],used=new Set();
  return d}
 function allSub(){const P=pool(),R=Math.min(8,P.length),v=P.filter(c=>S.seen[ckey(c)]).length;
  $("mAllSub").textContent=`${R} rodada${R>1?"s":""} com carros sorteados e pontuação · você já viu ${v} de ${P.length} carros deste nível`}
-function startMode(m,n){mode=m;score=0;idx=0;hist=[];dayNum=n==null?todayN():n;fromPast=n!=null;
+function startMode(m,n,ch){chal=ch||null;if(ch&&ch.l!==LEVEL){LEVEL=ch.l;setup()}mode=m;score=0;idx=0;hist=[];dayNum=n==null?todayN():n;fromPast=n!=null;
  $("topBack").textContent=fromPast?"← Dias anteriores":"← Menu";$("back").textContent=fromPast?"Voltar aos dias anteriores":"Voltar ao menu";
- deck=m==="daily"?[dayCar(dayNum)]:pickDeck(ROUNDS);
+ deck=ch?chalDeck(ch.l,ch.seed):m==="daily"?[dayCar(dayNum)]:pickDeck(ROUNDS);
  show("menu",false);show("game",true);load();
  if(renewed){$("wr").textContent="🔄 Você já viu todos os carros deste nível! A sequência recomeçou.";renewed=false}}
 function load(){car=deck[idx];shown=START;over=false;steps="";fails=0;
- $("rd").textContent=mode==="daily"?`${dayNum===todayN()?"Carro do dia":"Dia anterior"} · ${dfmt(dayNum)} · ${lvName()}`:`Rodada ${idx+1}/${deck.length} · ${lvName()}`;
+ $("rd").textContent=mode==="daily"?`${dayNum===todayN()?"Carro do dia":"Dia anterior"} · ${dfmt(dayNum)} · ${lvName()}`:`${chal?"Desafio · ":""}Rodada ${idx+1}/${deck.length} · ${lvName()}`;
  $("pt").textContent=mode==="daily"?"":`Pontos: ${score}`;
  $("msg").textContent="";$("msg").className="";$("wr").textContent="";$("g").value="";
  ["g","go","hint","skip"].forEach(i=>$(i).disabled=false);
@@ -516,7 +557,7 @@ function finish(win,pts,used){over=true;steps+=win?"🟩":"⬛";shown=cl(car).le
  if(mode==="all")$("pt").textContent=`Pontos: ${score}`;
  const last=mode==="daily"||idx===deck.length-1;
  if(!last){$("next").textContent="Próximo carro";show("next",true)}
- else{ if(mode==="all"){$("msg").textContent+=` · Fim! ${score}/${totalMax()} pts`}
+ else{ if(mode==="all"){$("msg").textContent+=` · Fim! ${score}/${totalMax()} pts`;if(chal)chalEnd()}
   show("share",true);show("shareImg",true);show("back",true)}}
 function wrong(txt){fails++;steps+="🟥";shown=Math.min(shown+1,cl(car).length);render();if(txt)$("wr").textContent=txt}
 
@@ -538,7 +579,7 @@ const goBack=()=>{show("game",false);if(fromPast)openPast();else{show("menu",tru
 $("back").onclick=goBack;$("topBack").onclick=goBack;
 $("mPast").onclick=openPast;
 $("mMe").onclick=openMe;
-$("mCat").onclick=()=>{catN=30;buildBrands();renderCat();show("menu",false);show("cat",true)};
+$("mCat").onclick=()=>{S.st.v=1;saveS();checkAch();catN=30;buildBrands();renderCat();show("menu",false);show("cat",true)};
 $("catQ").oninput=()=>{catN=30;renderCat()};$("catBrand").onchange=()=>{catN=30;renderCat()};$("catOnly").onchange=()=>{catN=30;renderCat()};
 $("catMore").onclick=()=>{catN+=30;renderCat()};
 $("catBack").onclick=()=>{show("cat",false);show("menu",true);renderStats()};
@@ -562,6 +603,7 @@ function dailyText(stp,dn){const w=stp.endsWith("🟩"),n=[...stp].length,st=sta
  return `🏎️ Carrodle ${isT?"📅":"🗓️ dia anterior"} ${dfmt(dn)} · nível ${lvName()}${isT&&st.cur>1?` · 🔥${st.cur}`:""}\n${stp}\n${w?`Descobri o carro do dia com ${n} tentativa${n>1?"s":""}/dica${n>1?"s":""}!`:"Não consegui descobrir o carro do dia. Consegue?"}`}
 $("share").onclick=()=>{
  if(mode==="daily")send(dailyText(steps,dayNum))
+ else if(chal)send(chalText(),false);
  else send(`🏎️ Carrodle Nível ${lvName()}\n${hist.join("")}\nFiz ${score}/${totalMax()} pontos. Consegue me superar?`)};
 $("mShare").onclick=()=>{show("ta",false);send("🏎️ Carrodle Descubra o carro com poucas dicas: ano, valor médio, motor, câmbio e mais. Vem jogar!")};
 
@@ -588,6 +630,72 @@ const PIX="79859d54-f378-49b9-8190-7b44cd166318"; // chave Pix mostrada no rodap
 $("pixKey").textContent=PIX;
 $("pixCopy").onclick=async()=>{try{await navigator.clipboard.writeText(PIX);$("pixCopy").textContent="Chave copiada! Obrigado 💚"}catch(e){$("pixCopy").textContent="Copie a chave acima"}};
 
+// ---- Conquistas ----
+const gar=()=>CARS.filter(c=>S.g[ckey(c)]).length;
+const brandsDone=()=>{const m={};for(const c of CARS)if(c[10])(m[c[10]]=m[c[10]]||[]).push(c);return Object.values(m).filter(L=>L.length>=3&&L.every(c=>S.g[ckey(c)])).length};
+const levelsWon=()=>{const w=new Set();for(const d in S.days)for(const l in S.days[d])if(S.days[d][l]==="W")w.add(l);return w.size};
+const ACH=[
+ {id:"w1",i:"🏁",n:"Primeira vitória",d:"Acerte um carro",t:()=>S.st.w>=1},
+ {id:"g10",i:"🚗",n:"Garagem iniciada",d:"Descubra 10 carros",t:()=>gar()>=10},
+ {id:"g50",i:"🏠",n:"Garagem cheia",d:"Descubra 50 carros",t:()=>gar()>=50},
+ {id:"g100",i:"🏛️",n:"Museu automotivo",d:"Descubra 100 carros",t:()=>gar()>=100},
+ {id:"s3",i:"🔥",n:"Pegando fogo",d:"3 dias seguidos",t:()=>stats().best>=3},
+ {id:"s7",i:"🔥",n:"Semana completa",d:"7 dias seguidos",t:()=>stats().best>=7},
+ {id:"s30",i:"🌋",n:"Mês de fogo",d:"30 dias seguidos",t:()=>stats().best>=30},
+ {id:"z1",i:"🎯",n:"Sem ajuda",d:"Acerte sem usar dica extra",t:()=>(S.st.z||0)>=1},
+ {id:"z10",i:"🧠",n:"Mestre dos carros",d:"10 acertos sem dica extra",t:()=>(S.st.z||0)>=10},
+ {id:"p10",i:"🎮",n:"Viciado",d:"Jogue 10 rodadas",t:()=>S.st.p>=10},
+ {id:"p50",i:"🏆",n:"Maratonista",d:"Jogue 50 rodadas",t:()=>S.st.p>=50},
+ {id:"br",i:"🏷️",n:"Fã de marca",d:"Complete a garagem de uma marca",t:()=>brandsDone()>=1},
+ {id:"all6",i:"⚙️",n:"Todas as marchas",d:"Acerte o carro do dia nos 6 níveis",t:()=>levelsWon()>=6},
+ {id:"hl5",i:"💰",n:"Olho no preço",d:"5 acertos seguidos no Mais caro ou mais barato",t:()=>(S.hl||0)>=5},
+ {id:"hl10",i:"🤑",n:"Avaliador",d:"10 acertos seguidos no Mais caro ou mais barato",t:()=>(S.hl||0)>=10},
+ {id:"ch",i:"🤝",n:"Desafiante",d:"Complete um desafio de amigo",t:()=>(S.st.c||0)>=1},
+ {id:"cat",i:"📚",n:"Curioso",d:"Abra a seção de Curiosidades",t:()=>!!S.st.v}];
+function toast(t){const e=$("toast");e.textContent=t;show("toast",true);clearTimeout(toast.h);toast.h=setTimeout(()=>show("toast",false),3500)}
+function checkAch(){S.ach=S.ach||{};const n=[];for(const a of ACH)if(!S.ach[a.id]&&a.t()){S.ach[a.id]=dkey(todayN());n.push(a)}
+ if(n.length){saveS();toast("🏅 Conquista: "+n.map(a=>a.n).join(", "))}}
+// ---- Você sabia? (uma curiosidade por dia, sem os carros do dia de hoje) ----
+const dailyKeys=()=>{const t=todayN(),k=new Set();for(let L=1;L<=LEVELS.length;L++)k.add(ckey(dayCar(t,L)));return k};
+function didYou(){const dk=dailyKeys(),L=CARS.filter(c=>c[12]&&!dk.has(ckey(c)));if(!L.length){show("didYou",false);return}
+ const c=L[hh(dkey(todayN()))%L.length];$("didYou").innerHTML=`💡 <b>Você sabia?</b> <b>${esc(full(c))}:</b> ${esc(c[12])}`;show("didYou",true)}
+// ---- Mais caro ou mais barato? ----
+const price=c=>+String(c[2]).replace(/\D/g,"")||0;
+let hl={a:null,b:null,s:0,used:new Set(),over:false};
+function hlDraw(a){const P=pool().filter(c=>price(c)>0&&!hl.used.has(ckey(c))&&(!a||Math.abs(price(c)-price(a))/price(a)>0.02));
+ const arr=P.length?P:pool().filter(c=>price(c)>0&&c!==a&&(!a||price(c)!==price(a)));return arr[Math.floor(Math.random()*arr.length)]}
+const hlCard=(c,rv)=>`<div class="im">${art(c)}</div><div><h3>${esc(full(c))}</h3><div class="meta">${[c[1],c[3],c[5]].filter(Boolean).map(esc).join(" · ")}</div><p><b>${rv?esc(c[2]):"Valor: ???"}</b></p></div>`;
+function hlRender(rv,msg){$("hlA").innerHTML=hlCard(hl.a,true);$("hlB").innerHTML=hlCard(hl.b,!!rv);
+ $("hlScore").textContent=`Sequência: ${hl.s}`;$("hlBest").textContent=`Recorde: ${S.hl||0}`;
+ show("hlBtns",!rv);$("hlMsg").textContent=msg||"";show("hlMsg",!!rv);show("hlNext",!!rv);$("hlNext").textContent=hl.over?"Jogar de novo":"Continuar"}
+function hlStart(){hl={a:null,b:null,s:0,used:new Set(),over:false};hl.a=hlDraw();hl.used.add(ckey(hl.a));hl.b=hlDraw(hl.a);hl.used.add(ckey(hl.b));hlRender(false)}
+function hlAnswer(up){const pa=price(hl.a),pb=price(hl.b),ok=up?pb>pa:pb<pa;
+ if(ok){hl.s++;if(hl.s>(S.hl||0))S.hl=hl.s}else hl.over=true;
+ hlRender(true,ok?`✅ Certo! ${full(hl.b)} custa ${hl.b[2]}.`:`❌ Errou! ${full(hl.b)} custa ${hl.b[2]}. Sequência final: ${hl.s}`);saveS();checkAch()}
+$("mHL").onclick=()=>{hlStart();show("menu",false);show("hl",true)};
+$("hlUp").onclick=()=>hlAnswer(true);$("hlDown").onclick=()=>hlAnswer(false);
+$("hlNext").onclick=()=>{if(hl.over)hlStart();else{hl.a=hl.b;hl.b=hlDraw(hl.a);hl.used.add(ckey(hl.b));hlRender(false)}};
+$("hlBack").onclick=()=>{show("hl",false);show("menu",true);renderStats()};
+// ---- Desafie um amigo: 5 carros definidos por uma semente que vai no link (#d=nivel-semente-pontos-verificacao) ----
+const chHash=L=>(hh(pool(L).map(ckey).sort().join("|"))%46656).toString(36);
+function rng(seed){let a=seed>>>0;return()=>{a=(a+0x6D2B79F5)>>>0;let t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296}}
+function chalDeck(L,seed,n=5){const P=[...pool(L)].sort((x,y)=>ckey(x)<ckey(y)?-1:1),r=rng(seed);
+ for(let i=P.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[P[i],P[j]]=[P[j],P[i]]}
+ const d=[],u=new Set();for(const c of P){const l=label(c);if(u.has(l))continue;u.add(l);d.push(c);if(d.length>=n)break}return d}
+function chalText(){const link=`${SITE}#d=${chal.l}-${chal.seed}-${score}-${chHash(chal.l)}`;
+ return chal.score==null?`🏎️ Carrodle: desafio de 5 carros (nível ${lvName()})!\n${hist.join("")} Fiz ${score}/${totalMax()} pontos. Consegue me superar?\n${link}`
+  :`🏎️ Carrodle: aceitei o seu desafio (nível ${lvName()})!\n${hist.join("")} Fiz ${score}/${totalMax()} pontos contra ${chal.score}. Quer a revanche?\n${link}`}
+function chalEnd(){S.st.c=(S.st.c||0)+1;saveS();checkAch();const o=chal.score;
+ $("wr").textContent=o==null?"🤝 Desafio pronto! Toque em Compartilhar resultado para seu amigo tentar superar você.":score>o?`🎉 Você venceu o desafio! ${score} x ${o}`:score===o?`🤝 Empate: ${score} x ${o}`:`😅 Seu amigo ganhou: ${score} x ${o}. Peça a revanche!`}
+$("mChal").onclick=()=>startMode("all",null,{l:LEVEL,seed:Math.floor(Math.random()*1e9),score:null});
+function checkChal(){const m=/#d=(\d)-(\d+)-(\d+)-([a-z0-9]+)/.exec(location.hash||"");if(!m||!LEVELS[+m[1]-1])return;
+ pendingChal={l:+m[1],seed:+m[2],score:+m[3]};
+ $("chalText").textContent=`Um amigo fez ${m[3]} pontos em 5 carros no nível ${LEVELS[+m[1]-1].name}. Você consegue superar?`+(chHash(+m[1])!==m[4]?" (Atenção: a lista de carros mudou desde que o desafio foi criado, então os carros podem ser diferentes.)":"");
+ show("menu",false);show("chal",true)}
+$("chalGo").onclick=()=>{show("chal",false);startMode("all",null,pendingChal)};
+$("chalNo").onclick=()=>{show("chal",false);show("menu",true)};
+try{didYou()}catch(e){}
+
 // Carrega a lista de carros do arquivo carros.csv (na mesma pasta do site). Se não achar, usa a lista acima.
 function csvRows(t){t=t.replace(/^\uFEFF/,"");
  const first=t.split(/\r?\n/)[0]||"";
@@ -603,7 +711,7 @@ function csvRows(t){t=t.replace(/^\uFEFF/,"");
  return rows.map(r=>r.map(x=>x.trim()))}
 function parseCSV(t){return csvRows(t).filter(r=>r.length>=9&&r[0]&&/^\d{4}$/.test(r[1])).map(r=>{r=r.slice(0,15);r[1]=+r[1];r[9]=[1,2,3,4].includes(+r[9])?+r[9]:2;for(const i of [10,11,12,13,14])r[i]=r[i]||"";return r})}
 function parseCal(t){const o={};for(const r of csvRows(t)){if(/^\d{4}-\d{2}-\d{2}$/.test(r[0]))o[r[0]]=r.slice(1,5)}return o}
-fetch("carros.csv",{cache:"no-store"}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{const rows=parseCSV(t);if(rows.length){CARS=rows;setup()}}).catch(()=>{});
+fetch("carros.csv",{cache:"no-store"}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{const rows=parseCSV(t);if(rows.length){CARS=rows;setup()}}).catch(()=>{}).finally(checkChal);
 fetch("calendario.csv",{cache:"no-store"}).then(r=>r.ok?r.text():Promise.reject()).then(t=>{CAL=parseCal(t)}).catch(()=>{});
 </script>
 </body>
